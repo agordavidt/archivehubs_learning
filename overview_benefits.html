@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archivehubs Fundamentals Lab</title>
-    <!-- Google Fonts - Poppins -->
+    <title>Overview: Benefits - Archivehubs Learning Labs</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Shared CSS -->
     <link rel="stylesheet" href="css/archive-learning.css">
-    <!-- Shared JavaScript -->
-    <script src="js/archive-learning.js"></script>
+    <script src="js/archive-learning.js" defer></script>
 </head>
 <body>
-    <!-- Container for proper navigation positioning -->
     <div class="container">
-        <!-- Navigation Area - Same as archive_learning_1.html -->
         <nav class="navbar">
             <div class="logo-container">
                 <div class="logo">
@@ -29,9 +23,7 @@
             </div>
         </nav>
 
-        <!-- Lesson Page Content -->
         <div class="lesson-page-content">
-            <!-- Left Sidebar - Lesson Navigation -->
             <aside class="lesson-sidebar">
                 <div class="sidebar-header">
                     <h2>Lesson</h2>
@@ -53,19 +45,19 @@
                             <span class="badge badge-basic">Basic</span>
                         </div>
                     </div>
-                    <button class="sidebar-lesson-start-btn" onclick="window.location.href='overview_purpose.html'">Start</button>
+                    <button class="sidebar-lesson-start-btn" onclick="window.location.href='archive_learning_assessment.html'">Start</button>
                 </div>
                 <ul class="lesson-list">
-                    <li class="lesson-list-item active"><a href="archive_learning_2.html"><span class="lesson-title">Introduction to Archivehubs</span> <i class="fas fa-check-circle lesson-status-icon"></i></a></li>
-                    <li class="lesson-list-item"><a href="quiz_question_1.html"><span class="lesson-title">Pre-Course Self-Assessment (Optional)</span></a></li>
-                    <li class="lesson-list-item has-submenu">
+                    <li class="lesson-list-item"><a href="archive_learning_2.html"><span class="lesson-title">Introduction to Archivehubs</span> <i class="fas fa-check-circle lesson-status-icon"></i></a></li>
+                    <li class="lesson-list-item"><a href="archive_learning_assessment.html"><span class="lesson-title">Pre-Course Self-Assessment (Optional)</span></a></li>
+                    <li class="lesson-list-item has-submenu expanded">
                         <a href="#" class="submenu-toggle">
                             <span class="lesson-title">Overview of Archivehubs</span> 
                             <i class="fas fa-chevron-down submenu-icon"></i>
                         </a>
-                        <ul class="submenu">
+                        <ul class="submenu" style="max-height: 200px;">
                             <li class="submenu-item"><a href="overview_purpose.html"><span class="lesson-title">Purpose</span></a></li>
-                            <li class="submenu-item"><a href="overview_benefits.html"><span class="lesson-title">Benefits</span></a></li>
+                            <li class="submenu-item active"><a href="overview_benefits.html"><span class="lesson-title">Benefits</span></a></li>
                             <li class="submenu-item"><a href="quiz_question_1.html"><span class="lesson-title">Knowledge Check</span></a></li>
                         </ul>
                     </li>
@@ -76,58 +68,36 @@
                 </ul>
             </aside>
 
-            <!-- Main Content Area -->
             <main class="lesson-main-content">
                 <div class="main-content-header">
-                    <i class="fas fa-book lesson-icon"></i>
-                    <h1>Archivehubs Fundamentals</h1>
-                    <div class="lesson-info-badges">
-                        <div class="info-item">
-                            <i class="far fa-clock info-icon"></i>
-                            <span>45-60 minutes</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-star info-icon" style="color: #f59e0b;"></i>
-                            <span class="badge badge-fundamentals">Fundamentals</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-chart-bar info-icon" style="color: #10b981;"></i>
-                            <span class="badge badge-basic">Basic</span>
-                        </div>
-                    </div>
+                    <i class="fas fa-clipboard-list lesson-icon"></i>
+                    <span class="lesson-label">Lesson</span>
                 </div>
 
-                <div class="main-content-section">
-                    <h2>Introduction to Archivehubs</h2>
-                    <img src="https://placehold.co/800x400/ADD8E6/333333?text=Introduction+Image" alt="Introduction to Archivehubs" style="width: 100%; height: auto; max-height: 300px; object-fit: cover;">
+                <div class="lesson-content-section">
+                    <h1 class="lesson-title-main">Benefits</h1>
+                    <h2 class="lesson-title-sub">Maximizing the Values of your Digital Assets</h2>
+                    
                     <p>
-                        Archivehubs is a comprehensive cloud storage, networking, and data management platform designed to empower individuals and organizations to securely store, organize, monetize, and share their digital assets. Equipped with AI-driven tools, professional networking features, and monetization capabilities, it transforms data into valuable opportunities, driving productivity, collaboration, and business growth.
+                        Archivehubs empowers users to maximize the value of their digital assets while ensuring efficiency, security, and growth in an ever-evolving digital landscape. The benefits are as follows:
                     </p>
-                    <h2>How It Works:</h2>
-                    <ol class="how-it-works-list">
-                        <li>Secure Storage – Users upload and store digital assets with end-to-end encryption.</li>
-                        <li>AI-Powered Organization – Smart tagging and metadata tools make files easy to search and categorize.</li>
-                        <li>Collaboration & Networking – Users can share files, set permissions, and connect with professionals.</li>
-                        <li>Monetization – Content creators and businesses can sell or license their digital assets securely.</li>
-                        <li>Access Anywhere – The platform is cloud-based, ensuring data is available anytime, anywhere.</li>
-                    </ol>
 
-                    <div class="right-platforms-section">
-                        <div class="icon-title-group">
-                            <i class="fas fa-check-circle platform-icon"></i>
-                            <h2>Right Platforms</h2>
-                        </div>
-                        <p>
-                            By combining storage, AI-driven management, networking, and monetization, Archivehubs transforms digital assets into opportunities, enhancing productivity and growth.
-                        </p>
-                        <button class="btn" onclick="window.location.href='archive_learning_assessment.html'">Start</button>
+                    <ul class="benefits-list">
+                        <li>Secure & Organized Storage – Users can safely store and categorize their files with AI-driven organization.</li>
+                        <li>Seamless Collaboration – Share assets, set permissions, and work efficiently with teams and professionals.</li>
+                        <li>Monetization Opportunities – Sell, license, or distribute digital content effortlessly.</li>
+                        <li>Networking & Community – Connect with industry experts, creators, and businesses to expand opportunities.</li>
+                        <li>User-Friendly Navigation – Interactive tutorials and intuitive UI ensure a smooth user experience.</li>
+                    </ul>
+                    
+                    <div class="lesson-navigation-footer">
+                        <a href="quiz_question_1.html" class="next-lesson-link">Next > Knowledge Check</a>
                     </div>
                 </div>
             </main>
         </div>
     </div>
 
-    <!-- Footer Section - Centralized with transparent background -->
     <footer class="lesson-footer">
         <p>Get the Archivehubs App General Terms</p>
         <p>ARCHIVEHUBS: ENINK Investment Limited &copy; 2025</p>
@@ -144,5 +114,7 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+
+    <script src="js/archive-learning.js"></script>
 </body>
-</html>
+</html> 

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Results - Archivehubs Learning Labs</title>
+    <title>KC Answers - Archivehubs Learning Labs</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js"></script>
+    <script src="js/archive-learning.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -45,11 +45,11 @@
                             <span class="badge badge-basic">Basic</span>
                         </div>
                     </div>
-                    <button class="sidebar-lesson-start-btn" onclick="window.location.href='archive_learning_assessment.html'">Start</button>
+                    <button class="sidebar-lesson-start-btn" onclick="window.location.href='overview_purpose.html'">Start</button>
                 </div>
                 <ul class="lesson-list">
                     <li class="lesson-list-item"><a href="archive_learning_2.html"><span class="lesson-title">Introduction to Archivehubs</span> <i class="fas fa-check-circle lesson-status-icon"></i></a></li>
-                    <li class="lesson-list-item active"><a href="quiz_question_1.html"><span class="lesson-title">Pre-Course Self-Assessment (Optional)</span></a></li>
+                    <li class="lesson-list-item"><a href="quiz_question_1.html"><span class="lesson-title">Pre-Course Self-Assessment (Optional)</span></a></li>
                     <li class="lesson-list-item has-submenu expanded">
                         <a href="#" class="submenu-toggle">
                             <span class="lesson-title">Overview of Archivehubs</span> 
@@ -58,7 +58,7 @@
                         <ul class="submenu" style="max-height: 200px;">
                             <li class="submenu-item"><a href="overview_purpose.html"><span class="lesson-title">Purpose</span></a></li>
                             <li class="submenu-item"><a href="overview_benefits.html"><span class="lesson-title">Benefits</span></a></li>
-                            <li class="submenu-item active"><a href="quiz_question_1.html"><span class="lesson-title">Knowledge Check</span></a></li>
+                            <li class="submenu-item active"><a href="knowledge_check_cover.html"><span class="lesson-title">Knowledge Check</span></a></li>
                         </ul>
                     </li>
                     <li class="lesson-list-item"><a href="#"><span class="lesson-title">Key Features and Functionalities of Archivehubs</span> <i class="fas fa-chevron-right lesson-status-icon"></i></a></li>
@@ -74,26 +74,91 @@
                     <span class="lesson-label">Lesson</span>
                 </div>
 
-                <div class="quiz-results-content">
+                <div class="quiz-show-results-content">
                     <h1 class="quiz-title">Knowledge Check</h1>
                     
-                    <div class="results-container">
+                    <div class="results-summary">
                         <h2 class="completion-message">You completed the quiz</h2>
                         
                         <div class="score-summary">
                             <div class="score-item">
                                 <span class="score-label">Score:</span>
-                                <span class="score-value">3 of 5 Correct (60%)</span>
+                                <span class="score-value">2 of 3 Correct (67%)</span>
                             </div>
                             <div class="score-item">
                                 <span class="score-label">Elapsed time:</span>
-                                <span class="score-value">2 hours</span>
+                                <span class="score-value">01:30</span>
                             </div>
                         </div>
                         
-                        <div class="results-actions">
-                            <button class="btn btn-show-answers" onclick="window.location.href='quiz_show_results.html'">Show Answers</button>
-                            <button class="btn btn-retake-quiz" onclick="window.location.href='quiz_question_1.html'">Take This Quiz Again</button>
+                        <button class="btn btn-hide-answers">Hide Answers</button>
+                    </div>
+                    
+                    <div class="question-review-section">
+                        <div class="question-review-item correct">
+                            <div class="question-header">
+                                <h3 class="question-number">Question 1:</h3>
+                                <div class="question-status">
+                                    <i class="fas fa-check-circle correct-icon"></i>
+                                    <span class="status-text">Correct</span>
+                                </div>
+                            </div>
+                            <p class="question-text">What is the slogan of Archivehubs?</p>
+                            
+                            <div class="answer-review">
+                                <div class="user-answer">
+                                    <span class="answer-label">Your Answer:</span>
+                                    <span class="answer-text correct-answer">Maximizing Value of your Digital Assets</span>
+                                </div>
+                                <div class="correct-answer-display">
+                                    <span class="answer-label">Correct Answer:</span>
+                                    <span class="answer-text correct-answer">Maximizing Value of your Digital Assets</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-review-item incorrect">
+                            <div class="question-header">
+                                <h3 class="question-number">Question 2:</h3>
+                                <div class="question-status">
+                                    <i class="fas fa-times-circle incorrect-icon"></i>
+                                    <span class="status-text">Incorrect</span>
+                                </div>
+                            </div>
+                            <p class="question-text">What are the primary purposes of Archivehubs?</p>
+                            
+                            <div class="answer-review">
+                                <div class="user-answer">
+                                    <span class="answer-label">Your Answer:</span>
+                                    <span class="answer-text incorrect-answer">Maximize the value of their digital assets, Monetize their digital content</span>
+                                </div>
+                                <div class="correct-answer-display">
+                                    <span class="answer-label">Correct Answer:</span>
+                                    <span class="answer-text correct-answer">Maximize the value of their digital assets, Ensure global opportunities and networking, Create professional networking, Monetize their digital content</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-review-item correct">
+                            <div class="question-header">
+                                <h3 class="question-number">Question 3:</h3>
+                                <div class="question-status">
+                                    <i class="fas fa-check-circle correct-icon"></i>
+                                    <span class="status-text">Correct</span>
+                                </div>
+                            </div>
+                            <p class="question-text">Which of the following are key benefits of using Archivehubs?</p>
+                            
+                            <div class="answer-review">
+                                <div class="user-answer">
+                                    <span class="answer-label">Your Answer:</span>
+                                    <span class="answer-text correct-answer">Secure and organized storage, Seamless collaboration, Monetization opportunities</span>
+                                </div>
+                                <div class="correct-answer-display">
+                                    <span class="answer-label">Correct Answer:</span>
+                                    <span class="answer-text correct-answer">Secure and organized storage, Seamless collaboration, Monetization opportunities</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
