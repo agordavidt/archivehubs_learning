@@ -1506,17 +1506,13 @@ body {
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 15px;
-    padding-left: 30px;
+    padding-left: 0;
     position: relative;
+    list-style-type: disc;
 }
 
 .benefits-list li::before {
-    content: '✔';
-    color: #10b981;
-    font-size: 18px;
-    position: absolute;
-    left: 0;
-    top: 2px;
+    content: none;
 }
 
 .lesson-navigation-footer {
