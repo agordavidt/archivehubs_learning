@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
     submenuItems.forEach(item => {
         item.addEventListener('click', function(event) {
             event.preventDefault();
-            
             // Update active state for submenu items
             submenuItems.forEach(subItem => subItem.parentElement.classList.remove('active'));
             this.parentElement.classList.add('active');
+            // Navigate to the link's href
+            window.location.href = this.href;
         });
     });
 
@@ -27,10 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
     lessonListItems.forEach(item => {
         item.addEventListener('click', function(event) {
             event.preventDefault();
-            
             // Update active lesson styling
             lessonListItems.forEach(li => li.parentElement.classList.remove('active'));
             this.parentElement.classList.add('active');
+            // Navigate to the link's href
+            window.location.href = this.href;
         });
     });
 
