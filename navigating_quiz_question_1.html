@@ -85,7 +85,7 @@
                             <li class="submenu-item"><a href="getting_started.html"><span class="lesson-title">Getting Started with Archivehubs</span></a></li>
                             <li class="submenu-item"><a href="exploring_feeds.html"><span class="lesson-title">Exploring Feeds</span></a></li>
                             <li class="submenu-item"><a href="managing_notifications.html"><span class="lesson-title">Managing Notifications and Activity Logs</span></a></li>
-                            <li class="submenu-item"><a href="navigating_knowledge_check.html"><span class="lesson-title">Knowledge Check</span></a></li>
+                            <li class="submenu-item active"><a href="navigating_knowledge_check.html"><span class="lesson-title">Knowledge Check</span></a></li>
                         </ul>
                     </li>
                     <li class="lesson-list-item"><a href="#"><span class="lesson-title">Course Review</span> <i class="fas fa-chevron-right lesson-status-icon"></i></a></li>
@@ -94,61 +94,42 @@
 
             <main class="lesson-main-content">
                 <div class="main-content-header">
-                    <i class="fas fa-question-circle lesson-icon"></i>
-                    <span class="lesson-label">Knowledge Check</span>
+                    <i class="fas fa-clipboard-list lesson-icon"></i>
+                    <span class="lesson-label">Lesson</span>
                 </div>
 
-                <div class="lesson-content">
-                    <div class="quiz-container">
-                        <div class="quiz-header">
-                            <div class="quiz-progress">
-                                <span class="progress-text">Question 1 of 3</span>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 33.33%;"></div>
-                                </div>
-                            </div>
-                            <h1 class="quiz-title">Getting Started with Archivehubs</h1>
+                <div class="quiz-content">
+                    <h1 class="quiz-title">Knowledge Check</h1>
+                    
+                    <div class="question-container">
+                        <h2 class="question-number">Question 1:</h2>
+                        <p class="question-text">How can users stay organized, enhance collaboration, and optimize productivity on Archivehubs?</p>
+                        
+                        <p class="question-instruction">Select the correct answer.</p>
+                        
+                        <div class="options-container">
+                            <label class="option-item">
+                                <input type="radio" name="question1" value="adjusting-settings">
+                                <span class="option-text">By adjusting settings in the user preferences panel</span>
+                            </label>
+                            <label class="option-item">
+                                <input type="radio" name="question1" value="managing-notifications">
+                                <span class="option-text">By efficiently managing notification and activity logs</span>
+                            </label>
+                            <label class="option-item">
+                                <input type="radio" name="question1" value="filtering-search">
+                                <span class="option-text">By filtering and search optimization</span>
+                            </label>
                         </div>
-
-                        <div class="question-container">
-                            <p class="question-text">
-                                What is the first step in setting up your Archivehubs account?
-                            </p>
-
-                            <div class="options-container">
-                                <label class="option-item" onclick="selectOption(this, 'A')">
-                                    <input type="radio" name="question1" value="A" style="display: none;">
-                                    <span class="option-letter">A</span>
-                                    <span class="option-text">Upload your first digital asset</span>
-                                </label>
-
-                                <label class="option-item" onclick="selectOption(this, 'B')">
-                                    <input type="radio" name="question1" value="B" style="display: none;">
-                                    <span class="option-letter">B</span>
-                                    <span class="option-text">Complete your profile with professional information</span>
-                                </label>
-
-                                <label class="option-item" onclick="selectOption(this, 'C')">
-                                    <input type="radio" name="question1" value="C" style="display: none;">
-                                    <span class="option-letter">C</span>
-                                    <span class="option-text">Account registration with email verification</span>
-                                </label>
-
-                                <label class="option-item" onclick="selectOption(this, 'D')">
-                                    <input type="radio" name="question1" value="D" style="display: none;">
-                                    <span class="option-letter">D</span>
-                                    <span class="option-text">Connect with other professionals</span>
-                                </label>
-                            </div>
-                        </div>
-
+                        
                         <div class="quiz-navigation">
-                            <button class="next-btn" onclick="saveAnswerAndContinue('question1', 'navigating_quiz_question_2.html')" disabled>
-                                Next Question
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
+                            <button class="btn btn-next" onclick="window.location.href='navigating_quiz_question_2.html'">Next</button>
                         </div>
                     </div>
+                </div>
+                
+                <div class="lesson-navigation-footer">
+                    <a href="#" class="next-lesson-link">Next > Course Review</a>
                 </div>
             </main>
         </div>
@@ -170,23 +151,5 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
-
-    <script>
-        // Initialize localStorage for this quiz
-        if (!localStorage.getItem('navigatingQuizAnswers')) {
-            localStorage.setItem('navigatingQuizAnswers', JSON.stringify({}));
-        }
-
-        // Load saved answer if exists
-        window.addEventListener('load', function() {
-            const savedAnswers = JSON.parse(localStorage.getItem('navigatingQuizAnswers'));
-            if (savedAnswers.question1) {
-                const optionElement = document.querySelector(`input[value="${savedAnswers.question1}"]`);
-                if (optionElement) {
-                    selectOption(optionElement.parentElement, savedAnswers.question1);
-                }
-            }
-        });
-    </script>
 </body>
 </html> 

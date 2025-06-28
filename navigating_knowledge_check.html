@@ -94,63 +94,29 @@
 
             <main class="lesson-main-content">
                 <div class="main-content-header">
-                    <i class="fas fa-question-circle lesson-icon"></i>
-                    <span class="lesson-label">Knowledge Check</span>
+                    <i class="fas fa-clipboard-list lesson-icon"></i>
+                    <span class="lesson-label">Lesson</span>
                 </div>
 
-                <div class="lesson-content">
-                    <div class="knowledge-check-cover">
-                        <div class="knowledge-check-header">
-                            <h1 class="knowledge-check-title">Knowledge Check: Navigating the Platform</h1>
-                            <p class="knowledge-check-description">
-                                Test your understanding of platform navigation, getting started procedures, feed exploration, and notification management.
-                            </p>
-                        </div>
-
-                        <div class="knowledge-check-info">
-                            <div class="info-card">
-                                <i class="fas fa-list-ol info-icon"></i>
-                                <div class="info-content">
-                                    <h3>3 Questions</h3>
-                                    <p>Multiple choice questions covering key concepts</p>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <i class="fas fa-clock info-icon"></i>
-                                <div class="info-content">
-                                    <h3>5-10 Minutes</h3>
-                                    <p>Estimated time to complete the assessment</p>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <i class="fas fa-trophy info-icon"></i>
-                                <div class="info-content">
-                                    <h3>Certificate</h3>
-                                    <p>Earn a certificate upon successful completion</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="knowledge-check-topics">
-                            <h2>Topics Covered:</h2>
-                            <ul class="topics-list">
-                                <li>Account setup and initial configuration</li>
-                                <li>Content feed navigation and interaction</li>
-                                <li>Notification management and customization</li>
-                                <li>Activity log tracking and reporting</li>
-                            </ul>
-                        </div>
-
-                        <div class="knowledge-check-actions">
-                            <button class="start-quiz-btn" onclick="window.location.href='navigating_quiz_question_1.html'">
-                                <i class="fas fa-play"></i>
-                                Start Knowledge Check
-                            </button>
-                            <a href="managing_notifications.html" class="review-lesson-btn">
-                                <i class="fas fa-book"></i>
-                                Review Lesson
-                            </a>
-                        </div>
+                <div class="assessment-cover-content">
+                    <h1 class="assessment-title">Knowledge Check: Navigating the Platform</h1>
+                    
+                    <div class="star-icon-container">
+                        <i class="fas fa-star assessment-star"></i>
+                    </div>
+                    
+                    <div class="assessment-details">
+                        <h2 class="assessment-subtitle">Knowledge Check: Navigating the Platform</h2>
+                        <p class="question-count">5 questions</p>
+                    </div>
+                    
+                    <div class="assessment-buttons">
+                        <button class="btn btn-start-quiz" onclick="window.location.href='navigating_quiz_question_1.html'">Start Quiz</button>
+                        <button class="btn btn-next">Next</button>
+                    </div>
+                    
+                    <div class="next-lesson-info">
+                        <a href="#" class="next-lesson-link">Next > Course Review</a>
                     </div>
                 </div>
             </main>
@@ -173,5 +139,43 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Submenu functionality
+            const submenuToggle = document.querySelector('.submenu-toggle');
+            if (submenuToggle) {
+                submenuToggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const parentItem = this.parentElement;
+                    parentItem.classList.toggle('expanded');
+                });
+            }
+
+            // Submenu item click handlers
+            const submenuItems = document.querySelectorAll('.submenu-item a');
+            submenuItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    // Update active state for submenu items
+                    submenuItems.forEach(subItem => subItem.parentElement.classList.remove('active'));
+                    this.parentElement.classList.add('active');
+                });
+            });
+
+            // Lesson list item click handlers (without pop-ups)
+            const lessonListItems = document.querySelectorAll('.lesson-list-item a:not(.submenu-toggle)');
+            lessonListItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    // Update active lesson styling
+                    lessonListItems.forEach(li => li.parentElement.classList.remove('active'));
+                    this.parentElement.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

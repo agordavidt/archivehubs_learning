@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js"></script>
+    <script src="js/archive-learning.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -97,65 +97,82 @@
                     <i class="fas fa-bell lesson-icon"></i>
                     <span class="lesson-label">Lesson</span>
                 </div>
-
-                <div class="lesson-content">
-                    <h1 class="lesson-title-main">Managing Notifications and Activity Logs</h1>
-                    <p class="lesson-description">
-                        Learn how to effectively manage your notifications and track your activity logs to stay organized and informed on Archivehubs.
+                <div class="main-content-section">
+                    <h2 class="lesson-title-main">Managing Notifications and Activity Logs</h2>
+                    <h3 class="lesson-title-sub">Managing Notifications & Activity Logs on Archivehubs.com</h3>
+                    
+                    <!-- Video placeholder instead of image -->
+                    <div style="width: 100%; height: 300px; background-color: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; border-radius: 8px;">
+                        <div style="text-align: center; color: #666;">
+                            <i class="fas fa-play-circle" style="font-size: 48px; margin-bottom: 10px;"></i>
+                            <p>Video Placeholder</p>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 16px; line-height: 1.6; color: var(--text-color); margin-bottom: 30px;">
+                        Efficient notification and activity log management ensure users stay informed and in control of their digital interactions on Archivehubs.com.
                     </p>
-
-                    <div class="lesson-section">
-                        <h2 class="section-title">Notification Management</h2>
-                        <p class="section-text">
-                            Archivehubs provides comprehensive notification management tools that help you stay informed about important activities while avoiding information overload. You can customize notification preferences to match your workflow and priorities.
-                        </p>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <i class="fas fa-bell" style="font-size: 18px; color: var(--primary-color); margin-right: 12px;"></i>
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">1. Accessing Notifications +</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Click the bell icon on the dashboard to view recent alerts.</li>
+                                        <li>Notifications include file shares, comments, purchases, collaboration requests, and monetization updates.</li>
+                                        <li>Customize preferences to receive alerts via email, push notifications, or in-app messages.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <div class="feature-list">
-                            <div class="feature-item">
-                                <i class="fas fa-cog feature-icon"></i>
-                                <div class="feature-content">
-                                    <h3>Notification Settings</h3>
-                                    <p>Customize which notifications you receive and how they are delivered</p>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <i class="fas fa-history" style="font-size: 18px; color: var(--primary-color); margin-right: 12px;"></i>
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">2. Managing Activity Logs +</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Navigate to the Activity Log section to track all recent actions.</li>
+                                        <li>View a detailed history of uploads, downloads, shares, purchases, and edits.</li>
+                                        <li>Filter logs by date, activity type, or user interactions.</li>
+                                    </ul>
                                 </div>
                             </div>
-                            
-                            <div class="feature-item">
-                                <i class="fas fa-filter feature-icon"></i>
-                                <div class="feature-content">
-                                    <h3>Smart Filtering</h3>
-                                    <p>Automatically filter notifications based on importance and relevance</p>
-                                </div>
-                            </div>
-                            
-                            <div class="feature-item">
-                                <i class="fas fa-clock feature-icon"></i>
-                                <div class="feature-content">
-                                    <h3>Timing Controls</h3>
-                                    <p>Set quiet hours and notification schedules to avoid interruptions</p>
+                        </div>
+                        
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <i class="fas fa-cog" style="font-size: 18px; color: var(--primary-color); margin-right: 12px;"></i>
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">3. Customizing Notification Settings +</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Adjust settings in the User Preferences panel.</li>
+                                        <li>Enable or disable specific alerts to minimize distractions.</li>
+                                        <li>Set priority notifications for important activities like sales, security alerts, and collaboration updates.</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="lesson-section">
-                        <h2 class="section-title">Activity Logs and Tracking</h2>
-                        <p class="section-text">
-                            Keep track of your digital asset activities, interactions, and platform usage through comprehensive activity logs. This helps you monitor your productivity and maintain a clear record of your professional activities.
-                        </p>
-                        
-                        <ul class="lesson-list-content">
-                            <li>View detailed activity history with timestamps and descriptions</li>
-                            <li>Track file uploads, downloads, and sharing activities</li>
-                            <li>Monitor engagement with your shared content</li>
-                            <li>Export activity reports for professional documentation</li>
-                            <li>Set up activity alerts for important milestones</li>
-                        </ul>
+                    
+                    <p style="font-size: 16px; line-height: 1.6; color: var(--text-color); margin-bottom: 30px;">
+                        By efficiently managing notifications and activity logs, users can stay organized, enhance collaboration, and optimize productivity on Archivehubs.com.
+                    </p>
+                    
+                    <div class="lesson-navigation-footer">
+                        <a href="navigating_knowledge_check.html" class="next-lesson-link">Next > Knowledge Check</a>
                     </div>
-                </div>
-                
-                <div class="lesson-navigation-footer">
-                    <a href="exploring_feeds.html" class="prev-lesson-link">Previous < Exploring Feeds</a>
-                    <a href="navigating_knowledge_check.html" class="next-lesson-link">Next > Knowledge Check</a>
                 </div>
             </main>
         </div>
