@@ -1,5 +1,39 @@
 // Archive Learning JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    // Accordion functionality for navigation menu
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const accordionItem = this.parentElement;
+            const content = accordionItem.querySelector('.accordion-content');
+            const icon = this.querySelector('.accordion-icon');
+            
+            // Close all other accordion items
+            accordionHeaders.forEach(otherHeader => {
+                if (otherHeader !== this) {
+                    const otherItem = otherHeader.parentElement;
+                    const otherContent = otherItem.querySelector('.accordion-content');
+                    const otherIcon = otherHeader.querySelector('.accordion-icon');
+                    
+                    otherContent.style.maxHeight = '0';
+                    otherIcon.style.transform = 'rotate(0deg)';
+                    otherHeader.style.backgroundColor = '#f9f9f9';
+                }
+            });
+            
+            // Toggle current accordion item
+            if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+                this.style.backgroundColor = '#e8f4fd';
+            } else {
+                content.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0deg)';
+                this.style.backgroundColor = '#f9f9f9';
+            }
+        });
+    });
+
     // Submenu functionality
     const submenuToggle = document.querySelector('.submenu-toggle');
     if (submenuToggle) {

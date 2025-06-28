@@ -337,7 +337,7 @@ body {
 }
 
 .lesson-list-item a {
-    font-size: 13px;
+    font-size: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -716,7 +716,7 @@ body {
 }
 
 .lesson-sidebar {
-    width: 300px;
+    width: 350px;
     background-color: white;
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -809,7 +809,7 @@ body {
     padding: 12px 16px 12px 24px;
     text-decoration: none;
     color: var(--text-color);
-    font-size: 14px;
+    font-size: 12px;
     transition: background-color 0.3s ease;
     line-height: 1.4;
     border: none;
