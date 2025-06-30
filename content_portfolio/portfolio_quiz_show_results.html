@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Check - Portfolio: Showcase Work and Achievements</title>
+    <title>Quiz Results - Portfolio: Showcase Work and Achievements</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js" defer></script>
+    <script src="js/archive-learning.js"></script>
 </head>
 <body>
     <div class="container">
@@ -93,19 +93,22 @@
                     <i class="fas fa-clipboard-list lesson-icon"></i>
                     <span class="lesson-label"><i class="fas fa-book"></i>Lesson</span>
                 </div>
-                <div class="assessment-cover-content">
-                    <h1 class="assessment-title">Knowledge Check</h1>
-                    <div class="star-icon-container">
-                        <i class="fas fa-star assessment-star"></i>
+                <div class="quiz-show-results-content">
+                    <h1 class="quiz-title">Knowledge Check</h1>
+                    <div class="results-summary">
+                        <h2 class="completion-message">You completed the quiz</h2>
+                        <div class="score-summary">
+                            <div class="score-item">
+                                <span class="score-label">Score:</span>
+                                <span class="score-value" id="portfolio-quiz-score">--%</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-hide-answers" onclick="window.location.href='portfolio_quiz_results.html'">Hide Answers</button>
                     </div>
-                    <div class="assessment-details">
-                        <h2 class="assessment-subtitle">Portfolio: Showcase Work and Achievements</h2>
-                        <p class="question-count">5 questions</p>
-                    </div>
-                    <div class="assessment-buttons">
-                        <button class="btn btn-start-quiz" onclick="window.location.href='portfolio_quiz_question_1.html'">Start Quiz</button>
-                        <button class="btn btn-next" onclick="window.location.href='content_portfolio_review.html'">Next</button>
-                    </div>
+                    <div class="question-review-section" id="portfolio-quiz-answers-review"></div>
+                </div>
+                <div class="lesson-navigation-footer">
+                    <a href="content_portfolio_review.html" class="next-lesson-link">Next &gt; Course Review</a>
                 </div>
             </main>
         </div>
@@ -126,5 +129,83 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+    <script>
+        // Portfolio quiz correct answers
+        const correctAnswers = {
+            q1: 'Showcase Work & Achievements',
+            q2: [
+                'Portfolio Creation and Customization',
+                'Content Management',
+                'Activity Scheduling',
+                'Testimonials and Reviews'
+            ],
+            q3: 'Personalized Portfolio Page',
+            q4: [
+                'Testimonials & Review',
+                'Achievements Section',
+                'Skills & Expertise',
+                'Personal Branding',
+                'Portfolio Analytics and Insights',
+                'Professional Certifications'
+            ],
+            q5: [
+                'Freelancers & Creatives',
+                'Job Seekers & Professionals',
+                'Family & Friends',
+                'Students & Interns',
+                'Agencies & Businesses'
+            ]
+        };
+        // Display user's answers and correct answers
+        document.addEventListener('DOMContentLoaded', function() {
+            var userAnswers = JSON.parse(localStorage.getItem('portfolio_quiz_answers') || '{}');
+            var reviewDiv = document.getElementById('portfolio-quiz-answers-review');
+            var html = '';
+            function isCorrect(q, user, correct) {
+                if(Array.isArray(correct)) {
+                    if(!user) return false;
+                    var userArr = [].concat(user).sort();
+                    var correctArr = [].concat(correct).sort();
+                    return JSON.stringify(userArr) === JSON.stringify(correctArr);
+                } else {
+                    return user === correct;
+                }
+            }
+            html += '<div class="question-review-list">';
+            [
+                {q:'q1',text:'In Archivehubs.com the main purpose of a portfolio is to?',correct:correctAnswers.q1},
+                {q:'q2',text:'The features of portfolio includes, but not limited to the following?',correct:correctAnswers.q2},
+                {q:'q3',text:'What are the attributes of portfolio creation and customization?',correct:correctAnswers.q3},
+                {q:'q4',text:'To showcase achievement and skills on Archivehubs.com the following are taking into consideration?',correct:correctAnswers.q4},
+                {q:'q5',text:'The potential use cases of portfolio include the following select all that apply?',correct:correctAnswers.q5}
+            ].forEach(function(item, idx) {
+                var user = userAnswers[item.q];
+                var correct = item.correct;
+                var correctClass = isCorrect(item.q, user, correct) ? 'correct' : 'incorrect';
+                html += '<div class="question-review-item '+correctClass+'">';
+                html += '<div class="question-header">';
+                html += '<h3 class="question-number">Question '+(idx+1)+':</h3>';
+                html += '<div class="question-status">';
+                if(correctClass==='correct') {
+                    html += '<i class="fas fa-check-circle correct-icon"></i><span class="status-text">Correct</span>';
+                } else {
+                    html += '<i class="fas fa-times-circle incorrect-icon"></i><span class="status-text">Incorrect</span>';
+                }
+                html += '</div></div>';
+                html += '<p class="question-text">'+item.text+'</p>';
+                html += '<div class="answer-review">';
+                html += '<div class="user-answer"><span class="answer-label">Your Answer:</span> <span class="answer-text '+correctClass+'-answer">'+(user ? [].concat(user).join(', ') : '-')+'</span></div>';
+                html += '<div class="correct-answer-display"><span class="answer-label">Correct Answer:</span> <span class="answer-text correct-answer">'+([].concat(correct).join(', '))+'</span></div>';
+                html += '</div></div>';
+            });
+            html += '</div>';
+            reviewDiv.innerHTML = html;
+            // Set score
+            var score = localStorage.getItem('portfolio_quiz_score');
+            if (score !== null) {
+                document.getElementById('portfolio-quiz-score').textContent = score + '%';
+            }
+        });
+    </script>
 </body>
 </html> 

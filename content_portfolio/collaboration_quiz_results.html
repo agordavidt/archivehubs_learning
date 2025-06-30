@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Check - Portfolio: Showcase Work and Achievements</title>
+    <title>Quiz Results - Collaboration & Networking Knowledge Check</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js" defer></script>
+    <script src="js/archive-learning.js"></script>
 </head>
 <body>
     <div class="container">
@@ -61,28 +61,28 @@
                             <li class="submenu-item"><a href="secure_storage_knowledge_check.html"><span class="lesson-title">Knowledge Check</span></a></li>
                         </ul>
                     </li>
-                    <li class="lesson-list-item has-submenu">
+                    <li class="lesson-list-item has-submenu expanded">
                         <a href="" class="submenu-toggle">
                             <span class="lesson-title">Collaboration & Networking</span> 
                             <i class="fas fa-chevron-down submenu-icon"></i>
                         </a>
-                        <ul class="submenu">
+                        <ul class="submenu" style="max-height: 200px;">
                             <li class="submenu-item"><a href="connecting_professionals.html"><span class="lesson-title">Connecting with Professionals & Teams on Archivehubs.com</span></a></li>
                             <li class="submenu-item"><a href="sharing_files_permissions.html"><span class="lesson-title">Sharing Files & Setting Permissions on Archivehubs</span></a></li>
                             <li class="submenu-item"><a href="engaging_community.html"><span class="lesson-title">Engaging with Archivehubs Community</span></a></li>
-                            <li class="submenu-item"><a href="collaboration_knowledge_check.html"><span class="lesson-title">Knowledge Check</span></a></li>
+                            <li class="submenu-item active"><a href="collaboration_knowledge_check.html"><span class="lesson-title">Knowledge Check</span></a></li>
                         </ul>
                     </li>
-                    <li class="lesson-list-item has-submenu expanded">
+                    <li class="lesson-list-item has-submenu">
                         <a href="" class="submenu-toggle">
                             <span class="lesson-title">Portfolio: Showcase Work and Achievements</span> 
                             <i class="fas fa-chevron-down submenu-icon"></i>
                         </a>
-                        <ul class="submenu" style="max-height: 200px;">
+                        <ul class="submenu">
                             <li class="submenu-item"><a href="showcase_work_achievements.html"><span class="lesson-title">Showcase Work and Achievements</span></a></li>
                             <li class="submenu-item"><a href="portfolio_key_features.html"><span class="lesson-title">Key Features of the Portfolio</span></a></li>
                             <li class="submenu-item"><a href="portfolio_use_cases.html"><span class="lesson-title">Potential use cases</span></a></li>
-                            <li class="submenu-item active"><a href="portfolio_knowledge_check.html"><span class="lesson-title">Knowledge Check</span></a></li>
+                            <li class="submenu-item"><a href="portfolio_knowledge_check.html"><span class="lesson-title">Knowledge Check</span></a></li>
                         </ul>
                     </li>
                     <li class="lesson-list-item"><a href="content_portfolio_review.html"><span class="lesson-title">Course Review</span> <i class="fas fa-chevron-right lesson-status-icon"></i></a></li>
@@ -93,19 +93,28 @@
                     <i class="fas fa-clipboard-list lesson-icon"></i>
                     <span class="lesson-label"><i class="fas fa-book"></i>Lesson</span>
                 </div>
-                <div class="assessment-cover-content">
-                    <h1 class="assessment-title">Knowledge Check</h1>
-                    <div class="star-icon-container">
-                        <i class="fas fa-star assessment-star"></i>
+                <div class="quiz-results-content">
+                    <h1 class="quiz-title">Knowledge Check</h1>
+                    <div class="results-container">
+                        <h2 class="completion-message">You completed the quiz</h2>
+                        <div class="score-summary">
+                            <div class="score-item">
+                                <span class="score-label">Score:</span>
+                                <span class="score-value">3 of 5 Correct (60%)</span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-label">Elapsed time:</span>
+                                <span class="score-value">2 hours</span>
+                            </div>
+                        </div>
+                        <div class="results-actions">
+                            <button class="btn btn-show-answers" onclick="window.location.href='collaboration_quiz_show_results.html'">Show Answers</button>
+                            <button class="btn btn-retake-quiz" onclick="window.location.href='collaboration_quiz_question_1.html'">Take This Quiz Again</button>
+                        </div>
                     </div>
-                    <div class="assessment-details">
-                        <h2 class="assessment-subtitle">Portfolio: Showcase Work and Achievements</h2>
-                        <p class="question-count">5 questions</p>
-                    </div>
-                    <div class="assessment-buttons">
-                        <button class="btn btn-start-quiz" onclick="window.location.href='portfolio_quiz_question_1.html'">Start Quiz</button>
-                        <button class="btn btn-next" onclick="window.location.href='content_portfolio_review.html'">Next</button>
-                    </div>
+                </div>
+                <div class="lesson-navigation-footer">
+                    <a href="#" class="next-lesson-link">Next > Portfolio: Showcase Work and Achievements</a>
                 </div>
             </main>
         </div>
