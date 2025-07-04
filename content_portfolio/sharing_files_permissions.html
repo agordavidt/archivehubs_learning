@@ -7,7 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js" defer></script>
+    <style>
+        /* Added accordion specific styles */
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -94,28 +100,64 @@
                 </div>
                 <div class="lesson-content-section">
                     <h2 class="lesson-title-main">Sharing Files & Setting Permissions on Archivehubs</h2>
-                    <h3 class="lesson-title-sub">Collaboration & Networking</h3>
-                    
+                    <h3 class="lesson-title-sub">Sharing Files & Setting Permissions on Archivehubs</h3>
                     <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Master the art of secure file sharing and permission management on Archivehubs. Learn how to share files with specific individuals or teams while maintaining control over access levels and security.
+                        Archivehubs.com offers secure and flexible file-sharing options, allowing users to collaborate while maintaining control over their digital assets.
                     </p>
+                    <img src="images/learning_1.jpg" alt="Sharing Files and Permissions" class="lesson-image">
+                    <h3 class="lesson-title-sub" style="margin-top: 30px;">Global Collaboration</h3>
                     
-                    <img src="https://placehold.co/800x400/ADD8E6/333333?text=Sharing+Files+Permissions+Image" alt="Sharing Files and Permissions" class="lesson-image">
+                    <div style="margin-bottom: 30px;">
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">1. Sharing Files Securely</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Select the file and click the "Share" button.</li>
+                                        <li>Generate a shareable link or invite users via email.</li>
+                                        <li>Set an expiration date for temporary access (optional).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">2. Setting Permissions & Access Levels</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>View-Only – Recipients can see the file but cannot edit or download.</li>
+                                        <li>Comment & Suggest – Users can add feedback but cannot modify content.</li>
+                                        <li>Edit Access – Allows users to modify the file.</li>
+                                        <li>Full Control – Grants complete access, including reshare permissions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">3. Managing Shared Files</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Track file activity and access history.</li>
+                                        <li>Revoke or modify permissions anytime.</li>
+                                        <li>Enable password protection for added security.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Permission Levels</h2>
-                    
-                    <ul style="font-size: 16px; line-height: 1.7; margin-left: 20px; list-style-type: disc;">
-                        <li>View-only access for read-only sharing</li>
-                        <li>Comment access for feedback and collaboration</li>
-                        <li>Edit access for collaborative editing</li>
-                        <li>Admin access for full control and management</li>
-                        <li>Time-limited access for temporary sharing</li>
-                    </ul>
-                    
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Secure Sharing Best Practices</h2>
-                    
-                    <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Learn how to implement secure sharing practices, including setting appropriate permission levels, monitoring access, and revoking permissions when needed. Understand how to balance collaboration with security.
+                    <p style="font-size: 16px; line-height: 1.7; margin-top: 25px;">
+                        With customizable sharing options and robust access controls, Archivehubs.com ensures secure collaboration while protecting digital assets.
                     </p>
                     
                     <div class="lesson-navigation-footer">
@@ -141,5 +183,44 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all accordion headers
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        // Add click event to each header
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                // Get the associated content and icon
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
+                
+                // Check if this accordion is currently open
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                
+                // Close all accordions first
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.style.maxHeight = '0px';
+                });
+                
+                // Reset all icons
+                document.querySelectorAll('.accordion-icon').forEach(item => {
+                    item.style.transform = 'rotate(0deg)';
+                });
+                
+                // If this accordion wasn't open, open it
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Initialize all accordions as closed
+        document.querySelectorAll('.accordion-content').forEach(item => {
+            item.style.maxHeight = '0px';
+        });
+    });
+    </script>
 </body>
-</html> 
+</html>

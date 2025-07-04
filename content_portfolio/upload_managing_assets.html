@@ -7,7 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js" defer></script>
+    <style>
+        /* Added accordion specific styles */
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -93,31 +99,78 @@
                     <span class="lesson-label"><i class="fas fa-book"></i>Lesson</span>
                 </div>
                 <div class="lesson-content-section">
-                    <h2 class="lesson-title-main">Uploaded & Managing Digital Assets on Archivehubs.com</h2>
-                    <h3 class="lesson-title-sub">Secure Storage & Organization</h3>
-                    
+                    <h2 class="lesson-title-main">Uploading & Managing Digital Assets on Archivehubs.com</h2>
+                    <h3 class="lesson-title-sub">Uploading and Managing Files Organically</h3>
                     <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Learn how to efficiently upload, organize, and manage your digital assets on Archivehubs.com. This lesson covers the fundamental processes for storing files securely and maintaining an organized digital workspace.
+                        Archivehubs.com provides a secure and intuitive platform for users to upload, organize, and manage their digital assets efficiently.
                     </p>
-                    
-                    <img src="https://placehold.co/800x400/ADD8E6/333333?text=Upload+Managing+Assets+Image" alt="Upload and Managing Assets" class="lesson-image">
-                    
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Key Learning Objectives</h2>
-                    
-                    <ul style="font-size: 16px; line-height: 1.7; margin-left: 20px; list-style-type: disc;">
-                        <li>Understanding the upload process and supported file types</li>
-                        <li>Creating organized folder structures for better asset management</li>
-                        <li>Setting up proper naming conventions for files and folders</li>
-                        <li>Managing file versions and updates effectively</li>
-                        <li>Utilizing Archivehubs' security features for asset protection</li>
-                    </ul>
-                    
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Upload Process</h2>
-                    
-                    <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Archivehubs provides multiple ways to upload your digital assets, including drag-and-drop functionality, bulk uploads, and direct file selection. The platform supports a wide range of file formats and automatically applies security measures to protect your content.
+                    <img src="images/learning_1.jpg" alt="Upload and Managing Assets" class="lesson-image">
+                    <h3 class="lesson-title-sub" style="margin-top: 30px;">Portfolio</h3>
+                    <div style="margin-bottom: 30px;">
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">1. Uploading Files</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Click the "Upload" button on the dashboard.</li>
+                                        <li>Drag and drop files or select from your device.</li>
+                                        <li>Add metadata, tags, and descriptions for easy searchability.</li>
+                                        <li>Choose privacy settings: private, shared, or public.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">2. Organizing Digital Assets</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ol style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Use AI-powered tagging to automatically categorize files.</li>
+                                        <li>Create folders and subfolders for structured storage.</li>
+                                        <li>Apply custom labels and filters for quick retrieval.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">3. Managing Files</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Edit, rename, or delete files anytime.</li>
+                                        <li>Set permissions for collaboration (view-only, edit, or download access).</li>
+                                        <li>Track version history to monitor file updates.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">4. Advanced Search & Retrieval</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Use the smart search bar with filters like date, type, owner, and keywords.</li>
+                                        <li>AI-powered recommendations suggest relevant files based on usage patterns.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 16px; line-height: 1.7; margin-top: 25px;">
+                        With secure storage, AI-driven organization, and easy retrieval, Archivehubs.com helps users maximize efficiency and control over their digital assets.
                     </p>
-                    
                     <div class="lesson-navigation-footer">
                         <a href="ai_powered_tagging.html" class="next-lesson-link">Next > AI – Powered Tagging & Categorization on Archivehubs.com</a>
                     </div>
@@ -141,5 +194,44 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all accordion headers
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        // Add click event to each header
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                // Get the associated content and icon
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
+                
+                // Check if this accordion is currently open
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                
+                // Close all accordions first
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.style.maxHeight = '0px';
+                });
+                
+                // Reset all icons
+                document.querySelectorAll('.accordion-icon').forEach(item => {
+                    item.style.transform = 'rotate(0deg)';
+                });
+                
+                // If this accordion wasn't open, open it
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Initialize all accordions as closed
+        document.querySelectorAll('.accordion-content').forEach(item => {
+            item.style.maxHeight = '0px';
+        });
+    });
+    </script>
 </body>
-</html> 
+</html>

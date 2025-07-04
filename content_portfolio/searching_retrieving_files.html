@@ -7,7 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js" defer></script>
+    <style>
+        /* Added accordion specific styles */
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -89,33 +95,77 @@
                 </ul>
             </aside>
             <main class="lesson-main-content">
-                <div class="main-content-header">                 
+                <div class="main-content-header">                   
                     <span class="lesson-label"><i class="fas fa-book"></i>Lesson</span>
                 </div>
                 <div class="lesson-content-section">
                     <h2 class="lesson-title-main">Searching & Retrieving Files Efficiently on Archivehubs.com</h2>
-                    <h3 class="lesson-title-sub">Secure Storage & Organization</h3>
-                    
+                    <h3 class="lesson-title-sub">Searching & Retrieving Files Efficiently</h3>
                     <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Master the advanced search capabilities of Archivehubs to quickly locate and retrieve your digital assets. Learn how to use filters, tags, and AI-powered search features for optimal file discovery.
+                        Archivehubs.com provides AI-powered search and smart retrieval tools to help users quickly locate and access their digital assets.
                     </p>
+                    <img src="images/learning_2.jpg" alt="Searching and Retrieving Files" class="lesson-image">
                     
-                    <img src="https://placehold.co/800x400/ADD8E6/333333?text=Searching+Retrieving+Files+Image" alt="Searching and Retrieving Files" class="lesson-image">
+                    <div style="margin-bottom: 30px;">
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">1. Smart Search Bar</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Use keywords, tags, or file names to find assets instantly.</li>
+                                        <li>AI-powered autocomplete suggests relevant files as you type.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">2. Advanced Filters & Sorting</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Narrow results using filters like file type, date, category, size, and owner.</li>
+                                        <li>Sort files by recent activity, popularity, or relevance for faster access.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">3. AI-Driven Recommendations</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>AI suggests frequently used or related files based on user behavior.</li>
+                                        <li>Smart search learns from previous queries to improve accuracy.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">4. Visual & Voice Search (Future Feature)</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Search using images or voice commands for an even more intuitive experience.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Search Features</h2>
-                    
-                    <ul style="font-size: 16px; line-height: 1.7; margin-left: 20px; list-style-type: disc;">
-                        <li>Full-text search across file content and metadata</li>
-                        <li>Advanced filtering by file type, date, size, and tags</li>
-                        <li>AI-powered semantic search for related content</li>
-                        <li>Search history and saved searches</li>
-                        <li>Real-time search suggestions and autocomplete</li>
-                    </ul>
-                    
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Search Strategies</h2>
-                    
-                    <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Develop effective search strategies using keywords, tags, and filters. Learn how to combine multiple search criteria and use Archivehubs' intelligent search features to find exactly what you need, when you need it.
+                    <p style="font-size: 16px; line-height: 1.7; margin-top: 25px;">
+                        With intelligent search and retrieval, Archivehubs.com ensures fast, accurate, and hassle-free access to your digital assets.
                     </p>
                     
                     <div class="lesson-navigation-footer">
@@ -141,5 +191,44 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all accordion headers
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        // Add click event to each header
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                // Get the associated content and icon
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
+                
+                // Check if this accordion is currently open
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                
+                // Close all accordions first
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.style.maxHeight = '0px';
+                });
+                
+                // Reset all icons
+                document.querySelectorAll('.accordion-icon').forEach(item => {
+                    item.style.transform = 'rotate(0deg)';
+                });
+                
+                // If this accordion wasn't open, open it
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Initialize all accordions as closed
+        document.querySelectorAll('.accordion-content').forEach(item => {
+            item.style.maxHeight = '0px';
+        });
+    });
+    </script>
 </body>
-</html> 
+</html>

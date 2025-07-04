@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showcase Work and Achievements - Content and Portfolio Management Labs</title>
+    <title>Portfolio: Showcase Work and Achievements - Content and Portfolio Management Labs</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js" defer></script>
+    <style>
+        /* Added accordion specific styles */
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+        .accordion-header {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .accordion-content-inner {
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -93,30 +106,169 @@
                     <span class="lesson-label"><i class="fas fa-book"></i>Lesson</span>
                 </div>
                 <div class="lesson-content-section">
-                    <h2 class="lesson-title-main">Showcase Work and Achievements</h2>
-                    <h3 class="lesson-title-sub">Portfolio: Showcase Work and Achievements</h3>
-                    
+                    <h2 class="lesson-title-main">Portfolio: Showcase Work and Achievements</h2>
+                    <h3 class="lesson-title-sub">Portfolio: Showcase work and achievements</h3>
                     <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Learn how to create compelling portfolios that effectively showcase your work, skills, and achievements on Archivehubs. Discover strategies for presenting your professional accomplishments in a way that attracts opportunities and recognition.
+                        The Portfolio feature on Archive.com is designed to allow individuals, professionals, and businesses to showcase their work, achievements, and skills in a visually compelling and organized manner. Whether you're an artist, designer, job seeker, freelancer, or business, this feature enables you to present your best work and attract potential clients, collaborators, or employers.
                     </p>
                     
-                    <img src="https://placehold.co/800x400/ADD8E6/333333?text=Showcase+Work+Achievements+Image" alt="Showcase Work and Achievements" class="lesson-image">
+                    <div style="width: 100%; height: 300px; background-color: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; border-radius: 8px;">
+                        <div style="text-align: center; color: #666;">
+                            <i class="fas fa-play-circle" style="font-size: 48px; margin-bottom: 10px;"></i>
+                            <p>Video Placeholder</p>
+                        </div>
+                    </div>
                     
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Portfolio Elements</h2>
-                    
-                    <ul style="font-size: 16px; line-height: 1.7; margin-left: 20px; list-style-type: disc;">
-                        <li>Professional project showcases with detailed descriptions</li>
-                        <li>Skills and expertise highlighting</li>
-                        <li>Achievement and certification displays</li>
-                        <li>Client testimonials and recommendations</li>
-                        <li>Professional development and growth tracking</li>
-                    </ul>
-                    
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Effective Presentation</h2>
-                    
+                    <h3 class="lesson-title-sub" style="margin-top: 30px;">Interactive Tutorial: How to Create Your Portfolio on Archivehubs.com</h3>
                     <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Master the art of presenting your work professionally. Learn how to structure your portfolio, write compelling project descriptions, and use visual elements to create an impactful presentation that highlights your unique value proposition.
+                        Welcome to Archivehubs.com! Follow this step-by-step guide to build a professional, personalized portfolio and showcase your work to the world.
                     </p>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 1: Sign Up for Log In</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Visit Archivehubs.com.</li>
+                                        <li>Click "Sign Up" to create a new account or "Log In" if you already have one.</li>
+                                        <li>Fill in your details (email, username, password) or sign up using social login options (Google, LinkedIn, etc.)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 2: Access the Portfolio Builder</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Once logged in, navigate to your Dashboard.</li>
+                                        <li>Click on "Portfolio" from the main menu.</li>
+                                        <li>Select "Create New Portfolio" to start building.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Steps 3-8 follow the same pattern -->
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 3: Customize Your Portfolio Page</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Choose a Template: Pick a design template that matches your style or brand.</li>
+                                        <li>Personal Information: Add an introduction, professional bio, and contact details.</li>
+                                        <li>Customize Layout: Adjust colors, fonts, and layouts to personalize the look.</li>
+                                        <li>Optional: Set up a custom domain (e.g., archivehubs.com/YourName).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 4: Upload Your Work</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Click "Add Work" to upload your digital assets (images, videos, PDFs, documents, audio).</li>
+                                        <li>For each item:
+                                            <ul style="list-style-type: circle; padding-left: 20px;">
+                                                <li>Add Title and Description to explain the project.</li>
+                                                <li>Attach Tags and Categories for easy navigation and search.</li>
+                                                <li>Highlight important projects by pinning them to the top.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 5: Showcase Skills, Achievements, and Testimonials</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Go to the Sections tab:
+                                            <ul style="list-style-type: circle; padding-left: 20px;">
+                                                <li>Skills: List your professional skills with proficiency levels.</li>
+                                                <li>Achievements: Highlight certifications, awards, and milestones.</li>
+                                                <li>Testimonials: Add reviews or endorsements from clients, colleagues, or mentors.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 6: Set Privacy and Permissions</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Decide which parts of your portfolio are:
+                                            <ul style="list-style-type: circle; padding-left: 20px;">
+                                                <li>Public (visible to everyone),</li>
+                                                <li>Private (restricted access),</li>
+                                                <li>or Password-Protected (for selected clients).</li>
+                                            </ul>
+                                        </li>
+                                        <li>Optional: Watermark images or documents to protect your work.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 7: Publish Your Portfolio</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Preview your portfolio to see how it looks.</li>
+                                        <li>Click "Publish" when you're ready to make it live!</li>
+                                        <li>Share your portfolio link via social media, email, or directly with clients.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" style="margin-bottom: 10px; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: white; text-align: left;">Step 8: Monitor Performance and Engage</h3>
+                                <i class="fas fa-plus accordion-icon" style="margin-left: auto; font-size: 14px; color: white; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div class="accordion-content-inner" style="padding: 12px; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Use Portfolio Analytics to track visitors, interactions, and popular projects.</li>
+                                        <li>Update your portfolio regularly with new work, achievements, or testimonials.</li>
+                                        <li>Engage with the Archivehubs community by sharing updates, participating in forums, and connecting with potential collaborators or clients.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="lesson-navigation-footer">
                         <a href="portfolio_key_features.html" class="next-lesson-link">Next > Key Features of the Portfolio</a>
@@ -141,5 +293,46 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all accordion headers
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        // Add click event to each header
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                // Get the associated content and icon
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
+                
+                // Check if this accordion is currently open
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                
+                // Close all accordions first
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.style.maxHeight = '0px';
+                });
+                
+                // Reset all icons
+                document.querySelectorAll('.accordion-icon').forEach(item => {
+                    item.classList.remove('fa-minus');
+                    item.classList.add('fa-plus');
+                });
+                
+                // If this accordion wasn't open, open it
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+        
+        // Initialize all accordions as closed
+        document.querySelectorAll('.accordion-content').forEach(item => {
+            item.style.maxHeight = '0px';
+        });
+    });
+    </script>
 </body>
-</html> 
+</html>

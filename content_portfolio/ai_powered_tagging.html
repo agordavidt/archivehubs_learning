@@ -7,7 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/archive-learning.css">
-    <script src="js/archive-learning.js" defer></script>
+    <style>
+        /* Added accordion specific styles */
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -94,32 +100,64 @@
                 </div>
                 <div class="lesson-content-section">
                     <h2 class="lesson-title-main">AI – Powered Tagging & Categorization on Archivehubs.com</h2>
-                    <h3 class="lesson-title-sub">Secure Storage & Organization</h3>
-                    
+                    <h3 class="lesson-title-sub">AI-Powered Tagging and Categorization</h3>
                     <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        Discover how Archivehubs' AI-powered tagging and categorization system can revolutionize your digital asset organization. Learn to leverage intelligent automation for efficient file management and retrieval.
+                        Archivehubs.com leverages AI-driven technology to automate file organization, making digital asset management smarter, faster, and more efficient.
                     </p>
-                    
-                    <img src="https://placehold.co/800x400/ADD8E6/333333?text=AI+Powered+Tagging+Image" alt="AI Powered Tagging" class="lesson-image">
-                    
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">AI Tagging Features</h2>
-                    
-                    <ul style="font-size: 16px; line-height: 1.7; margin-left: 20px; list-style-type: disc;">
-                        <li>Automatic content recognition and tagging</li>
-                        <li>Smart categorization based on file content and metadata</li>
-                        <li>Custom tag creation and management</li>
-                        <li>Batch tagging for multiple files</li>
-                        <li>Intelligent suggestions for related tags</li>
-                    </ul>
-                    
-                    <h2 style="font-size: 22px; font-weight: 600; color: var(--text-color); margin-top: 30px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee;">Benefits of AI Tagging</h2>
-                    
-                    <p style="font-size: 16px; line-height: 1.7; margin-bottom: 20px;">
-                        AI-powered tagging saves time by automatically analyzing your content and applying relevant tags. This intelligent system learns from your tagging patterns and improves accuracy over time, making file discovery and organization more efficient than ever.
+                    <img src="images/learning_3.jpg" alt="AI Powered Tagging" class="lesson-image">
+                   
+                    <div style="margin-bottom: 30px;">
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">1. Automated Tagging</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>AI analyzes uploaded files and assigns relevant tags based on content, keywords, and metadata.</li>
+                                        <li>Supports image recognition, text extraction, and audio transcription for accurate tagging.</li>
+                                        <li>Users can add custom tags to enhance searchability.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">2. Smart Categorization</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Files are automatically sorted into folders and categories based on type, usage, and relevance.</li>
+                                        <li>AI suggests similar or related assets for quick access.</li>
+                                        <li>Users can create custom categories and rules for automated organization.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" style="margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                            <button class="accordion-header" style="width: 100%; display: flex; align-items: center; padding: 12px; background-color: #f9f9f9; border: none; cursor: pointer;">
+                                <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-color); text-align: left;">3. Advanced Search & Retrieval</h3>
+                                <i class="fas fa-chevron-down accordion-icon" style="margin-left: auto; font-size: 14px; color: #666; transition: transform 0.3s ease;"></i>
+                            </button>
+                            <div class="accordion-content" style="max-height: 0;">
+                                <div style="padding: 12px; background-color: white; border-top: 1px solid #e0e0e0;">
+                                    <ul style="font-size: 14px; line-height: 1.5; margin: 0; padding-left: 20px;">
+                                        <li>Instantly locate files using AI-powered filters, keywords, and tag-based searches.</li>
+                                        <li>Smart recommendations display frequently used or related assets.</li>
+                                        <li>Voice and image search capabilities enhance accessibility.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 16px; line-height: 1.7; margin-top: 25px;">
+                        With AI-powered tagging and categorization, Archivehubs.com ensures seamless file organization, faster access, and improved workflow efficiency for users.
                     </p>
-                    
                     <div class="lesson-navigation-footer">
-                        <a href="searching_retrieving_files.html" class="next-lesson-link">Next > Searching & Retrieving Files Efficiently on Archivehubs.com</a>
+                        <a href="searching_retrieving_files.html" class="next-lesson-link">Next &gt; Searching & Retrieving Files Efficiently on Archivehubs.com</a>
                     </div>
                 </div>
             </main>
@@ -141,5 +179,44 @@
         </div>
         <p class="enink-learning">Power by ENINK Learning</p>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all accordion headers
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        // Add click event to each header
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                // Get the associated content and icon
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
+                
+                // Check if this accordion is currently open
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                
+                // Close all accordions first
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.style.maxHeight = '0px';
+                });
+                
+                // Reset all icons
+                document.querySelectorAll('.accordion-icon').forEach(item => {
+                    item.style.transform = 'rotate(0deg)';
+                });
+                
+                // If this accordion wasn't open, open it
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Initialize all accordions as closed
+        document.querySelectorAll('.accordion-content').forEach(item => {
+            item.style.maxHeight = '0px';
+        });
+    });
+    </script>
 </body>
-</html> 
+</html>
