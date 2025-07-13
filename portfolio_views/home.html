@@ -1,31 +1,894 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home | ArchiveHubs</title>
-        <link rel="stylesheet" href="css/style.css">
-      
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | ArchiveHubs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Scoped Profile Styles (from profile3.html, wrapped to avoid conflicts) -->
+    <style>
+    /* PROFILE3 SCOPED STYLES */
+    .profile3-container {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f3f2ef;
+        color: #333;
+        line-height: 1.5;
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    .profile3-container a { color: #0073b1; text-decoration: none; }
+    .profile3-container a:hover { text-decoration: underline; }
+    .profile3-container h1, 
+    .profile3-container h2, 
+    .profile3-container h3, 
+    .profile3-container h4 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #000;
+    }
+    .profile3-container h1 { font-size: 24px; }
+    .profile3-container h2 { font-size: 20px; }
+    .profile3-container h3 { font-size: 16px; }
+    .profile3-container h4 { font-size: 14px; }
+    .profile3-container p {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #666;
+    }
+    .profile3-container .profile-container {
+        display: flex;
+        gap: 24px;
+        max-width: 1128px;
+        width: 100%;
+        margin: 0 auto;
+        align-items: flex-start;
+    }
+    .profile3-container .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+        margin-bottom: 10px;
+        padding: 24px;
+    }
+    .profile3-container button {
+        cursor: pointer;
+        border-radius: 20px;
+        padding: 10px 16px;
+        font-weight: 600;
+        font-size: 16px;
+        border: 1px solid;
+        transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .profile3-container .primary-button {
+        background-color: #0a66c2;
+        color: #fff;
+        border-color: #0a66c2;
+    }
+    .profile3-container .primary-button:hover {
+        background-color: #004182;
+        border-color: #004182;
+    }
+    .profile3-container .secondary-button {
+        background-color: transparent;
+        color: #0a66c2;
+        border-color: #0a66c2;
+    }
+    .profile3-container .secondary-button:hover {
+        background-color: rgba(10,102,194,0.1);
+    }
+    .profile3-container .show-all {
+        display: block;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+        font-weight: 600;
+        color: #666;
+    }
+    .profile3-container .show-all:hover {
+        background-color: #f9f9f9;
+        text-decoration: none;
+    }
+    .profile3-container .show-all i {
+        margin-left: 5px;
+        font-size: 12px;
+    }
+    .profile3-container .icon-button {
+        font-size: 20px;
+        color: #666;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    .profile3-container .icon-button:hover {
+        color: #0a66c2;
+    }
+    .profile3-container .dot {
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        background-color: #666;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin: 0 4px;
+    }
+    .profile3-container .main-content {
+        flex: 2.2;
+        min-width: 0;
+    }
+    .profile3-container .profile-header {
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .profile3-container .profile-banner img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .profile3-container .profile-info-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0 24px;
+        position: relative;
+        top: -50px;
+        margin-bottom: -50px;
+    }
+    .profile3-container .profile-picture {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+        object-fit: cover;
+        background-color: #fff;
+    }
+    .profile3-container .profile-actions-right {
+        display: flex;
+        gap: 8px;
+        margin-top: 20px;
+    }
+    .profile3-container .profile-actions-right button {
+        font-size: 14px;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+    .profile3-container .resources-btn {
+        background-color: transparent;
+        color: #666;
+        border-color: #666;
+    }
+    .profile3-container .resources-btn:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+    .profile3-container .add-profile-section-btn {
+        background-color: transparent;
+        color: #0a66c2;
+        border-color: #0a66c2;
+    }
+    .profile3-container .add-profile-section-btn:hover {
+        background-color: rgba(10,102,194,0.1);
+    }
+    .profile3-container .open-to-btn {
+        background-color: #0a66c2;
+        color: #fff;
+        border-color: #0a66c2;
+    }
+    .profile3-container .open-to-btn:hover {
+        background-color: #004182;
+    }
+    .profile3-container .profile-details {
+        padding: 0 24px 24px;
+        margin-top: -10px;
+    }
+    .profile3-container .profile-details h1 {
+        font-size: 28px;
+        margin-bottom: 4px;
+    }
+    .profile3-container .profile-details .title {
+        font-size: 16px;
+        color: #333;
+    }
+    .profile3-container .profile-details .location-connections,
+    .profile3-container .profile-details .connections {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 4px;
+    }
+    .profile3-container .header-buttons {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+    }
+    .profile3-container .suggested-for-you .suggested-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    .profile3-container .suggested-for-you .suggested-icon {
+        font-size: 24px;
+        color: #666;
+        background-color: #e0e0e0;
+        padding: 10px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .profile3-container .suggested-for-you .suggested-text h3 {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    .profile3-container .suggested-for-you .suggested-text p {
+        font-size: 13px;
+        color: #666;
+    }
+    .profile3-container .add-summary-button {
+        background-color: transparent;
+        color: #0a66c2;
+        border-color: #0a66c2;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    .profile3-container .add-summary-button:hover {
+        background-color: rgba(10,102,194,0.1);
+    }
+    .profile3-container .analytics-section .analytics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    .profile3-container .analytics-section .analytic-item {
+        text-align: center;
+    }
+    .profile3-container .analytics-section .analytic-item i {
+        font-size: 24px;
+        color: #666;
+        margin-bottom: 8px;
+    }
+    .profile3-container .analytics-section .analytic-item h3 {
+        font-size: 14px;
+        color: #000;
+        margin-bottom: 4px;
+    }
+    .profile3-container .analytics-section .analytic-item p {
+        font-size: 12px;
+        color: #666;
+    }
+    .profile3-container .card-header-with-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .profile3-container .card-header-with-action .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .profile3-container .create-post-btn {
+        background-color: transparent;
+        color: #0a66c2;
+        border-color: #0a66c2;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .profile3-container .create-post-btn:hover {
+        background-color: rgba(10,102,194,0.1);
+    }
+    .profile3-container .activity-tabs {
+        display: flex;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    .profile3-container .activity-tabs button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 16px;
+        font-weight: 600;
+        color: #666;
+        font-size: 16px;
+        border-bottom: 2px solid transparent;
+        border-radius: 0;
+        transition: all 0.2s ease;
+    }
+    .profile3-container .activity-tabs button.active {
+        color: #0a66c2;
+        border-color: #0a66c2;
+    }
+    .profile3-container .activity-tabs button:hover:not(.active) {
+        background-color: #f3f2ef;
+    }
+    .profile3-container .activity-post {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 15px;
+    }
+    .profile3-container .activity-post:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .profile3-container .post-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .profile3-container .post-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        margin-right: 12px;
+        object-fit: cover;
+    }
+    .profile3-container .post-meta h4 {
+        font-size: 16px;
+        margin-bottom: 2px;
+        color: #000;
+    }
+    .profile3-container .post-meta .post-time {
+        font-size: 12px;
+        color: #666;
+    }
+    .profile3-container .post-text {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .profile3-container .post-image img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        max-height: 400px;
+        object-fit: contain;
+        background-color: #f3f2ef;
+    }
+    .profile3-container .post-footer {
+        display: flex;
+        gap: 15px;
+        font-size: 12px;
+        color: #666;
+        padding-top: 8px;
+        border-top: 1px solid #eee;
+    }
+    .profile3-container .post-footer i {
+        margin-right: 5px;
+    }
+    .profile3-container .experience-item,
+    .profile3-container .education-item,
+    .profile3-container .license-item,
+    .profile3-container .skill-item,
+    .profile3-container .interest-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .profile3-container .experience-item:last-of-type,
+    .profile3-container .education-item:last-of-type,
+    .profile3-container .license-item:last-of-type,
+    .profile3-container .skill-item:last-of-type {
+        border-bottom: none;
+    }
+    .profile3-container .company-logo,
+    .profile3-container .school-logo,
+    .profile3-container .license-logo,
+    .profile3-container .interest-avatar {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+    .profile3-container .experience-details h3,
+    .profile3-container .education-details h3,
+    .profile3-container .license-details h3,
+    .profile3-container .skill-item h3,
+    .profile3-container .interest-details h3 {
+        font-size: 16px;
+        margin-bottom: 4px;
+        color: #000;
+    }
+    .profile3-container .experience-details p,
+    .profile3-container .education-details p,
+    .profile3-container .license-details p,
+    .profile3-container .skill-item p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 4px;
+    }
+    .profile3-container .aws-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+        background-color: #f8f8f8;
+        border-radius: 4px;
+        padding: 8px 12px;
+        border: 1px solid #eee;
+    }
+    .profile3-container .aws-badge .aws-logo {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+    .profile3-container .aws-badge p {
+        font-size: 13px;
+        margin-bottom: 0;
+        color: #333;
+    }
+    .profile3-container .aws-badge .badge-description {
+        font-size: 12px;
+        color: #666;
+        margin-top: 4px;
+    }
+    .profile3-container .show-credential-btn {
+        background-color: transparent;
+        color: #0a66c2;
+        border-color: #0a66c2;
+        font-size: 13px;
+        padding: 6px 12px;
+        margin-top: 5px;
+    }
+    .profile3-container .show-credential-btn:hover {
+        background-color: rgba(10,102,194,0.1);
+    }
+    .profile3-container .interest-tabs {
+        display: flex;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    .profile3-container .interest-tabs button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 16px;
+        font-weight: 600;
+        color: #666;
+        font-size: 14px;
+        border-bottom: 2px solid transparent;
+        border-radius: 0;
+    }
+    .profile3-container .interest-tabs button.active {
+        color: #0a66c2;
+        border-color: #0a66c2;
+    }
+    .profile3-container .interest-tabs button:hover:not(.active) {
+        background-color: #f3f2ef;
+    }
+    .profile3-container .interest-item {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: none;
+        align-items: center;
+    }
+    .profile3-container .interest-details {
+        flex-grow: 1;
+    }
+    .profile3-container .interest-details .interest-title,
+    .profile3-container .interest-details .followers {
+        font-size: 13px;
+        color: #666;
+    }
+    .profile3-container .following-btn {
+        background-color: transparent;
+        color: #666;
+        border-color: #666;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .profile3-container .following-btn:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+    .profile3-container .following-btn i {
+        margin-right: 5px;
+    }
+    .profile3-container .footer-links {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(100px, 1fr)) 200px;
+        gap: 20px;
+        font-size: 12px;
+        color: #666;
+        padding: 24px;
+        margin-top: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    }
+    .profile3-container .footer-column {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .profile3-container .footer-column a {
+        color: #666;
+        font-weight: 600;
+    }
+    .profile3-container .footer-column a:hover {
+        color: #0073b1;
+    }
+    .profile3-container .footer-column .fa-caret-down {
+        font-size: 10px;
+        margin-left: 3px;
+    }
+    .profile3-container .footer-column-right {
+        grid-column: span 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .profile3-container .footer-help {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .profile3-container .footer-help i {
+        font-size: 20px;
+        color: #666;
+    }
+    .profile3-container .footer-help h4 {
+        font-size: 13px;
+        color: #333;
+        margin-bottom: 2px;
+    }
+    .profile3-container .footer-help p {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 0;
+    }
+    .profile3-container .footer-column-select {
+        grid-column: span 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .profile3-container .footer-column-select label {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    .profile3-container .footer-column-select select {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 13px;
+        background-color: #fff;
+        color: #333;
+        cursor: pointer;
+    }
+    .profile3-container .copyright {
+        font-size: 12px;
+        color: #666;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+    }
+    .profile3-container .right-sidebar {
+        flex: 1;
+        min-width: 300px;
+    }
+    .profile3-container .sidebar-card {
+        padding: 16px;
+        margin-bottom: 10px;
+    }
+    .profile3-container .sidebar-card h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    .profile3-container .sidebar-card p,
+    .profile3-container .sidebar-card a {
+        font-size: 14px;
+        color: #666;
+    }
+    .profile3-container .sidebar-card .icon-button {
+        margin-left: auto;
+        font-size: 18px;
+    }
+    .profile3-container .public-profile-url {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .profile3-container .public-profile-url a {
+        flex-grow: 1;
+        margin-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #0073b1;
+    }
+    .profile3-container .target-audiences {
+        text-align: center;
+        position: relative;
+        padding-top: 40px;
+    }
+    .profile3-container .target-audiences .ad-profile-pic {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+    }
+    .profile3-container .target-audiences .premium-star {
+        position: absolute;
+        top: 55px;
+        right: calc(50% - 30px);
+        background-color: #f7a31b;
+        color: #fff;
+        border-radius: 50%;
+        padding: 5px;
+        font-size: 12px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .profile3-container .target-audiences h3 {
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 15px;
+        line-height: 1.3;
+    }
+    .profile3-container .target-audiences .get-started-btn {
+        background-color: transparent;
+        color: #0a66c2;
+        border-color: #0a66c2;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    .profile3-container .target-audiences .get-started-btn:hover {
+        background-color: rgba(10,102,194,0.1);
+    }
+    .profile3-container .viewer-item, .profile3-container .person-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    .profile3-container .viewer-item:last-of-type, .profile3-container .person-item:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .profile3-container .viewer-avatar, .profile3-container .person-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+    .profile3-container .viewer-details, .profile3-container .person-details {
+        flex-grow: 1;
+    }
+    .profile3-container .viewer-details h3, .profile3-container .person-details h3 {
+        font-size: 16px;
+        margin-bottom: 2px;
+    }
+    .profile3-container .viewer-details .viewer-title, .profile3-container .person-details .person-title {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 8px;
+    }
+    .profile3-container .connect-button {
+        background-color: transparent;
+        color: #666;
+        border-color: #666;
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    .profile3-container .connect-button:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+    .profile3-container .connect-button i {
+        margin-right: 5px;
+    }
+    .profile3-container .hiring-ad {
+        text-align: center;
+        padding-bottom: 0;
+    }
+    .profile3-container .hiring-ad h3 {
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 15px;
+    }
+    .profile3-container .hiring-ad .ad-image {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+        margin-left: -16px;
+        width: calc(100% + 32px);
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    .profile3-container .unlock-list {
+        text-align: center;
+        padding-top: 30px;
+        position: relative;
+    }
+    .profile3-container .unlock-list h2 {
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 5px;
+    }
+    .profile3-container .unlock-list p {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+    }
+    .profile3-container .unlock-list .ad-profile-pic {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid #fff;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+    }
+    .profile3-container .unlock-list .premium-gem {
+        position: absolute;
+        top: 10px;
+        right: calc(50% - 40px);
+        background-color: #f7a31b;
+        color: #fff;
+        border-radius: 50%;
+        padding: 5px;
+        font-size: 14px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .profile3-container .premium-button {
+        background-color: #f7a31b;
+        color: #fff;
+        border-color: #f7a31b;
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+    .profile3-container .premium-button:hover {
+        background-color: #e09218;
+        border-color: #e09218;
+    }
+    @media (max-width: 992px) {
+        .profile3-container .profile-container {
+            flex-direction: column;
+            gap: 0;
+            padding: 10px;
+        }
+        .profile3-container .main-content, .profile3-container .right-sidebar {
+            flex: auto;
+            width: 100%;
+            min-width: auto;
+        }
+        .profile3-container .card {
+            margin-bottom: 10px;
+            padding: 16px;
+        }
+        .profile3-container .profile-header {
+            padding: 0;
+        }
+        .profile3-container .profile-info-top {
+            flex-direction: column;
+            align-items: center;
+            top: -60px;
+            margin-bottom: -60px;
+        }
+        .profile3-container .profile-actions-right {
+            margin-top: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .profile3-container .profile-picture {
+            width: 120px;
+            height: 120px;
+        }
+        .profile3-container .profile-details {
+            padding: 0 16px 16px;
+            text-align: center;
+        }
+        .profile3-container .header-buttons {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .profile3-container .analytics-section .analytics-grid {
+            grid-template-columns: 1fr;
+            text-align: left;
+        }
+        .profile3-container .analytics-section .analytic-item i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .profile3-container .analytics-section .analytic-item {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        .profile3-container .analytics-section .analytic-item div {
+            flex-grow: 1;
+        }
+        .profile3-container .footer-links {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 16px;
+        }
+        .profile3-container .footer-column-right, .profile3-container .footer-column-select {
+            grid-column: span 2;
+        }
+        .profile3-container .footer-column {
+            min-width: unset;
+        }
+    }
+    @media (max-width: 600px) {
+        .profile3-container .profile-container {
+            padding: 5px;
+        }
+        .profile3-container .card {
+            padding: 12px;
+        }
+        .profile3-container .profile-banner img {
+            height: 120px;
+        }
+        .profile3-container .profile-info-top {
+            top: -40px;
+            margin-bottom: -40px;
+        }
+        .profile3-container .profile-picture {
+            width: 100px;
+            height: 100px;
+        }
+        .profile3-container .profile-details h1 {
+            font-size: 24px;
+        }
+        .profile3-container .profile-actions-right button {
+            font-size: 12px;
+            padding: 6px 10px;
+        }
+        .profile3-container .header-buttons button {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+        .profile3-container .footer-links {
+            grid-template-columns: 1fr;
+        }
+        .profile3-container .footer-column-right, .profile3-container .footer-column-select {
+            grid-column: span 1;
+        }
+    }
+    </style>
+</head>
+<body>
 
-        <nav class="navbar">
-          <div class="nav-left">
-              <a href="home.html" class="logo">
-                <img src="images/Logo.jpg" alt="ArchiveHubs Logo" class="logo-img">
-              </a>
-              <div class="search-box">
-                <div class="search-trigger">
-                  <i class="fas fa-search search-icon"></i>
-                  <div class="search-text">Search</div>
-                </div>
-                <input type="text" placeholder="Search..." class="search-input">
-              </div>
+    <nav class="navbar">
+      <div class="nav-left">
+          <a href="home.html" class="logo">
+            <img src="images/Logo.jpg" alt="ArchiveHubs Logo" class="logo-img">
+          </a>
+          <div class="search-box">
+            <div class="search-trigger">
+              <i class="fas fa-search search-icon"></i>
+              <div class="search-text">Search</div>
+            </div>
+            <input type="text" placeholder="Search..." class="search-input">
           </div>
-              
+      </div>
+          
       <div class="nav-middle">
           <a href="home.html" class="nav-link">
               <i class="fas fa-home"></i>
@@ -53,136 +916,390 @@
           </a>
         </div>
 
-              <div class="nav-right">
+      <div class="nav-right">
+        <a href="#" class="nav-link">
+          <i class="fas fa-briefcase"></i>
+          <span>Jobs</span>
+        </a>
+        <a href="business.html" class="nav-link">
+            <i class="fas fa-building"></i>
+            <span>Business</span>
+        </a>
+        <a href="#" class="nav-link">
+            <i class="fas fa-cloud-arrow-up"></i>
+            <span>Drive</span>
+        </a>
+        <a href="menu.html" class="nav-link">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </a>
+      </div>
+    </nav>
 
-                <a href="#" class="nav-link">
-                  <i class="fas fa-briefcase"></i>
-                  <span>Jobs</span>
-                </a>
-                <a href="business.html" class="nav-link">
-                    <i class="fas fa-building"></i>
-                    <span>Business</span>
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-cloud-arrow-up"></i>
-                    <span>Drive</span>
-                </a>
-                <a href="menu.html" class="nav-link">
-                    <i class="fas fa-bars"></i>
-                    <span>Menu</span>
-                </a>
-            </div>
-          </nav>
+    <div class="mobile-header">
+      <nav class="mobile-upper-nav">
+        <a href="home.html" class="mobile-logo">
+            <img src="images/Logo.jpg" alt="ArchiveHubs Logo">
+        </a>
+        <div class="upper-nav-right">
+            <button class="upper-nav-btn">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="upper-nav-btn" id="searchTriggerBtn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="upper-nav-btn">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+        </div>
+      </nav>
 
-          <!-- Replace your existing mobile-upper-nav section -->
-          <div class="mobile-header">
-            <!-- Mobile Upper Nav -->
-            <nav class="mobile-upper-nav">
-              <a href="home.html" class="mobile-logo">
-                  <img src="images/Logo.jpg" alt="ArchiveHubs Logo">
-              </a>
-              <div class="upper-nav-right">
-                  <button class="upper-nav-btn">
-                      <i class="fas fa-plus"></i>
+      <div class="search-overlay" id="searchView">
+          <div class="search-container">
+              <div class="search-header">
+                  <button class="back-btn" id="searchBackBtn">
+                      <i class="fas fa-arrow-left"></i>
                   </button>
-                  <button class="upper-nav-btn" id="searchTriggerBtn">
-                      <i class="fas fa-search"></i>
-                  </button>
-                  <button class="upper-nav-btn">
-                      <i class="fas fa-ellipsis-v"></i>
-                  </button>
-              </div>
-            </nav>
-
-           <!-- Update the search-view to be a dropdown -->
-          <div class="search-overlay" id="searchView">
-              <div class="search-container">
-                  <div class="search-header">
-                      <button class="back-btn" id="searchBackBtn">
-                          <i class="fas fa-arrow-left"></i>
-                      </button>
-                      <div class="search-bar">
-                          <div class="search-input-wrapper">
-                              <img src="images/meta-ai-icon.png" alt="Meta AI" class="meta-ai-icon">
-                              <input type="text" id="searchInput" placeholder="Ask Meta AI or search">
-                          </div>
+                  <div class="search-bar">
+                      <div class="search-input-wrapper">
+                          <img src="images/meta-ai-icon.png" alt="Meta AI" class="meta-ai-icon">
+                          <input type="text" id="searchInput" placeholder="Ask Meta AI or search">
                       </div>
                   </div>
-
-                  <div class="search-content">
-                      <!-- Rest of your search content remains the same -->
-                  </div>
+              </div>
+              <div class="search-content">
+                  <!-- Rest of your search content remains the same -->
               </div>
           </div>
+      </div>
+    </div>
 
-          <!-- Add this after the existing navbar -->
-        <nav class="mobile-top-nav">
-          <a href="#" class="mobile-nav-item">
-              <i class="fas fa-video"></i>
-          </a>
-          <a href="#" class="mobile-nav-item">
-              <i class="fas fa-briefcase"></i>
-          </a>
-          <a href="business.html" class="mobile-nav-item">
-              <i class="fas fa-building"></i>
-          </a>
-          <a href="#" class="mobile-nav-item">
-              <i class="fas fa-cloud-arrow-up"></i>
-          </a>
-          <a href="#" class="mobile-nav-item">
-              <i class="fas fa-user-circle"></i>
-          </a>
-        </nav>
+    <nav class="mobile-top-nav">
+      <a href="#" class="mobile-nav-item">
+          <i class="fas fa-video"></i>
+      </a>
+      <a href="#" class="mobile-nav-item">
+          <i class="fas fa-briefcase"></i>
+      </a>
+      <a href="business.html" class="mobile-nav-item">
+          <i class="fas fa-building"></i>
+      </a>
+      <a href="#" class="mobile-nav-item">
+          <i class="fas fa-cloud-arrow-up"></i>
+      </a>
+      <a href="#" class="mobile-nav-item">
+          <i class="fas fa-user-circle"></i>
+      </a>
+    </nav>
 
-        <!-- Main Content -->
-        <main class="main-content">
-        
-          
+    <!-- Main Content -->
+    <main class="main-content">
 
-            <!-- Mobile Bottom Navigation -->
-          <nav class="mobile-nav">
-            <a href="#" class="mobile-nav-link active">
-                <i class="fas fa-home"></i>
-            </a>
-            <a href="business.html" class="mobile-nav-link">
-                <i class="fas fa-user-friends"></i>
-            </a>
-            <a href="#" class="mobile-nav-link">
-                <i class="fas fa-comment-dots"></i>
-            </a>
-            <a href="#" class="mobile-nav-link">
-                <i class="fas fa-bell"></i>
-            </a>
-            <a href="account-mobile.html" class="mobile-nav-link">
-                <i class="fas fa-bars"></i>
-            </a>
-          </nav>
+      <!-- BEGIN: Profile3.html content integration, wrapped in .profile3-container for style isolation -->
+      <div class="profile3-container">
+        <div class="profile-container">
+            <div class="main-content">
+                <div class="card profile-header">
+                    <!-- Example profile header content -->
+                    <div class="profile-banner">
+                        <img src="images/profile-banner.jpg" alt="Profile Banner">
+                    </div>
+                    <div class="profile-info-top">
+                        <img src="images/profile-pic.jpg" alt="Profile Picture" class="profile-picture">
+                        <div class="profile-actions-right">
+                            <button class="open-to-btn">Open to</button>
+                            <button class="add-profile-section-btn">Add profile section</button>
+                            <button class="resources-btn">More</button>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <h1>David Agbor</h1>
+                        <div class="title">Software Engineer | Cloud Enthusiast | LinkedIn Replica Demo</div>
+                        <div class="location-connections">Lagos, Nigeria &middot; <span class="connections">500+ connections</span></div>
+                        <div class="header-buttons">
+                            <button class="primary-button">Connect</button>
+                            <button class="secondary-button">Message</button>
+                        </div>
+                    </div>
+                </div>
 
-           
-      
+                <div class="card suggested-for-you">
+                    <div class="suggested-item">
+                        <div class="suggested-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="suggested-text">
+                            <h3>Show recruiters you’re open to work</h3>
+                            <p>Add the “Open to Work” feature to get discovered by recruiters.</p>
+                        </div>
+                    </div>
+                    <button class="add-summary-button">Add summary</button>
+                </div>
 
-          
-        </main>
+                <div class="card analytics-section">
+                    <div class="analytics-grid">
+                        <div class="analytic-item">
+                            <i class="fas fa-eye"></i>
+                            <div>
+                                <h3>Profile views</h3>
+                                <p>123 this week</p>
+                            </div>
+                        </div>
+                        <div class="analytic-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h3>Post impressions</h3>
+                                <p>456 this week</p>
+                            </div>
+                        </div>
+                        <div class="analytic-item">
+                            <i class="fas fa-search"></i>
+                            <div>
+                                <h3>Search appearances</h3>
+                                <p>78 this week</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      
+                <div class="card activity-section">
+                    <div class="card-header-with-action">
+                        <h2>Activity</h2>
+                        <div class="actions">
+                            <button class="create-post-btn">Create a post</button>
+                        </div>
+                    </div>
+                    <div class="activity-tabs">
+                        <button class="active">Posts</button>
+                        <button>Comments</button>
+                        <button>Likes</button>
+                    </div>
+                    <div class="activity-post">
+                        <div class="post-header">
+                            <img src="images/profile-pic.jpg" alt="Avatar" class="post-avatar">
+                            <div class="post-meta">
+                                <h4>David Agbor</h4>
+                                <div class="post-time">2h &middot; <i class="fas fa-globe"></i></div>
+                            </div>
+                        </div>
+                        <div class="post-text">
+                            Excited to share my new LinkedIn profile replica project!
+                        </div>
+                        <div class="post-image">
+                            <img src="images/demo-post.jpg" alt="Demo Post">
+                        </div>
+                        <div class="post-footer">
+                            <span><i class="fas fa-thumbs-up"></i> 24</span>
+                            <span><i class="fas fa-comment"></i> 5</span>
+                            <span><i class="fas fa-share"></i> 2</span>
+                        </div>
+                    </div>
+                </div>
 
-        <script src="js/script.js"></script>
+                <div class="card experience-section">
+                    <h2>Experience</h2>
+                    <div class="experience-item">
+                        <img src="images/company-logo.png" alt="Company Logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3>Software Engineer</h3>
+                            <p>Tech Company &middot; Jan 2022 - Present</p>
+                            <p>Building scalable cloud applications and services.</p>
+                        </div>
+                    </div>
+                </div>
 
-        <script>
-          // Theme Toggle
-          const themeToggle = document.getElementById('theme-toggle');
-          themeToggle.addEventListener('click', () => {
-              document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-          });
-  
-          // Mobile Menu Toggle
-          const menuToggle = document.querySelector('.menu-toggle');
-          const dropdownMenu = document.querySelector('.dropdown-menu');
-          menuToggle.addEventListener('click', () => {
-              dropdownMenu.classList.toggle('show');
-          });
+                <div class="card education-section">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <img src="images/school-logo.png" alt="School Logo" class="school-logo">
+                        <div class="education-details">
+                            <h3>University of Lagos</h3>
+                            <p>BSc Computer Science &middot; 2017 - 2021</p>
+                        </div>
+                    </div>
+                </div>
 
-          document.addEventListener('DOMContentLoaded', function() {
+                <div class="card licenses-section">
+                    <h2>Licenses & Certifications</h2>
+                    <div class="license-item">
+                        <img src="images/aws-logo.png" alt="AWS Logo" class="license-logo">
+                        <div class="license-details">
+                            <h3>AWS Certified Solutions Architect</h3>
+                            <p>Amazon Web Services (AWS)</p>
+                            <div class="aws-badge">
+                                <img src="images/aws-badge.png" alt="AWS Badge" class="aws-logo">
+                                <div>
+                                    <p>Credential ID: 123456789</p>
+                                    <div class="badge-description">Issued Jan 2024 &middot; No Expiration</div>
+                                </div>
+                            </div>
+                            <button class="show-credential-btn">Show credential</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card skills-section">
+                    <h2>Skills</h2>
+                    <div class="skill-item">
+                        <div>
+                            <h3>JavaScript</h3>
+                            <p>Web Development, React, Node.js</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div>
+                            <h3>AWS Cloud</h3>
+                            <p>EC2, Lambda, S3, CloudFormation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card interests-section">
+                    <h2>Interests</h2>
+                    <div class="interest-tabs">
+                        <button class="active">Companies</button>
+                        <button>Groups</button>
+                        <button>Schools</button>
+                    </div>
+                    <div class="interest-item">
+                        <img src="images/company-logo.png" alt="Interest" class="interest-avatar">
+                        <div class="interest-details">
+                            <h3>Tech Company</h3>
+                            <div class="interest-title">Technology</div>
+                            <div class="followers">1M followers</div>
+                        </div>
+                        <button class="following-btn"><i class="fas fa-check"></i> Following</button>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <a href="#">About</a>
+                        <a href="#">Accessibility</a>
+                        <a href="#">Help Center</a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="#">Privacy & Terms <i class="fas fa-caret-down"></i></a>
+                        <a href="#">Ad Choices</a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="#">Advertising</a>
+                        <a href="#">Business Services <i class="fas fa-caret-down"></i></a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="#">Get the LinkedIn app</a>
+                        <a href="#">More</a>
+                    </div>
+                    <div class="footer-column-right">
+                        <div class="footer-help">
+                            <i class="fas fa-question-circle"></i>
+                            <div>
+                                <h4>Questions?</h4>
+                                <p>Visit our Help Center.</p>
+                            </div>
+                        </div>
+                        <div class="footer-help">
+                            <i class="fas fa-cog"></i>
+                            <div>
+                                <h4>Manage your account and privacy</h4>
+                                <p>Go to your Settings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="copyright">LinkedIn Corporation © 2025</p>
+            </div>
+
+            <div class="right-sidebar">
+                <div class="sidebar-card">
+                    <h2>Edit public profile & URL</h2>
+                    <div class="public-profile-url">
+                        <a href="#">www.linkedin.com/in/davidagbor</a>
+                        <i class="fas fa-pencil-alt icon-button"></i>
+                    </div>
+                </div>
+                <div class="sidebar-card target-audiences">
+                    <img src="images/profile-pic.jpg" alt="Ad Profile" class="ad-profile-pic">
+                    <span class="premium-star"><i class="fas fa-star"></i></span>
+                    <h3>Reach high-quality audiences with LinkedIn Ads</h3>
+                    <button class="get-started-btn">Get started</button>
+                </div>
+                <div class="sidebar-card">
+                    <h2>Who viewed your profile</h2>
+                    <div class="viewer-item">
+                        <img src="images/viewer1.jpg" alt="Viewer" class="viewer-avatar">
+                        <div class="viewer-details">
+                            <h3>Jane Doe</h3>
+                            <div class="viewer-title">Recruiter at Tech Company</div>
+                        </div>
+                        <button class="connect-button"><i class="fas fa-user-plus"></i> Connect</button>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h2>People you may know</h2>
+                    <div class="person-item">
+                        <img src="images/person1.jpg" alt="Person" class="person-avatar">
+                        <div class="person-details">
+                            <h3>John Smith</h3>
+                            <div class="person-title">Cloud Engineer</div>
+                        </div>
+                        <button class="connect-button"><i class="fas fa-user-plus"></i> Connect</button>
+                    </div>
+                </div>
+                <div class="sidebar-card hiring-ad">
+                    <h3>See who's hiring</h3>
+                    <img src="images/hiring-ad.jpg" alt="Hiring Ad" class="ad-image">
+                </div>
+                <div class="sidebar-card unlock-list">
+                    <img src="images/profile-pic.jpg" alt="Unlock Profile" class="ad-profile-pic">
+                    <span class="premium-gem"><i class="fas fa-gem"></i></span>
+                    <h2>Unlock the full list</h2>
+                    <p>See everyone who viewed your profile with Premium.</p>
+                    <button class="premium-button">Try Premium for Free</button>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- END: Profile3.html content integration -->
+
+      <!-- Mobile Bottom Navigation -->
+      <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-link active">
+            <i class="fas fa-home"></i>
+        </a>
+        <a href="business.html" class="mobile-nav-link">
+            <i class="fas fa-user-friends"></i>
+        </a>
+        <a href="#" class="mobile-nav-link">
+            <i class="fas fa-comment-dots"></i>
+        </a>
+        <a href="#" class="mobile-nav-link">
+            <i class="fas fa-bell"></i>
+        </a>
+        <a href="account-mobile.html" class="mobile-nav-link">
+            <i class="fas fa-bars"></i>
+        </a>
+      </nav>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+      // Theme Toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        });
+      }
+
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      if (menuToggle && dropdownMenu) {
+        menuToggle.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('show');
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
         const searchTriggerBtn = document.getElementById('searchTriggerBtn');
         const searchView = document.getElementById('searchView');
         const searchBackBtn = document.getElementById('searchBackBtn');
@@ -214,9 +1331,7 @@
                 }
             });
         }
-    });
-         
-
-      </script>
-      </body>
-    </html>
+      });
+    </script>
+</body>
+</html>

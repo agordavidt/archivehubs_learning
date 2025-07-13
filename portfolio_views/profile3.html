@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Agbor | LinkedIn Profile Replica</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f2ef; /* LinkedIn's background gray */
+            color: #333;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px; /* Space from the top, since no nav bar */
+            padding-bottom: 50px; /* Space for the messaging bar if it were there */
+        }
+
+        a {
+            color: #0073b1; /* LinkedIn blue for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2, h3, h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        h1 { font-size: 24px; }
+        h2 { font-size: 20px; }
+        h3 { font-size: 16px; }
+        h4 { font-size: 14px; }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .profile-container {
+            display: flex;
+            gap: 24px;
+            max-width: 1128px; /* Standard LinkedIn content width */
+            width: 100%;
+            margin: 0 auto;
+            align-items: flex-start; /* Align content to the top */
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+            margin-bottom: 10px;
+            padding: 24px;
+        }
+
+        /* Buttons */
+        button {
+            cursor: pointer;
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .primary-button {
+            background-color: #0a66c2; /* LinkedIn blue */
+            color: #fff;
+            border-color: #0a66c2;
+        }
+
+        .primary-button:hover {
+            background-color: #004182;
+            border-color: #004182;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: #0a66c2;
+            border-color: #0a66c2;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(10,102,194,0.1);
+        }
+
+        .show-all {
+            display: block;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            border-top: 1px solid #eee;
+            margin-top: 10px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .show-all:hover {
+            background-color: #f9f9f9;
+            text-decoration: none;
+        }
+
+        .show-all i {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+
+        .icon-button {
+            font-size: 20px;
+            color: #666;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .icon-button:hover {
+            color: #0a66c2;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #666;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+
+        /* Main Content Area (Left Column) */
+        .main-content {
+            flex: 2.2; /* Roughly 70% of the width */
+            min-width: 0; /* Allows content to shrink */
+        }
+
+        /* Profile Header Card */
+        .profile-header {
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-banner img {
+            width: 100%;
+            height: 180px; /* Adjust as needed */
+            object-fit: cover;
+        }
+
+        .profile-info-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 24px;
+            position: relative;
+            top: -50px; /* Pull profile picture up over banner */
+            margin-bottom: -50px; /* Compensate for the pull up */
+        }
+
+        .profile-picture {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+            object-fit: cover;
+            background-color: #fff; /* In case image doesn't load */
+        }
+
+        .profile-actions-right {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px; /* Align with top right buttons */
+        }
+
+        .profile-actions-right button {
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .resources-btn {
+            background-color: transparent;
+            color: #666;
+            border-color: #666;
+        }
+        .resources-btn:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .add-profile-section-btn {
+            background-color: transparent;
+            color: #0a66c2;
+            border-color: #0a66c2;
+        }
+        .add-profile-section-btn:hover {
+            background-color: rgba(10,102,194,0.1);
+        }
+
+        .open-to-btn {
+            background-color: #0a66c2;
+            color: #fff;
+            border-color: #0a66c2;
+        }
+        .open-to-btn:hover {
+            background-color: #004182;
+        }
+
+        .profile-details {
+            padding: 0 24px 24px;
+            margin-top: -10px; /* Adjust spacing after profile info top */
+        }
+
+        .profile-details h1 {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .profile-details .title {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .profile-details .location-connections,
+        .profile-details .connections {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        /* Suggested for you Card */
+        .suggested-for-you .suggested-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .suggested-for-you .suggested-icon {
+            font-size: 24px;
+            color: #666;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .suggested-for-you .suggested-text h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .suggested-for-you .suggested-text p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .add-summary-button {
+            background-color: transparent;
+            color: #0a66c2;
+            border-color: #0a66c2;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        .add-summary-button:hover {
+            background-color: rgba(10,102,194,0.1);
+        }
+
+        /* Analytics Card */
+        .analytics-section .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .analytics-section .analytic-item {
+            text-align: center;
+        }
+
+        .analytics-section .analytic-item i {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .analytics-section .analytic-item h3 {
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .analytics-section .analytic-item p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Activity Section */
+        .card-header-with-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-header-with-action .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .create-post-btn {
+            background-color: transparent;
+            color: #0a66c2;
+            border-color: #0a66c2;
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+        .create-post-btn:hover {
+            background-color: rgba(10,102,194,0.1);
+        }
+
+        .activity-tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .activity-tabs button {
+            background-color: transparent;
+            border: none;
+            padding: 10px 16px;
+            font-weight: 600;
+            color: #666;
+            font-size: 16px;
+            border-bottom: 2px solid transparent;
+            border-radius: 0; /* Override button border-radius */
+            transition: all 0.2s ease;
+        }
+
+        .activity-tabs button.active {
+            color: #0a66c2;
+            border-color: #0a66c2;
+        }
+
+        .activity-tabs button:hover:not(.active) {
+            background-color: #f3f2ef;
+        }
+
+        .activity-post {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+
+        .activity-post:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .post-meta h4 {
+            font-size: 16px;
+            margin-bottom: 2px;
+            color: #000;
+        }
+
+        .post-meta .post-time {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .post-text {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .post-image img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            max-height: 400px;
+            object-fit: contain;
+            background-color: #f3f2ef;
+        }
+
+        .post-footer {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #666;
+            padding-top: 8px;
+            border-top: 1px solid #eee;
+        }
+
+        .post-footer i {
+            margin-right: 5px;
+        }
+
+        /* Experience, Education, Licenses, Skills Items */
+        .experience-item,
+        .education-item,
+        .license-item,
+        .skill-item,
+        .interest-item {
+            display: flex;
+            align-items: flex-start; /* Align logo/avatar to top of text */
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .experience-item:last-of-type,
+        .education-item:last-of-type,
+        .license-item:last-of-type,
+        .skill-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .company-logo,
+        .school-logo,
+        .license-logo,
+        .interest-avatar {
+            width: 48px;
+            height: 48px;
+            object-fit: contain; /* For logos that might not be square */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .experience-details h3,
+        .education-details h3,
+        .license-details h3,
+        .skill-item h3,
+        .interest-details h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: #000;
+        }
+
+        .experience-details p,
+        .education-details p,
+        .license-details p,
+        .skill-item p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .aws-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            padding: 8px 12px;
+            border: 1px solid #eee;
+        }
+        .aws-badge .aws-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+        .aws-badge p {
+            font-size: 13px;
+            margin-bottom: 0;
+            color: #333;
+        }
+        .aws-badge .badge-description {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .show-credential-btn {
+            background-color: transparent;
+            color: #0a66c2;
+            border-color: #0a66c2;
+            font-size: 13px;
+            padding: 6px 12px;
+            margin-top: 5px;
+        }
+        .show-credential-btn:hover {
+            background-color: rgba(10,102,194,0.1);
+        }
+
+        /* Interests Section */
+        .interest-tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .interest-tabs button {
+            background-color: transparent;
+            border: none;
+            padding: 10px 16px;
+            font-weight: 600;
+            color: #666;
+            font-size: 14px;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+        }
+        .interest-tabs button.active {
+            color: #0a66c2;
+            border-color: #0a66c2;
+        }
+        .interest-tabs button:hover:not(.active) {
+            background-color: #f3f2ef;
+        }
+
+        .interest-item {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: none; /* Only one item shown in screenshot */
+            align-items: center; /* Vertically align image with text */
+        }
+
+        .interest-details {
+            flex-grow: 1; /* Take up available space */
+        }
+
+        .interest-details .interest-title,
+        .interest-details .followers {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .following-btn {
+            background-color: transparent;
+            color: #666;
+            border-color: #666;
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+        .following-btn:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        .following-btn i {
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(100px, 1fr)) 200px; /* Adjust columns as needed */
+            gap: 20px;
+            font-size: 12px;
+            color: #666;
+            padding: 24px;
+            margin-top: 20px;
+            background-color: #fff; /* Footer itself is a card in the screenshot */
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-column a {
+            color: #666;
+            font-weight: 600;
+        }
+        .footer-column a:hover {
+            color: #0073b1;
+        }
+
+        .footer-column .fa-caret-down {
+            font-size: 10px;
+            margin-left: 3px;
+        }
+
+        .footer-column-right {
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-help {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-help i {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .footer-help h4 {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 2px;
+        }
+        .footer-help p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .footer-column-select {
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column-select label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .footer-column-select select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 13px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 0;
+            padding-bottom: 20px;
+        }
+
+
+        /* Right Sidebar */
+        .right-sidebar {
+            flex: 1; /* Roughly 30% of the width */
+            min-width: 300px; /* Ensure minimum width */
+        }
+
+        .sidebar-card {
+            padding: 16px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-card h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-card p,
+        .sidebar-card a {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .sidebar-card .icon-button {
+            margin-left: auto; /* Push to right */
+            font-size: 18px;
+        }
+
+        /* Public profile & URL */
+        .public-profile-url {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .public-profile-url a {
+            flex-grow: 1;
+            margin-right: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #0073b1;
+        }
+
+        /* Target high-quality audiences */
+        .target-audiences {
+            text-align: center;
+            position: relative;
+            padding-top: 40px; /* Space for profile picture */
+        }
+        .target-audiences .ad-profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+        }
+        .target-audiences .premium-star {
+            position: absolute;
+            top: 55px;
+            right: calc(50% - 30px); /* Adjust position next to icon */
+            background-color: #f7a31b;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .target-audiences h3 {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .target-audiences .get-started-btn {
+            background-color: transparent;
+            color: #0a66c2;
+            border-color: #0a66c2;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        .target-audiences .get-started-btn:hover {
+            background-color: rgba(10,102,194,0.1);
+        }
+
+
+        /* Who viewed your profile, People you may know */
+        .viewer-item, .person-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .viewer-item:last-of-type, .person-item:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .viewer-avatar, .person-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .viewer-details, .person-details {
+            flex-grow: 1;
+        }
+
+        .viewer-details h3, .person-details h3 {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .viewer-details .viewer-title, .person-details .person-title {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .connect-button {
+            background-color: transparent;
+            color: #666;
+            border-color: #666;
+            font-size: 14px;
+            padding: 6px 12px;
+        }
+        .connect-button:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        .connect-button i {
+            margin-right: 5px;
+        }
+
+        /* See who's hiring ad */
+        .hiring-ad {
+            text-align: center;
+            padding-bottom: 0;
+        }
+        .hiring-ad h3 {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 15px;
+        }
+        .hiring-ad .ad-image {
+            width: 100%;
+            border-radius: 0 0 8px 8px; /* Ad image might bleed to bottom corners */
+            margin-left: -16px; /* Adjust for padding */
+            width: calc(100% + 32px); /* Compensate for padding */
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Unlock the full list */
+        .unlock-list {
+            text-align: center;
+            padding-top: 30px;
+            position: relative;
+        }
+        .unlock-list h2 {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+        .unlock-list p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .unlock-list .ad-profile-pic {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: -35px; /* Pull it up significantly */
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+        }
+        .unlock-list .premium-gem {
+            position: absolute;
+            top: 10px; /* Relative to the card top */
+            right: calc(50% - 40px); /* Adjust position next to icon */
+            background-color: #f7a31b;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .premium-button {
+            background-color: #f7a31b; /* LinkedIn Premium Gold */
+            color: #fff;
+            border-color: #f7a31b;
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+        .premium-button:hover {
+            background-color: #e09218;
+            border-color: #e09218;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .profile-container {
+                flex-direction: column;
+                gap: 0;
+                padding: 10px;
+            }
+
+            .main-content, .right-sidebar {
+                flex: auto; /* Allow them to take full width */
+                width: 100%;
+                min-width: auto;
+            }
+
+            .card {
+                margin-bottom: 10px;
+                padding: 16px;
+            }
+
+            .profile-header {
+                padding: 0;
+            }
+
+            .profile-info-top {
+                flex-direction: column;
+                align-items: center;
+                top: -60px; /* Adjust for smaller screens */
+                margin-bottom: -60px;
+            }
+
+            .profile-actions-right {
+                margin-top: 15px;
+                justify-content: center;
+                flex-wrap: wrap; /* Allow buttons to wrap */
+            }
+
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-details {
+                padding: 0 16px 16px;
+                text-align: center;
+            }
+
+            .header-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .analytics-section .analytics-grid {
+                grid-template-columns: 1fr; /* Stack analytics items */
+                text-align: left;
+            }
+            .analytics-section .analytic-item i {
+                margin-right: 10px;
+                font-size: 20px;
+            }
+            .analytics-section .analytic-item {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            .analytics-section .analytic-item div {
+                flex-grow: 1;
+            }
+
+
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+                gap: 15px;
+                padding: 16px;
+            }
+            .footer-column-right, .footer-column-select {
+                grid-column: span 2; /* Take full width in 2-column layout */
+            }
+            .footer-column {
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .profile-container {
+                padding: 5px;
+            }
+            .card {
+                padding: 12px;
+            }
+            .profile-banner img {
+                height: 120px;
+            }
+            .profile-info-top {
+                top: -40px;
+                margin-bottom: -40px;
+            }
+            .profile-picture {
+                width: 100px;
+                height: 100px;
+            }
+            .profile-details h1 {
+                font-size: 24px;
+            }
+            .profile-actions-right button {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+            .header-buttons button {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            .footer-links {
+                grid-template-columns: 1fr; /* Stack all columns on very small screens */
+            }
+            .footer-column-right, .footer-column-select {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="main-content">
+            <div class="card profile-header">
+                <div class="profile-banner">
+                    <img src="images/coverphoto.jpg" alt="Profile Banner">
+                </div>
+                <div class="profile-info-top">
+                    <img src="images/profile.jpg" alt="David Agbor" class="profile-picture">
+                    <div class="profile-actions-right">
+                        <button class="resources-btn">Resources <i class="fas fa-arrow-right"></i></button>
+                        <button class="add-profile-section-btn">Add profile section</button>
+                        <button class="open-to-btn">Open to</button>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <h1>David Agbor</h1>
+                    <p class="title">Software Engineer</p>
+                    <p class="location-connections">Lagos, State · <a href="#">Contact info</a></p>
+                    <p class="connections">300+ connections</p>
+                    <div class="header-buttons">
+                        <button class="primary-button">Open to</button>
+                        <button class="secondary-button">Add profile section</button>
+                        <button class="secondary-button">Enhance profile</button>
+                        <button class="secondary-button">Resources</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card suggested-for-you">
+                <h2>Suggested for you</h2>
+                <div class="suggested-item">
+                    <div class="suggested-icon"><i class="fas fa-highlighter"></i></div>
+                    <div class="suggested-text">
+                        <h3>Write a summary to highlight your personality or work experience</h3>
+                        <p>Members who include a summary receive up to 5.5 times as many profile views.</p>
+                    </div>
+                </div>
+                <button class="add-summary-button">Add a summary</button>
+            </div>
+
+            <div class="card analytics-section">
+                <h2>Analytics</h2>
+                <div class="analytics-grid">
+                    <div class="analytic-item">
+                        <i class="fas fa-eye"></i>
+                        <h3>15 profile views</h3>
+                        <p>Discover who's viewed your profile</p>
+                    </div>
+                    <div class="analytic-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>65 post impressions</h3>
+                        <p>Check out who's engaging with your posts</p>
+                    </div>
+                    <div class="analytic-item">
+                        <i class="fas fa-search"></i>
+                        <h3>15 search appearances</h3>
+                        <p>See how often you appear in search results</p>
+                    </div>
+                </div>
+                <a href="#" class="show-all">Show all analytics <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="card activity-section">
+                <div class="card-header-with-action">
+                    <h2>Activity</h2>
+                    <button class="create-post-btn"><i class="fas fa-pencil-alt"></i> Create a post</button>
+                </div>
+                <div class="activity-tabs">
+                    <button class="active">Posts</button>
+                    <button>Comments</button>
+                </div>
+                <div class="activity-post">
+                    <div class="post-header">
+                        <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="David Agbor" class="post-avatar">
+                        <div class="post-meta">
+                            <h4>David Agbor <span class="dot">·</span> <span class="follow-status">2nd</span></h4>
+                            <p class="post-time">1w</p>
+                        </div>
+                    </div>
+                    <p class="post-text">I'm happy to share that I've earned my certificate in African Leadership Experience! 👏</p>
+                    <div class="post-image">
+                        <img src="https://i.ibb.co/5c1s834/African-Leadership-Experience-cert.jpg" alt="Certificate">
+                    </div>
+                    <div class="post-footer">
+                        <span class="likes"><i class="fas fa-thumbs-up"></i> 7</span>
+                        <span class="comments"><i class="fas fa-comment"></i> 2 comments</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card experience-section">
+                <div class="card-header-with-action">
+                    <h2>Experience</h2>
+                    <div class="actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button"></i>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <img src="https://via.placeholder.com/48x48/0077B5/FFFFFF?text=A" alt="Autovance Integrated Services" class="company-logo">
+                    <div class="experience-details">
+                        <h3>Full-stack Developer</h3>
+                        <p class="company-name">Autovance Integrated Services · Freelance</p>
+                        <p class="duration">Feb 2024 - Present · 1 yr 5 mos</p>
+                        <p class="description"><i class="fas fa-code"></i> Artificial intelligence (AI), Web Development and +7 skills</p>
+                        <div class="aws-badge">
+                            <img src="https://i.ibb.co/L519pS3/aws-educate.jpg" alt="AWS Educate Badge" class="aws-logo">
+                            <p>AWS Educate Emerging Talent Community Member</p>
+                            <p class="badge-description">Received this digital badge recognizing my participation in the AWS Educate Emerging Talent Community, demonstrating my commitment to learning AWS cloud technologies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <img src="https://via.placeholder.com/48x48/663399/FFFFFF?text=S" alt="Software Engineer" class="company-logo">
+                    <div class="experience-details">
+                        <h3>Software Engineer</h3>
+                        <p class="company-name">Freelance</p>
+                        <p class="duration">Feb 2021 - Present · 4 yrs 5 mos</p>
+                    </div>
+                </div>
+                <a href="#" class="show-all">Show all posts <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="card education-section">
+                <div class="card-header-with-action">
+                    <h2>Education</h2>
+                    <div class="actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button"></i>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="https://via.placeholder.com/48x48/000000/FFFFFF?text=ALX" alt="African Leadership Experience" class="school-logo">
+                    <div class="education-details">
+                        <h3>African Leadership Experience</h3>
+                        <p class="degree">Certificate, Artificial intelligence</p>
+                        <p class="duration">May 2023 - Jun 2025</p>
+                        <p class="description"><i class="fas fa-brain"></i> Artificial intelligence (AI), Prototyping and +2 skills</p>
+                        <div class="aws-badge">
+                            <img src="https://i.ibb.co/f2P8xGg/alx-certificate.jpg" alt="ALX Certificate" class="aws-logo">
+                            <p>150-sf-for-developers-certificate-david-agbor-png</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="https://via.placeholder.com/48x48/000000/FFFFFF?text=A" alt="Ahmadu Bello University" class="school-logo">
+                    <div class="education-details">
+                        <h3>Ahmadu Bello University</h3>
+                        <p class="degree">Master of Science, Resources Engineering</p>
+                        <p class="duration">Feb 2013 - Apr 2022</p>
+                    </div>
+                </div>
+                <a href="#" class="show-all">Show all 5 educations <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="card licenses-section">
+                <div class="card-header-with-action">
+                    <h2>Licenses & certifications</h2>
+                    <div class="actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button"></i>
+                    </div>
+                </div>
+                <div class="license-item">
+                    <img src="https://i.ibb.co/L519pS3/aws-educate.jpg" alt="AWS Educate" class="license-logo">
+                    <div class="license-details">
+                        <h3>AWS Educate Introduction to Cloud 101</h3>
+                        <p class="issuer">Amazon Web Services (AWS)</p>
+                        <p class="issued-date">Issued Jan 2021</p>
+                        <button class="show-credential-btn">Show credential</button>
+                    </div>
+                </div>
+                <div class="license-item">
+                    <img src="https://via.placeholder.com/48x48/800080/FFFFFF?text=P" alt="Python Kaggle" class="license-logo">
+                    <div class="license-details">
+                        <h3>Python</h3>
+                        <p class="issuer">Kaggle</p>
+                        <p class="issued-date">Issued Oct 2022</p>
+                        <button class="show-credential-btn">Show credential</button>
+                    </div>
+                </div>
+                <a href="#" class="show-all">Show all 6 licenses & certifications <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="card skills-section">
+                <div class="card-header-with-action">
+                    <h2>Skills</h2>
+                    <div class="actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button"></i>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <h3>Amazon Web Services (AWS)</h3>
+                    <p class="skill-description">Full-stack Developer at Autovance Integrated Services</p>
+                </div>
+                <div class="skill-item">
+                    <h3>NoSQL</h3>
+                    <p class="skill-description">African Leadership Experience</p>
+                </div>
+                <a href="#" class="show-all">Show all 37 skills <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="card interests-section">
+                <h2>Interests</h2>
+                <div class="interest-tabs">
+                    <button class="active">Top Voices</button>
+                    <button>Companies</button>
+                    <button>Newsletters</button>
+                    <button>Schools</button>
+                </div>
+                <div class="interest-item">
+                    <img src="https://via.placeholder.com/48x48/0077B5/FFFFFF?text=DM" alt="David J. Malan" class="interest-avatar">
+                    <div class="interest-details">
+                        <h3>David J. Malan <span class="dot">·</span> <span class="follow-status">2nd</span></h3>
+                        <p class="interest-title">Faculty, CS50</p>
+                        <p class="followers">58,511 followers</p>
+                    </div>
+                    <button class="following-btn"><i class="fas fa-check"></i> Following</button>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="#">About</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Talent Solutions</a>
+                    <a href="#">Career Resources</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Community Guidelines</a>
+                    <a href="#">Privacy & Terms <i class="fas fa-caret-down"></i></a>
+                    <a href="#">Sales Solutions</a>
+                    <a href="#">Safety Center</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Advertise</a>
+                    <a href="#">Marketing Solutions</a>
+                    <a href="#">Small Business</a>
+                </div>
+                <div class="footer-column-right">
+                    <div class="footer-help">
+                        <i class="fas fa-question-circle"></i>
+                        <div>
+                            <h4>Questions?</h4>
+                            <p>Visit our Help Center.</p>
+                        </div>
+                    </div>
+                    <div class="footer-help">
+                        <i class="fas fa-cog"></i>
+                        <div>
+                            <h4>Manage your account and privacy</h4>
+                            <p>Go to your settings.</p>
+                        </div>
+                    </div>
+                    <div class="footer-help">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Recommendation transparency</h4>
+                            <p>Learn more about Recommended Content</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column-select">
+                    <label for="language-select">Select language</label>
+                    <select id="language-select">
+                        <option value="english">English (English)</option>
+                        <option value="spanish">Spanish</option>
+                    </select>
+                </div>
+            </div>
+            <p class="copyright">LinkedIn Corporation © 2025</p>
+
+        </div>
+
+        <div class="right-sidebar">
+            <div class="card sidebar-card profile-language">
+                <h2>Profile language</h2>
+                <p>English</p>
+            </div>
+
+            <div class="card sidebar-card public-profile-url">
+                <h2>Public Profile & URL</h2>
+                <a href="#">www.Archivehubs.com/in/name-0000000/</a>
+                <i class="fas fa-pencil-alt icon-button"></i>
+            </div>
+
+            <div class="card sidebar-card target-audiences">
+                <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="Profile" class="ad-profile-pic">
+                <i class="fas fa-star premium-star"></i>
+                <h3>Target high-quality audiences with LinkedIn Ads</h3>
+                <button class="get-started-btn">Get started</button>
+            </div>
+
+            <div class="card sidebar-card who-viewed">
+                <h2>Who viewed your profile</h2>
+                <div class="viewer-item">
+                    <img src="https://picsum.photos/40/40?random=1" alt="Viewer" class="viewer-avatar">
+                    <div class="viewer-details">
+                        <h3>LOGY AL-SAID <span class="dot">·</span> <span class="follow-status">2nd</span></h3>
+                        <p class="viewer-title">Software Engineer | AI, SE Akemi | Co-founding...</p>
+                        <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
+                    </div>
+                </div>
+                <div class="viewer-item">
+                    <img src="https://picsum.photos/40/40?random=2" alt="Viewer" class="viewer-avatar">
+                    <div class="viewer-details">
+                        <h3>Dineo Pearl Bakayi</h3>
+                        <p class="viewer-title">Executive Assistant | Expert in Elaborat...</p>
+                        <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
+                    </div>
+                </div>
+                <a href="#" class="show-all">Show all <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="card sidebar-card people-you-may-know">
+                <h2>People you may know</h2>
+                <div class="person-item">
+                    <img src="https://picsum.photos/40/40?random=3" alt="Person" class="person-avatar">
+                    <div class="person-details">
+                        <h3>Kingsley Mokena</h3>
+                        <p class="person-title">Data Science Student at ALX</p>
+                        <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
+                    </div>
+                </div>
+                <div class="person-item">
+                    <img src="https://picsum.photos/40/40?random=4" alt="Person" class="person-avatar">
+                    <div class="person-details">
+                        <h3>Melvin A.</h3>
+                        <p class="person-title">Aspiring Backend | Cloud Architect | Passionate abou...</p>
+                        <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
+                    </div>
+                </div>
+                <div class="person-item">
+                    <img src="https://picsum.photos/40/40?random=5" alt="Person" class="person-avatar">
+                    <div class="person-details">
+                        <h3>Felix Musyoki</h3>
+                        <p class="person-title">Bio economics | Data Scientist | AWS Certified | Cloud...</p>
+                        <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card sidebar-card hiring-ad">
+                <h3>See who's hiring on LinkedIn</h3>
+                <img src="https://i.ibb.co/3k5fH44/linkedin-ad.jpg" alt="Hiring Ad" class="ad-image">
+            </div>
+
+            <div class="card sidebar-card unlock-list">
+                <h2>Unlock the full list</h2>
+                <p>See who else is often viewed alongside you.</p>
+                <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="Profile" class="ad-profile-pic">
+                <i class="fas fa-gem premium-gem"></i>
+                <button class="premium-button">Try Premium for NGN0</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
