@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Agbor | LinkedIn Profile Replica</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>David Agbor | LinkedIn Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
 
     <style>
         /* General Styling */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f3f2ef; /* LinkedIn's background gray */
-            color: #333;
-            line-height: 1.5;
-            display: flex;
-            justify-content: center;
-            padding-top: 20px; /* Space from the top, since no nav bar */
-            padding-bottom: 50px; /* Space for the messaging bar if it were there */
-        }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f2ef;
+    color: #333;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
 
         a {
             color: #0073b1; /* LinkedIn blue for links */
@@ -1083,11 +1084,222 @@
                 grid-column: span 1;
             }
         }
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    gap: 24px;
+    max-width: 1128px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* Card Styling */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+    margin-bottom: 10px;
+    padding: 24px;
+}
+
+/* Section Headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Open To Dropdown */
+.open-to-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 6px 9px rgba(0,0,0,.2);
+    padding: 16px;
+    z-index: 100;
+    margin-top: 10px;
+}
+
+.open-to-dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: #000;
+}
+
+.dropdown-item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.get-started-btn {
+    background-color: #0a66c2;
+    color: #fff;
+    border: 1px solid #0a66c2;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Suggested Section */
+.suggested-section .private-to-you {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.suggested-cards {
+    display: flex;
+    gap: 15px;
+}
+
+.suggested-card {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+/* Analytics Section */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 15px;
+}
+
+.analytic-item {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.analytic-item i {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Show All Links */
+.show-all {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #666;
+}
+
+/* Experience/Education Items */
+.experience-item, 
+.education-item,
+.showcase-item,
+.license-item,
+.award-item,
+.affiliation-item,
+.volunteer-item,
+.testimonial-item,
+.publication-item,
+.activity-item,
+.contact-info,
+.appendix-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Interest Tabs */
+.interest-tabs {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.interest-tabs button {
+    background-color: transparent;
+    border: none;
+    padding: 10px 16px;
+    font-weight: 600;
+    color: #666;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+}
+
+.interest-tabs button.active {
+    color: #0a66c2;
+    border-color: #0a66c2;
+}
+
+/* Interest Items */
+.interest-items {
+    display: flex;
+    gap: 15px;
+}
+
+.interest-item {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.following-btn {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #666;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .profile-container {
+        flex-direction: column;
+    }
+    
+    .suggested-cards,
+    .interest-items {
+        flex-direction: column;
+    }
+    
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
     <div class="profile-container">
         <div class="main-content">
+            <!-- Profile Header Section -->
             <div class="card profile-header">
                 <div class="profile-banner">
                     <img src="images/coverphoto.jpg" alt="Profile Banner">
@@ -1107,265 +1319,425 @@
                     <p class="location-connections">Lagos, State · <a href="#">Contact info</a></p>
                     <p class="connections">300+ connections</p>
                     <div class="header-buttons">
-                         <button class="open-to-btn" id="openToBtn">Open to</button>
+                        <button class="primary-button" id="openToMainBtn">Open to</button>
                         <button class="secondary-button">Add profile section</button>
                         <button class="secondary-button">Enhance profile</button>
                         <button class="secondary-button">Resources</button>
+                    </div>
                     
+                    <!-- Open To Dropdown -->
+                    <div class="open-to-dropdown" id="openToDropdown">
+                        <div class="dropdown-item">
+                            <h4>Show recruiters you're open to work</h4>
+                            <p>You control who sees this</p>
+                            <button class="get-started-btn">Get Started</button>
+                        </div>
+                        <div class="dropdown-item">
+                            <h4>Share that you're hiring</h4>
+                            <p>Attract qualified candidates</p>
+                            <button class="get-started-btn">Get Started</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card suggested-for-you">
+            <!-- Suggested for You Section -->
+            <div class="card suggested-section">
                 <h2>Suggested for you</h2>
-                <div class="suggested-item">
-                    <div class="suggested-icon"><i class="fas fa-highlighter"></i></div>
-                    <div class="suggested-text">
-                        <h3>Write a summary to highlight your personality or work experience</h3>
-                        <p>Members who include a summary receive up to 5.5 times as many profile views.</p>
+                <p class="private-to-you"><i class="fas fa-eye"></i> Private to you</p>
+                <div class="suggested-cards">
+                    <div class="suggested-card">
+                        <p>Suggestions based on owner's profile and activities including premium suggestions</p>
+                    </div>
+                    <div class="suggested-card">
+                        <p>Suggestions based on owner's profile and activities including premium suggestions</p>
                     </div>
                 </div>
-                <button class="add-summary-button">Add a summary</button>
             </div>
 
+            <!-- Analytics Section -->
             <div class="card analytics-section">
-                <h2>Analytics</h2>
+                <div class="section-header">
+                    <h2>Analytics</h2>
+                    <p class="private-to-you"><i class="fas fa-eye"></i> Private to you</p>
+                </div>
                 <div class="analytics-grid">
                     <div class="analytic-item">
-                        <i class="fas fa-eye"></i>
-                        <h3>15 profile views</h3>
+                        <i class="fas fa-users"></i>
+                        <h3>No. of Profile view</h3>
                         <p>Discover who's viewed your profile</p>
                     </div>
                     <div class="analytic-item">
                         <i class="fas fa-chart-line"></i>
-                        <h3>65 post impressions</h3>
-                        <p>Check out who's engaging with your posts</p>
+                        <h3>No. of Post impressions</h3>
+                        <p>Start a post to increase engagement duration</p>
                     </div>
                     <div class="analytic-item">
                         <i class="fas fa-search"></i>
-                        <h3>15 search appearances</h3>
+                        <h3>Search appearance</h3>
                         <p>See how often you appear in search results</p>
                     </div>
                 </div>
                 <a href="#" class="show-all">Show all analytics <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <!-- About Section -->
+            <div class="card about-section">
+                <div class="section-header">
+                    <h2>About</h2>
+                    <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                </div>
+                <p class="about-text">Portfolio Narration</p>
+            </div>
+
+            <!-- Activity Section -->
             <div class="card activity-section">
-                <div class="card-header-with-action">
+                <div class="section-header">
                     <h2>Activity</h2>
-                    
-                    <button class="create-post-btn"> Create a post</button>
-                    <i class="fas fa-pencil-alt icon-button" id="editProfileBtn"></i>
+                    <div class="header-actions">
+                        <button class="create-post-btn"><i class="fas fa-pencil-alt"></i> Create a post</button>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
                 </div>
                 <div class="activity-tabs">
                     <button class="active">Posts</button>
                     <button>Comments</button>
                 </div>
-                <div class="activity-post">
-                    <div class="post-header">
-                        <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="David Agbor" class="post-avatar">
-                        <div class="post-meta">
-                            <h4>David Agbor <span class="dot">·</span> <span class="follow-status">2nd</span></h4>
-                            <p class="post-time">1w</p>
-                        </div>
-                    </div>
-                    <p class="post-text">I'm happy to share that I've earned my certificate in African Leadership Experience! 👏</p>
-                    <div class="post-image">
-                        <img src="https://i.ibb.co/5c1s834/African-Leadership-Experience-cert.jpg" alt="Certificate">
-                    </div>
-                    <div class="post-footer">
-                        <span class="likes"><i class="fas fa-thumbs-up"></i> 7</span>
-                        <span class="comments"><i class="fas fa-comment"></i> 2 comments</span>
-                    </div>
-                </div>
+                <p class="activity-text">Owner's post and shares</p>
+                <a href="#" class="show-all">Show all posts <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <!-- Work Experience Section -->
             <div class="card experience-section">
-                <div class="card-header-with-action">
-                    <h2>Experience</h2>
-                    <div class="actions">
+                <div class="section-header">
+                    <h2>Work Experience / Professional Background</h2>
+                    <div class="header-actions">
                         <i class="fas fa-plus icon-button"></i>
-                        <i class="fas fa-pencil-alt icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
                     </div>
                 </div>
                 <div class="experience-item">
-                    <img src="https://via.placeholder.com/48x48/0077B5/FFFFFF?text=A" alt="Autovance Integrated Services" class="company-logo">
+                    <img src="images/Company Logo.png" alt="Company Logo" class="company-logo">
                     <div class="experience-details">
                         <h3>Full-stack Developer</h3>
                         <p class="company-name">Autovance Integrated Services · Freelance</p>
                         <p class="duration">Feb 2024 - Present · 1 yr 5 mos</p>
-                        <p class="description"><i class="fas fa-code"></i> Artificial intelligence (AI), Web Development and +7 skills</p>
-                        <div class="aws-badge">
-                            <img src="https://i.ibb.co/L519pS3/aws-educate.jpg" alt="AWS Educate Badge" class="aws-logo">
-                            <p>AWS Educate Emerging Talent Community Member</p>
-                            <p class="badge-description">Received this digital badge recognizing my participation in the AWS Educate Emerging Talent Community, demonstrating my commitment to learning AWS cloud technologies.</p>
-                        </div>
                     </div>
                 </div>
-                <div class="experience-item">
-                    <img src="https://via.placeholder.com/48x48/663399/FFFFFF?text=S" alt="Software Engineer" class="company-logo">
-                    <div class="experience-details">
-                        <h3>Software Engineer</h3>
-                        <p class="company-name">Freelance</p>
-                        <p class="duration">Feb 2021 - Present · 4 yrs 5 mos</p>
-                    </div>
-                </div>
-                <a href="#" class="show-all">Show all posts <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <!-- Education Section -->
             <div class="card education-section">
-                <div class="card-header-with-action">
-                    <h2>Education</h2>
-                    <div class="actions">
+                <div class="section-header">
+                    <h2>Education and Qualifications</h2>
+                    <div class="header-actions">
                         <i class="fas fa-plus icon-button"></i>
-                        <i class="fas fa-pencil-alt icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
                     </div>
                 </div>
                 <div class="education-item">
-                    <img src="https://via.placeholder.com/48x48/000000/FFFFFF?text=ALX" alt="African Leadership Experience" class="school-logo">
+                    <img src="images/corporate_education.png" alt="School Logo" class="school-logo">
                     <div class="education-details">
                         <h3>African Leadership Experience</h3>
                         <p class="degree">Certificate, Artificial intelligence</p>
                         <p class="duration">May 2023 - Jun 2025</p>
-                        <p class="description"><i class="fas fa-brain"></i> Artificial intelligence (AI), Prototyping and +2 skills</p>
-                        <div class="aws-badge">
-                            <img src="https://i.ibb.co/f2P8xGg/alx-certificate.jpg" alt="ALX Certificate" class="aws-logo">
-                            <p>150-sf-for-developers-certificate-david-agbor-png</p>
-                        </div>
                     </div>
                 </div>
-                <div class="education-item">
-                    <img src="https://via.placeholder.com/48x48/000000/FFFFFF?text=A" alt="Ahmadu Bello University" class="school-logo">
-                    <div class="education-details">
-                        <h3>Ahmadu Bello University</h3>
-                        <p class="degree">Master of Science, Resources Engineering</p>
-                        <p class="duration">Feb 2013 - Apr 2022</p>
-                    </div>
-                </div>
-                <a href="#" class="show-all">Show all 5 educations <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="card licenses-section">
-                <div class="card-header-with-action">
-                    <h2>Licenses & certifications</h2>
-                    <div class="actions">
+            <!-- Work Showcase Section -->
+            <div class="card showcase-section">
+                <div class="section-header">
+                    <h2>Work Showcase / Portfolio Pieces</h2>
+                    <div class="header-actions">
                         <i class="fas fa-plus icon-button"></i>
-                        <i class="fas fa-pencil-alt icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="showcase-item">
+                    <img src="https://via.placeholder.com/48x48/663399/FFFFFF?text=WS" alt="Project Image" class="showcase-image">
+                    <div class="showcase-details">
+                        <h3>Project Title</h3>
+                        <p class="client">Client/Organization/Personal</p>
+                        <p class="date">Date Completed</p>
+                        <p class="tools">Tools/Technologies Used</p>
+                        <p class="objective">Objective / Brief</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Licenses & Certifications Section -->
+            <div class="card licenses-section">
+                <div class="section-header">
+                    <h2>Licenses & Certifications (Optional)</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
                     </div>
                 </div>
                 <div class="license-item">
-                    <img src="https://i.ibb.co/L519pS3/aws-educate.jpg" alt="AWS Educate" class="license-logo">
+                    <img src="images/Company Logo.png" alt="License Logo" class="license-logo">
                     <div class="license-details">
                         <h3>AWS Educate Introduction to Cloud 101</h3>
                         <p class="issuer">Amazon Web Services (AWS)</p>
                         <p class="issued-date">Issued Jan 2021</p>
+                        <p class="credential-id">Credential ID: XYZ12345</p>
                         <button class="show-credential-btn">Show credential</button>
                     </div>
                 </div>
                 <div class="license-item">
-                    <img src="https://via.placeholder.com/48x48/800080/FFFFFF?text=P" alt="Python Kaggle" class="license-logo">
+                    <img src="images/Company Logo.png" alt="License Logo" class="license-logo">
                     <div class="license-details">
-                        <h3>Python</h3>
+                        <h3>Python Certification</h3>
                         <p class="issuer">Kaggle</p>
                         <p class="issued-date">Issued Oct 2022</p>
+                        <p class="credential-id">Credential ID: PYTH456</p>
                         <button class="show-credential-btn">Show credential</button>
                     </div>
                 </div>
-                <a href="#" class="show-all">Show all 6 licenses & certifications <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="show-all">Show all licenses & certifications <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="card skills-section">
-                <div class="card-header-with-action">
-                    <h2>Skills</h2>
-                    <div class="actions">
+            <!-- Awards Section -->
+            <div class="card awards-section">
+                <div class="section-header">
+                    <h2>Awards and Recognitions (Optional)</h2>
+                    <div class="header-actions">
                         <i class="fas fa-plus icon-button"></i>
-                        <i class="fas fa-pencil-alt icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <h3>Amazon Web Services (AWS)</h3>
-                    <p class="skill-description">Full-stack Developer at Autovance Integrated Services</p>
+                <div class="award-item">
+                    <img src="images/Company Logo.png" alt="Award Logo" class="award-logo">
+                    <div class="award-details">
+                        <h3>Best Developer Award</h3>
+                        <p class="awarding-body">Tech Innovation Forum</p>
+                        <p class="year">2023</p>
+                        <p class="context">Recognized for outstanding contributions to open-source projects</p>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <h3>NoSQL</h3>
-                    <p class="skill-description">African Leadership Experience</p>
-                </div>
-                <a href="#" class="show-all">Show all 37 skills <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <!-- Professional Affiliations Section -->
+            <div class="card affiliations-section">
+                <div class="section-header">
+                    <h2>Professional Affiliations (Optional)</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="affiliation-item">
+                    <img src="images/Company Logo.png" alt="Organization Logo" class="affiliation-logo">
+                    <div class="affiliation-details">
+                        <h3>Memberships in industry bodies or associations</h3>
+                        <p class="roles">Roles held (if any)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volunteer Work Section -->
+            <div class="card volunteer-section">
+                <div class="section-header">
+                    <h2>Volunteer Work / Social Impact (Optional)</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="volunteer-item">
+                    <img src="images/Company Logo.png" alt="Organization Logo" class="volunteer-logo">
+                    <div class="volunteer-details">
+                        <h3>Tech Education Initiative</h3>
+                        <p class="role">Mentor</p>
+                        <p class="duration">Jan 2022 - Present</p>
+                        <p class="contribution">Teaching coding to underprivileged youth</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages Section -->
+            <div class="card languages-section">
+                <div class="section-header">
+                    <h2>Languages (Optional)</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="languages-list">
+                    <p>English (Fluent), Spanish (Intermediate)</p>
+                </div>
+            </div>
+
+            <!-- Interests Section -->
             <div class="card interests-section">
-                <h2>Interests</h2>
+                <div class="section-header">
+                    <h2>Personal Interest / Hobbies (Optional)</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="interests-list">
+                    <p>Passionate about photography and sustainable living</p>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="card skills-section">
+                <div class="section-header">
+                    <h2>Skills and Tools</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="skills-list">
+                    <p>Amazon Web Services (AWS), NoSQL, Python, JavaScript</p>
+                </div>
+                <a href="#" class="show-all">Show all skills <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="card testimonials-section">
+                <div class="section-header">
+                    <h2>Testimonials / References (Optional but powerful)</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <img src="images/Company Logo.png" alt="Person" class="testimonial-avatar">
+                    <div class="testimonial-details">
+                        <p class="quote">"David is an exceptional developer with great attention to detail."</p>
+                        <p class="author">John Doe, CEO at Tech Solutions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publications Section -->
+            <div class="card publications-section">
+                <div class="section-header">
+                    <h2>Publications</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="publication-item">
+                    <img src="images/Company Logo.png" alt="Publication" class="publication-image">
+                    <div class="publication-details">
+                        <h3>The Future of AI in Web Development</h3>
+                        <p class="author">David Agbor</p>
+                        <p class="status">Published</p>
+                        <p class="date">June 2023</p>
+                        <p class="description">Exploring AI integration in modern web applications</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extracurricular Activities Section -->
+            <div class="card extracurricular-section">
+                <div class="section-header">
+                    <h2>Extracurricular Activities</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <img src="images/Company Logo.png" alt="Activity" class="activity-image">
+                    <div class="activity-details">
+                        <h3>Tech Community Organizer</h3>
+                        <p class="responsibility">Lead Organizer</p>
+                        <p class="description">Organizing monthly tech meetups and hackathons</p>
+                        <p class="date">Since 2021</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact & Links Section -->
+            <div class="card contact-section">
+                <div class="section-header">
+                    <h2>Contact & Links</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <img src="images/Company Logo.png" alt="Contact" class="contact-image">
+                    <div class="contact-details">
+                        <p class="name">David Agbor</p>
+                        <p class="email">david@example.com</p>
+                        <p class="phone">+234 123 456 7890</p>
+                        <p class="profile-link">www.archivehubs.com/in/david-agbor</p>
+                        <p class="other-links">Other links and more</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appendix Section -->
+            <div class="card appendix-section">
+                <div class="section-header">
+                    <h2>Appendix / Extras (Optional)</h2>
+                    <div class="header-actions">
+                        <i class="fas fa-plus icon-button"></i>
+                        <i class="fas fa-pencil-alt icon-button edit-btn"></i>
+                    </div>
+                </div>
+                <div class="appendix-item">
+                    <img src="images/Company Logo.png" alt="Appendix" class="appendix-image">
+                    <div class="appendix-details">
+                        <p class="item">Resume</p>
+                        <p class="item">Project timelines</p>
+                        <p class="item">Detailed case studies</p>
+                        <p class="item">Press features or publications</p>
+                    </div>
+                </div>
+                <a href="#" class="show-all">Show all appendices <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Interests Section -->
+            <div class="card interests-section">
+                <div class="section-header">
+                    <h2>Interests</h2>
+                </div>
                 <div class="interest-tabs">
-                    <button class="active">Top Voices</button>
+                    <button class="active">Top voices</button>
                     <button>Companies</button>
+                    <button>Group</button>
                     <button>Newsletters</button>
                     <button>Schools</button>
                 </div>
-                <div class="interest-item">
-                    <img src="https://via.placeholder.com/48x48/0077B5/FFFFFF?text=DM" alt="David J. Malan" class="interest-avatar">
-                    <div class="interest-details">
-                        <h3>David J. Malan <span class="dot">·</span> <span class="follow-status">2nd</span></h3>
-                        <p class="interest-title">Faculty, CS50</p>
-                        <p class="followers">58,511 followers</p>
+                <div class="interest-items">
+                    <div class="interest-item">
+                        <img src="images/Company Logo.png" alt="Top Voice" class="interest-avatar">
+                        <div class="interest-details">
+                            <h3>David J. Malan</h3>
+                            <p class="description">Professor of Computer Science at Harvard</p>
+                            <p class="followers">1.2M followers</p>
+                            <button class="following-btn"><i class="fas fa-check"></i> Following</button>
+                        </div>
                     </div>
-                    <button class="following-btn"><i class="fas fa-check"></i> Following</button>
+                    <div class="interest-item">
+                        <img src="images/Company Logo.png" alt="Top Voice" class="interest-avatar">
+                        <div class="interest-details">
+                            <h3>Satya Nadella</h3>
+                            <p class="description">CEO at Microsoft</p>
+                            <p class="followers">5.7M followers</p>
+                            <button class="following-btn"><i class="fas fa-check"></i> Following</button>
+                        </div>
+                    </div>
                 </div>
+                <a href="#" class="show-all">Show all Top Voices <i class="fas fa-arrow-right"></i></a>
             </div>
-
-            <div class="footer-links">
-                <div class="footer-column">
-                    <a href="#">About</a>
-                    <a href="#">Accessibility</a>
-                    <a href="#">Talent Solutions</a>
-                    <a href="#">Career Resources</a>
-                </div>
-                <div class="footer-column">
-                    <a href="#">Community Guidelines</a>
-                    <a href="#">Privacy & Terms <i class="fas fa-caret-down"></i></a>
-                    <a href="#">Sales Solutions</a>
-                    <a href="#">Safety Center</a>
-                </div>
-                <div class="footer-column">
-                    <a href="#">Advertise</a>
-                    <a href="#">Marketing Solutions</a>
-                    <a href="#">Small Business</a>
-                </div>
-                <div class="footer-column-right">
-                    <div class="footer-help">
-                        <i class="fas fa-question-circle"></i>
-                        <div>
-                            <h4>Questions?</h4>
-                            <p>Visit our Help Center.</p>
-                        </div>
-                    </div>
-                    <div class="footer-help">
-                        <i class="fas fa-cog"></i>
-                        <div>
-                            <h4>Manage your account and privacy</h4>
-                            <p>Go to your settings.</p>
-                        </div>
-                    </div>
-                    <div class="footer-help">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <h4>Recommendation transparency</h4>
-                            <p>Learn more about Recommended Content</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-column-select">
-                    <label for="language-select">Select language</label>
-                    <select id="language-select">
-                        <option value="english">English (English)</option>
-                        <option value="spanish">Spanish</option>
-                    </select>
-                </div>
-            </div>
-            <p class="copyright">LinkedIn Corporation © 2025</p>
-
         </div>
 
-        <div class="right-sidebar">
+        <!-- Right Sidebar -->
+         <div class="right-sidebar">
             <div class="card sidebar-card profile-language">
                 <h2>Profile language</h2>
                 <p>English</p>
@@ -1447,100 +1819,89 @@
             </div>
         </div>
     </div>
-<!-- Only add these new modal elements at the bottom -->
-    <div class="open-to-dropdown" id="openToDropdown">
-        <div class="dropdown-item">
-            <h4>Hiring</h4>
-            <p>Add #Hiring to your profile to attract 2x more applicants</p>
-        </div>
-        <div class="dropdown-item">
-            <h4>Finding a new job</h4>
-            <p>Show recruiters and others that you're open to work</p>
-        </div>
-        <div class="dropdown-item">
-            <h4>Providing services</h4>
-            <p>Showcase services you offer so new clients can discover you</p>
-        </div>
-        <div class="dropdown-item">
-            <h4>Finding volunteer opportunities</h4>
-            <p>Show that you are open to skill-based volunteering</p>
-        </div>
-    </div>
 
-    <div id="premiumModal" class="premium-modal">
-        <div class="premium-modal-content">
-            <span class="close-premium-modal">&times;</span>
-            <h2>Enhance your profile with Premium</h2>
-            <p>Feature profile sections higher, add a custom button, get AI writing assistance and much more.</p>
-            
-            <div style="display:flex; align-items:center; gap:10px; margin:20px 0;">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Olusegun" style="width:40px;height:40px;border-radius:50%;">
-                <p>Olusegun and millions of other members use Premium</p>
-            </div>
-            
-            <button style="background-color:#f7a31b; color:#fff; border:1px solid #f7a31b; border-radius:20px; padding:8px 16px; font-size:16px;">Try Premium for NGN0</button>
-            <p style="font-size:14px; color:#666; margin:15px 0;">1-month free with 24/7 support. Cancel anytime. We'll remind you 7 days before your trial ends.</p>
-            
-            <form>
-                <p><span style="color:#d11124;">*</span> Indicates required</p>
-                
-                <div style="margin-bottom:20px;">
-                    <label style="display:block; font-weight:600; margin-bottom:5px; font-size:14px;">First name</label>
-                    <input type="text" value="David" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; font-size:14px;">
-                </div>
-                
-                <!-- [Rest of form fields with similar inline styles] -->
-                
-                <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
-                    <button type="button" style="background-color:transparent; color:#666; border:1px solid #666; border-radius:20px; padding:8px 16px; font-size:14px;">Cancel</button>
-                    <button type="submit" style="background-color:#0a66c2; color:#fff; border:1px solid #0a66c2; border-radius:20px; padding:8px 16px; font-size:14px;">Save</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <!-- Modals will be inserted here by JavaScript -->
+    <script src="script.js"></script>
 
     <script>
-        // Only add these new JavaScript functions
         document.addEventListener('DOMContentLoaded', function() {
-            // Open To Dropdown functionality
-            const openToBtn = document.querySelector('.open-to-btn');
-            const openToDropdown = document.getElementById('openToDropdown');
-            
-            if (openToBtn) {
-                openToBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    openToDropdown.classList.toggle('show');
-                });
-            }
-            
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function() {
-                openToDropdown.classList.remove('show');
-            });
-            
-            // Premium Modal functionality
-            const editProfileBtn = document.querySelector('.profile-actions-right .fa-pencil-alt');
-            const premiumModal = document.getElementById('premiumModal');
-            const closeModal = document.querySelector('.close-premium-modal');
-            
-            if (editProfileBtn) {
-                editProfileBtn.addEventListener('click', function() {
-                    premiumModal.style.display = 'block';
-                });
-            }
-            
-            if (closeModal) {
-                closeModal.addEventListener('click', function() {
-                    premiumModal.style.display = 'none';
-                });
-            }
-            
-            window.addEventListener('click', function(e) {
-                if (e.target === premiumModal) {
-                    premiumModal.style.display = 'none';
-                }
-            });
+    // Open To Dropdown functionality
+    const openToBtn = document.getElementById('openToBtn');
+    const openToMainBtn = document.getElementById('openToMainBtn');
+    const openToDropdown = document.getElementById('openToDropdown');
+    
+    function toggleOpenToDropdown() {
+        openToDropdown.classList.toggle('show');
+    }
+    
+    if (openToBtn) {
+        openToBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleOpenToDropdown();
         });
+    }
+    
+    if (openToMainBtn) {
+        openToMainBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleOpenToDropdown();
+        });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!openToDropdown.contains(e.target)) {
+            openToDropdown.classList.remove('show');
+        }
+    });
+    
+    // Edit buttons functionality
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // In a real implementation, this would open a modal with the form
+            // to edit the corresponding section
+            alert('Edit functionality would open a modal for this section');
+        });
+    });
+    
+    // Add buttons functionality
+    const addButtons = document.querySelectorAll('.fa-plus');
+    addButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // In a real implementation, this would open a form to add a new item
+            alert('Add functionality would open a form for this section');
+        });
+    });
+    
+    // Show credential buttons
+    const showCredentialButtons = document.querySelectorAll('.show-credential-btn');
+    showCredentialButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // In a real implementation, this would show the credential
+            alert('Credential would be displayed');
+        });
+    });
+    
+    // Following buttons
+    const followingButtons = document.querySelectorAll('.following-btn');
+    followingButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Toggle following state
+            if (button.textContent.includes('Following')) {
+                button.innerHTML = '<i class="fas fa-plus"></i> Follow';
+                button.style.backgroundColor = 'transparent';
+                button.style.color = '#666';
+                button.style.borderColor = '#666';
+            } else {
+                button.innerHTML = '<i class="fas fa-check"></i> Following';
+                button.style.backgroundColor = 'transparent';
+                button.style.color = '#666';
+                button.style.borderColor = '#666';
+            }
+        });
+    });
+});
     </script>
 </body>
 </html>
