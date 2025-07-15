@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Agbor | LinkedIn Profile</title>
+    <title>Individual Portfolio | archivehubs Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
 
@@ -24,7 +24,7 @@ body {
 
 
         a {
-            color: #0073b1; /* LinkedIn blue for links */
+            color: #0073b1; /* archivehubs blue for links */
             text-decoration: none;
         }
 
@@ -1279,6 +1279,190 @@ body {
     font-size: 14px;
 }
 
+/* Modal Styles */
+#modalContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100%;
+    padding: 40px 20px;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.modal-header-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin-top: 15px;
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Form Styles */
+.modal-form {
+    padding: 0 20px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.file-upload {
+    margin-top: 10px;
+}
+
+.attach-btn {
+    background-color: #f3f2ef;
+    border: 1px dashed #666;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.attach-btn i {
+    margin-right: 5px;
+}
+
+.add-more-btn {
+    background-color: #f3f2ef;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.add-more-btn i {
+    margin-right: 5px;
+}
+
+.cancel-btn {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #666;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.save-btn {
+    background-color: #0a66c2;
+    color: #fff;
+    border: 1px solid #0a66c2;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Responsive Modals */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .profile-container {
@@ -1305,16 +1489,10 @@ body {
                     <img src="images/coverphoto.jpg" alt="Profile Banner">
                 </div>
                 <div class="profile-info-top">
-                    <img src="images/profile.jpg" alt="David Agbor" class="profile-picture">
-                    <!-- <div class="profile-actions-right">
-                        <button class="resources-btn">Resources <i class="fas fa-arrow-right"></i></button>
-                        <button class="add-profile-section-btn">Add profile section</button>
-                        <button class="open-to-btn" id="openToBtn">Open to</button>
-                        <i class="fas fa-pencil-alt icon-button" id="editProfileBtn"></i>
-                    </div> -->
+                    <img src="images/profile.jpg" alt="David James" class="profile-picture">                    
                 </div>
                 <div class="profile-details">
-                    <h1>David Agbor</h1>
+                    <h1>David James</h1>
                     <p class="title">Software Engineer</p>
                     <p class="location-connections">Lagos, State · <a href="#">Contact info</a></p>
                     <p class="connections">300+ connections</p>
@@ -1455,7 +1633,7 @@ body {
                     </div>
                 </div>
                 <div class="showcase-item">
-                    <img src="https://via.placeholder.com/48x48/663399/FFFFFF?text=WS" alt="Project Image" class="showcase-image">
+                    <img src="images/Company Logo.png" alt="Project Image" class="showcase-image">
                     <div class="showcase-details">
                         <h3>Project Title</h3>
                         <p class="client">Client/Organization/Personal</p>
@@ -1630,7 +1808,7 @@ body {
                     <img src="images/Company Logo.png" alt="Publication" class="publication-image">
                     <div class="publication-details">
                         <h3>The Future of AI in Web Development</h3>
-                        <p class="author">David Agbor</p>
+                        <p class="author">David James</p>
                         <p class="status">Published</p>
                         <p class="date">June 2023</p>
                         <p class="description">Exploring AI integration in modern web applications</p>
@@ -1670,7 +1848,7 @@ body {
                 <div class="contact-info">
                     <img src="images/Company Logo.png" alt="Contact" class="contact-image">
                     <div class="contact-details">
-                        <p class="name">David Agbor</p>
+                        <p class="name">David James</p>
                         <p class="email">david@example.com</p>
                         <p class="phone">+234 123 456 7890</p>
                         <p class="profile-link">www.archivehubs.com/in/david-agbor</p>
@@ -1734,6 +1912,9 @@ body {
                 </div>
                 <a href="#" class="show-all">Show all Top Voices <i class="fas fa-arrow-right"></i></a>
             </div>
+
+            <p class="copyright">Get the Archivehubs App General Terms
+ARCHIVEHUBS: ENINK Investment Limited © 2025</p>
         </div>
 
         <!-- Right Sidebar -->
@@ -1750,9 +1931,9 @@ body {
             </div>
 
             <div class="card sidebar-card target-audiences">
-                <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="Profile" class="ad-profile-pic">
-                <i class="fas fa-star premium-star"></i>
-                <h3>Target high-quality audiences with LinkedIn Ads</h3>
+                <!-- <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="Profile" class="ad-profile-pic"> -->
+                <!-- <i class="fas fa-star premium-star"></i> -->
+                <h3>Target high-quality audiences with archivehubs Ads</h3>
                 <button class="get-started-btn">Get started</button>
             </div>
 
@@ -1806,15 +1987,15 @@ body {
             </div>
 
             <div class="card sidebar-card hiring-ad">
-                <h3>See who's hiring on LinkedIn</h3>
-                <img src="https://i.ibb.co/3k5fH44/linkedin-ad.jpg" alt="Hiring Ad" class="ad-image">
+                <h3>See who's hiring on archivehubs</h3>
+                <img src="https://i.ibb.co/3k5fH44/archivehubs-ad.jpg" alt="Hiring Ad" class="ad-image">
             </div>
 
             <div class="card sidebar-card unlock-list">
                 <h2>Unlock the full list</h2>
                 <p>See who else is often viewed alongside you.</p>
-                <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="Profile" class="ad-profile-pic">
-                <i class="fas fa-gem premium-gem"></i>
+                <!-- <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="Profile" class="ad-profile-pic"> -->
+                <!-- <i class="fas fa-gem premium-gem"></i> -->
                 <button class="premium-button">Try Premium for NGN0</button>
             </div>
         </div>
@@ -1822,86 +2003,9 @@ body {
 
     <!-- Modals will be inserted here by JavaScript -->
     <script src="script.js"></script>
+    <script src="js/inport.js"></script>
+    
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    // Open To Dropdown functionality
-    const openToBtn = document.getElementById('openToBtn');
-    const openToMainBtn = document.getElementById('openToMainBtn');
-    const openToDropdown = document.getElementById('openToDropdown');
-    
-    function toggleOpenToDropdown() {
-        openToDropdown.classList.toggle('show');
-    }
-    
-    if (openToBtn) {
-        openToBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleOpenToDropdown();
-        });
-    }
-    
-    if (openToMainBtn) {
-        openToMainBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleOpenToDropdown();
-        });
-    }
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!openToDropdown.contains(e.target)) {
-            openToDropdown.classList.remove('show');
-        }
-    });
-    
-    // Edit buttons functionality
-    const editButtons = document.querySelectorAll('.edit-btn');
-    editButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // In a real implementation, this would open a modal with the form
-            // to edit the corresponding section
-            alert('Edit functionality would open a modal for this section');
-        });
-    });
-    
-    // Add buttons functionality
-    const addButtons = document.querySelectorAll('.fa-plus');
-    addButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // In a real implementation, this would open a form to add a new item
-            alert('Add functionality would open a form for this section');
-        });
-    });
-    
-    // Show credential buttons
-    const showCredentialButtons = document.querySelectorAll('.show-credential-btn');
-    showCredentialButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // In a real implementation, this would show the credential
-            alert('Credential would be displayed');
-        });
-    });
-    
-    // Following buttons
-    const followingButtons = document.querySelectorAll('.following-btn');
-    followingButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Toggle following state
-            if (button.textContent.includes('Following')) {
-                button.innerHTML = '<i class="fas fa-plus"></i> Follow';
-                button.style.backgroundColor = 'transparent';
-                button.style.color = '#666';
-                button.style.borderColor = '#666';
-            } else {
-                button.innerHTML = '<i class="fas fa-check"></i> Following';
-                button.style.backgroundColor = 'transparent';
-                button.style.color = '#666';
-                button.style.borderColor = '#666';
-            }
-        });
-    });
-});
-    </script>
+   
 </body>
 </html>
