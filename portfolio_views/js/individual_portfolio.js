@@ -756,4 +756,55 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         createModal('Edit Appendix', modalContent);
     });
+
+    // References & Links Modal
+document.querySelector('.references-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <div class="form-section">
+                <h3>References (Optional)</h3>
+                <p class="form-note">Include contact details with permission</p>
+                <div class="form-group">
+                    <label>Referee Name</label>
+                    <input type="text" placeholder="Enter referee name">
+                </div>
+                <div class="form-group">
+                    <label>Referee Designation</label>
+                    <input type="text" placeholder="Enter referee designation">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea placeholder="Enter reference description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referee Organization</label>
+                    <input type="text" placeholder="Enter organization">
+                </div>
+                <div class="form-group">
+                    <label>Reference Date</label>
+                    <input type="date">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="Enter phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Upload File</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Reference</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit References & Links', modalContent);
+});
+
 });
