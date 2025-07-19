@@ -74,9 +74,18 @@ document.addEventListener('DOMContentLoaded', function() {
         closeModal();
     }
 
+    // Helper to attach modal event to all edit-btns in a section
+    function addEditButtonListeners(sectionSelector, modalContentFn, modalTitle) {
+        document.querySelectorAll(sectionSelector + ' .edit-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                createModal(modalTitle, modalContentFn());
+            });
+        });
+    }
+
     // About Section Modal
-    document.querySelector('.about-section .edit-btn').addEventListener('click', function() {
-        const modalContent = `
+    addEditButtonListeners('.about-section', function() {
+        return `
             <form class="modal-form">
                 <div class="form-section">
                     <h3>Personal Information</h3>
@@ -148,8 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </form>
         `;
-        createModal('Edit About Section', modalContent);
-    });
+    }, 'Edit About Section');
 
  
  
@@ -158,8 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Contact & Links Modal
-    document.querySelector('.contact-section .edit-btn').addEventListener('click', function() {
-        const modalContent = `
+    addEditButtonListeners('.contact-section', function() {
+        return `
             <form class="modal-form">
                 <div class="form-section">
                     <h3>Personal Data</h3>
@@ -268,12 +276,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </form>
         `;
-        createModal('Edit Contact & Links', modalContent);
-    });
+    }, 'Edit Contact & Links');
 
     // Appendix Modal
-    document.querySelector('.appendix-section .edit-btn').addEventListener('click', function() {
-        const modalContent = `
+    addEditButtonListeners('.appendix-section', function() {
+        return `
             <form class="modal-form">
                 <div class="form-section">
                     <div class="form-group">
@@ -310,65 +317,63 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </form>
         `;
-        createModal('Edit Appendix', modalContent);
-    });
+    }, 'Edit Appendix');
 
     // References & Links Modal
-document.querySelector('.references-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
-        <form class="modal-form">
-            <div class="form-section">
-                <h3>References (Optional)</h3>
-                <p class="form-note">Include contact details with permission</p>
-                <div class="form-group">
-                    <label>Referee Name</label>
-                    <input type="text" placeholder="Enter referee name">
-                </div>
-                <div class="form-group">
-                    <label>Referee Designation</label>
-                    <input type="text" placeholder="Enter referee designation">
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea placeholder="Enter reference description"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Referee Organization</label>
-                    <input type="text" placeholder="Enter organization">
-                </div>
-                <div class="form-group">
-                    <label>Reference Date</label>
-                    <input type="date">
-                </div>
-                <div class="form-row">
+    addEditButtonListeners('.references-section', function() {
+        return `
+            <form class="modal-form">
+                <div class="form-section">
+                    <h3>References (Optional)</h3>
+                    <p class="form-note">Include contact details with permission</p>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="Enter email">
+                        <label>Referee Name</label>
+                        <input type="text" placeholder="Enter referee name">
                     </div>
                     <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" placeholder="Enter phone">
+                        <label>Referee Designation</label>
+                        <input type="text" placeholder="Enter referee designation">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label>Upload File</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea placeholder="Enter reference description"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label>Referee Organization</label>
+                        <input type="text" placeholder="Enter organization">
+                    </div>
+                    <div class="form-group">
+                        <label>Reference Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" placeholder="Enter phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload File</label>
+                        <div class="file-upload">
+                            <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Reference</button>
                 </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Reference</button>
-            </div>
-        </form>
-    `;
-    createModal('Edit References & Links', modalContent);
-});
+            </form>
+        `;
+    }, 'Edit References & Links');
 
 });
 
 
 // Corporate Overview Modal
-document.querySelector('.corporate-overview-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.corporate-overview-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CO" alt="Corporate" class="modal-header-image">
             <div class="form-section">
@@ -406,12 +411,11 @@ document.querySelector('.corporate-overview-section .edit-btn').addEventListener
             </div>
         </form>
     `;
-    createModal('Edit Corporate Overview', modalContent);
-});
+}, 'Edit Corporate Overview');
 
 // Vision, Mission, and Core Values Modal
-document.querySelector('.vision-mission-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.vision-mission-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=VM" alt="Vision" class="modal-header-image">
             <div class="form-section">
@@ -428,12 +432,11 @@ document.querySelector('.vision-mission-section .edit-btn').addEventListener('cl
             </div>
         </form>
     `;
-    createModal('Edit Vision, Mission, and Core Values', modalContent);
-});
+}, 'Edit Vision, Mission, and Core Values');
 
 // Products and Services Modal
-document.querySelector('.products-services-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.products-services-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=PS" alt="Products" class="modal-header-image">
             <div class="form-section">
@@ -454,12 +457,11 @@ document.querySelector('.products-services-section .edit-btn').addEventListener(
             </div>
         </form>
     `;
-    createModal('Edit Products and Services', modalContent);
-});
+}, 'Edit Products and Services');
 
 // Organizational Structure Modal
-document.querySelector('.org-structure-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.org-structure-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=OS" alt="Structure" class="modal-header-image">
             <div class="form-section">
@@ -481,12 +483,11 @@ document.querySelector('.org-structure-section .edit-btn').addEventListener('cli
             </div>
         </form>
     `;
-    createModal('Edit Organizational Structure', modalContent);
-});
+}, 'Edit Organizational Structure');
 
 // Market and Client Base Modal
-document.querySelector('.market-client-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.market-client-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=MC" alt="Market" class="modal-header-image">
             <div class="form-section">
@@ -503,12 +504,11 @@ document.querySelector('.market-client-section .edit-btn').addEventListener('cli
             </div>
         </form>
     `;
-    createModal('Edit Market and Client Base', modalContent);
-});
+}, 'Edit Market and Client Base');
 
 // Achievements and Milestones Modal
-document.querySelector('.achievements-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.achievements-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=AM" alt="Achievements" class="modal-header-image">
             <div class="form-section">
@@ -539,12 +539,11 @@ document.querySelector('.achievements-section .edit-btn').addEventListener('clic
             </div>
         </form>
     `;
-    createModal('Edit Achievements and Milestones', modalContent);
-});
+}, 'Edit Achievements and Milestones');
 
 // Corporate Social Responsibility Modal
-document.querySelector('.csr-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.csr-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CS" alt="CSR" class="modal-header-image">
             <div class="form-section">
@@ -564,12 +563,11 @@ document.querySelector('.csr-section .edit-btn').addEventListener('click', funct
             </div>
         </form>
     `;
-    createModal('Edit Corporate Social Responsibility', modalContent);
-});
+}, 'Edit Corporate Social Responsibility');
 
 // Contact & Links Modal
-document.querySelector('.contact-links-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.contact-links-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CL" alt="Contact" class="modal-header-image">
             <div class="form-section">
@@ -616,12 +614,11 @@ document.querySelector('.contact-links-section .edit-btn').addEventListener('cli
             </div>
         </form>
     `;
-    createModal('Edit Contact & Links', modalContent);
-});
+}, 'Edit Contact & Links');
 
 // Appendices Modal
-document.querySelector('.appendices-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.appendices-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=AP" alt="Appendices" class="modal-header-image">
             <div class="form-section">
@@ -659,12 +656,11 @@ document.querySelector('.appendices-section .edit-btn').addEventListener('click'
             </div>
         </form>
     `;
-    createModal('Edit Appendices', modalContent);
-});
+}, 'Edit Appendices');
 
 // Organizational Overview Modal (Second Set)
-document.querySelector('.org-overview-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.org-overview-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=OO" alt="Org Overview" class="modal-header-image">
             <div class="form-section">
@@ -689,12 +685,11 @@ document.querySelector('.org-overview-section .edit-btn').addEventListener('clic
             </div>
         </form>
     `;
-    createModal('Edit Organizational Overview', modalContent);
-});
+}, 'Edit Organizational Overview');
 
 // Vision, Mission, and Core Values Modal (Second Set)
-document.querySelector('.vision-mission-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.vision-mission-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=VM" alt="Vision" class="modal-header-image">
             <div class="form-section">
@@ -711,12 +706,11 @@ document.querySelector('.vision-mission-section .edit-btn').addEventListener('cl
             </div>
         </form>
     `;
-    createModal('Edit Vision, Mission, and Core Values', modalContent);
-});
+}, 'Edit Vision, Mission, and Core Values');
 
 // Organizational Structure Modal (Second Set)
-document.querySelector('.org-structure-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.org-structure-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=OS" alt="Structure" class="modal-header-image">
             <div class="form-section">
@@ -742,12 +736,11 @@ document.querySelector('.org-structure-section .edit-btn').addEventListener('cli
             </div>
         </form>
     `;
-    createModal('Edit Organizational Structure', modalContent);
-});
+}, 'Edit Organizational Structure');
 
 // Functions and Mandates Modal
-document.querySelector('.functions-mandates-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.functions-mandates-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=FM" alt="Functions" class="modal-header-image">
             <div class="form-section">
@@ -762,12 +755,11 @@ document.querySelector('.functions-mandates-section .edit-btn').addEventListener
             </div>
         </form>
     `;
-    createModal('Edit Functions and Mandates', modalContent);
-});
+}, 'Edit Functions and Mandates');
 
 // Key Programs and Services Modal
-document.querySelector('.key-programs-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.key-programs-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=KP" alt="Programs" class="modal-header-image">
             <div class="form-section">
@@ -784,12 +776,11 @@ document.querySelector('.key-programs-section .edit-btn').addEventListener('clic
             </div>
         </form>
     `;
-    createModal('Edit Key Programs and Services', modalContent);
-});
+}, 'Edit Key Programs and Services');
 
 // Strategic Goals and Objectives Modal
-document.querySelector('.strategic-goals-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.strategic-goals-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=SG" alt="Goals" class="modal-header-image">
             <div class="form-section">
@@ -814,12 +805,11 @@ document.querySelector('.strategic-goals-section .edit-btn').addEventListener('c
             </div>
         </form>
     `;
-    createModal('Edit Strategic Goals and Objectives', modalContent);
-});
+}, 'Edit Strategic Goals and Objectives');
 
 // Major Achievements Modal (Second Set)
-document.querySelector('.major-achievements-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.major-achievements-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=MA" alt="Achievements" class="modal-header-image">
             <div class="form-section">
@@ -850,12 +840,11 @@ document.querySelector('.major-achievements-section .edit-btn').addEventListener
             </div>
         </form>
     `;
-    createModal('Edit Major Achievements', modalContent);
-});
+}, 'Edit Major Achievements');
 
 // Budget and Funding Sources Modal
-document.querySelector('.budget-funding-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.budget-funding-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=BF" alt="Budget" class="modal-header-image">
             <div class="form-section">
@@ -877,12 +866,11 @@ document.querySelector('.budget-funding-section .edit-btn').addEventListener('cl
             </div>
         </form>
     `;
-    createModal('Edit Budget and Funding Sources', modalContent);
-});
+}, 'Edit Budget and Funding Sources');
 
 // Partnerships and Stakeholders Modal
-document.querySelector('.partnerships-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.partnerships-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=PS" alt="Partnerships" class="modal-header-image">
             <div class="form-section">
@@ -905,12 +893,11 @@ document.querySelector('.partnerships-section .edit-btn').addEventListener('clic
             </div>
         </form>
     `;
-    createModal('Edit Partnerships and Stakeholders', modalContent);
-});
+}, 'Edit Partnerships and Stakeholders');
 
 // Policy and Regulatory Framework Modal
-document.querySelector('.policy-framework-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.policy-framework-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=PR" alt="Policy" class="modal-header-image">
             <div class="form-section">
@@ -932,12 +919,11 @@ document.querySelector('.policy-framework-section .edit-btn').addEventListener('
             </div>
         </form>
     `;
-    createModal('Edit Policy and Regulatory Framework', modalContent);
-});
+}, 'Edit Policy and Regulatory Framework');
 
 // Monitoring, Evaluation, and Reporting Modal
-document.querySelector('.monitoring-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.monitoring-section', function() {
+    return `
         <form class="modal-form">
             <div class="form-section">
                 <div class="form-group">
@@ -958,12 +944,11 @@ document.querySelector('.monitoring-section .edit-btn').addEventListener('click'
             </div>
         </form>
     `;
-    createModal('Edit Monitoring, Evaluation, and Reporting', modalContent);
-});
+}, 'Edit Monitoring, Evaluation, and Reporting');
 
 // Contact Information Modal
-document.querySelector('.contact-info-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.contact-info-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CI" alt="Contact" class="modal-header-image">
             <div class="form-section">
@@ -980,12 +965,11 @@ document.querySelector('.contact-info-section .edit-btn').addEventListener('clic
             </div>
         </form>
     `;
-    createModal('Edit Contact Information', modalContent);
-});
+}, 'Edit Contact Information');
 
 // Appendices Modal
-document.querySelector('.appendices-section .edit-btn').addEventListener('click', function() {
-    const modalContent = `
+addEditButtonListeners('.appendices-section', function() {
+    return `
         <form class="modal-form">
             <img src="https://via.placeholder.com/100x100/800000/FFFFFF?text=AP" alt="Appendix" class="modal-header-image">
             <div class="form-section">
@@ -1023,5 +1007,4 @@ document.querySelector('.appendices-section .edit-btn').addEventListener('click'
             </div>
         </form>
     `;
-    createModal('Edit Appendices', modalContent);
-});
+}, 'Edit Appendices');
