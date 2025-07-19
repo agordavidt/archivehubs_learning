@@ -626,3 +626,4 @@ document.querySelector('.appendices-section .edit-btn').addEventListener('click'
     `;
     createModal('Edit Appendices', modalContent);
 });
+});

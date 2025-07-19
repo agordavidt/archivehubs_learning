@@ -13,12 +13,13 @@ body {
 }
 
 
-    a {
-        color: #0073b1; /* archivehubs blue for links */
+    a, a:visited, a:active {
+        color: #0073b1 !important;
         text-decoration: none;
     }
 
     a:hover {
+        color: #005983 !important;
         text-decoration: underline;
     }
 
@@ -1586,4 +1587,20 @@ cursor: pointer;
     border-radius: 8px;
     float: right;
     margin: 0 0 15px 15px;
+}
+
+/* Add for organization image flex layout and sizing */
+.flex-org-image {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.org-image-small {
+    width: 48px !important;
+    height: 48px !important;
+    object-fit: contain !important;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: block;
 }

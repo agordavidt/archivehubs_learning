@@ -267,20 +267,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </form>
-
-            <script>
-                // Show/hide marital status details
-                document.querySelector('select[name="maritalStatus"]').addEventListener('change', function() {
-                    const details = document.querySelector('.marital-status-details');
-                    details.style.display = this.value === 'Married' ? 'block' : 'none';
-                });
-
-                // Show/hide next of kin details
-                document.getElementById('nextOfKinSelect').addEventListener('change', function() {
-                    const details = document.querySelector('.next-of-kin-details');
-                    details.style.display = this.value === 'Yes' ? 'block' : 'none';
-                });
-            </script>
         `;
         createModal('Edit Contact & Links', modalContent);
     });
