@@ -1490,3 +1490,100 @@ cursor: pointer;
     grid-template-columns: 1fr;
 }
 }
+
+
+/* Corporate Profile Specific Styles */
+.corporate-item,
+.product-item,
+.org-item,
+.market-item,
+.achievement-item,
+.csr-item,
+.contact-item,
+.appendix-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    align-items: flex-start;
+}
+
+.corporate-logo,
+.product-logo,
+.org-logo,
+.market-logo,
+.achievement-logo,
+.csr-logo,
+.contact-logo,
+.appendix-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.corporate-details p,
+.vision-content p,
+.product-details p,
+.org-details p,
+.market-details p,
+.achievement-details p,
+.csr-details p,
+.contact-details p,
+.appendix-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.vision-content {
+    padding: 15px 0;
+}
+
+.show-chart-btn {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 20px;
+    background-color: #0a66c2;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.market-items,
+.achievement-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.achievement-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.show-credential-btn {
+    background-color: transparent;
+    color: #0a66c2;
+    border: 1px solid #0a66c2;
+    border-radius: 20px;
+    padding: 6px 12px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.optional {
+    font-weight: normal;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Modal Header Images */
+.modal-header-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    float: right;
+    margin: 0 0 15px 15px;
+}

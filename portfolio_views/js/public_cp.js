@@ -1156,3 +1156,787 @@ document.querySelector('.appendices-section .edit-btn').addEventListener('click'
     `;
     createModal('Edit Appendices', modalContent);
 });
+
+
+
+
+// Introduction / Executive Message Modal
+document.querySelector('.introduction-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=EX" alt="Executive" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Message from the head of the organization</label>
+                    <textarea placeholder="Enter executive message"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Brief description of the portfolio's purpose</label>
+                    <textarea placeholder="Enter portfolio purpose"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Strategic relevance or alignment with national goals</label>
+                    <textarea placeholder="Enter strategic alignment"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Executive Photo</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Introduction / Executive Message', modalContent);
+});
+
+// Organizational Overview Modal
+document.querySelector('.org-overview-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=OO" alt="Org Overview" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Full Name and Acronym</label>
+                    <input type="text" placeholder="Enter organization name and acronym">
+                </div>
+                <div class="form-group">
+                    <label>Mandate or Legal Foundation</label>
+                    <textarea placeholder="Enter mandate or legal foundation"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Jurisdiction (national, state, regional, local)</label>
+                    <input type="text" placeholder="Enter jurisdiction">
+                </div>
+                <div class="form-group">
+                    <label>Organizational structure and key divisions (summary)</label>
+                    <textarea placeholder="Enter organizational structure"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Attach Organizational Chart</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Organizational Overview', modalContent);
+});
+
+// Strategic Focus Areas Modal
+document.querySelector('.strategic-focus-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=SF" alt="Strategic Focus" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Core thematic or operational areas</label>
+                    <textarea placeholder="Enter core areas (e.g., Health, Infrastructure, Youth Empowerment, Environment)"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Goals and objectives for each area</label>
+                    <textarea placeholder="Enter goals and objectives"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Goal</button>
+                </div>
+                <div class="form-group">
+                    <label>Linkages to national development plans, SDGs, or policy frameworks</label>
+                    <textarea placeholder="Enter linkages"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Linkage</button>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Strategic Focus Areas', modalContent);
+});
+
+// Portfolio of Programs and Projects Modal
+document.querySelector('.portfolio-projects-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=PP" alt="Projects" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Project Title</label>
+                    <input type="text" placeholder="Enter project title">
+                </div>
+                <div class="form-group">
+                    <label>Implementing Department/Unit</label>
+                    <input type="text" placeholder="Enter department/unit">
+                </div>
+                <div class="form-group">
+                    <label>Location(s)</label>
+                    <input type="text" placeholder="Enter locations">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Budget / Funding Source</label>
+                    <input type="text" placeholder="Enter budget and funding source">
+                </div>
+                <div class="form-group">
+                    <label>Objective / Purpose</label>
+                    <textarea placeholder="Enter objective/purpose"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Objective</button>
+                </div>
+                <div class="form-group">
+                    <label>Activities / Components</label>
+                    <textarea placeholder="Enter activities/components"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Activity</button>
+                </div>
+                <div class="form-group">
+                    <label>Stakeholders / Partners</label>
+                    <textarea placeholder="Enter stakeholders/partners"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Stakeholder</button>
+                </div>
+                <div class="form-group">
+                    <label>Outcomes / Results</label>
+                    <textarea placeholder="Enter outcomes/results"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Visuals (photos, charts, maps)</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Portfolio of Programs and Projects', modalContent);
+});
+
+// Key Performance Highlights Modal
+document.querySelector('.performance-highlights-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=KP" alt="Performance" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Summary of measurable results (quantitative and qualitative)</label>
+                    <textarea placeholder="Enter measurable results"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Indicators and targets achieved</label>
+                    <textarea placeholder="Enter indicators and targets"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Beneficiary data (e.g., number of citizens served, schools built, etc.)</label>
+                    <textarea placeholder="Enter beneficiary data"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Year-over-year comparisons (if available)</label>
+                    <textarea placeholder="Enter comparisons"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Infographics and data visualizations</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Key Performance Highlights', modalContent);
+});
+
+// Collaborations and Partnerships Modal
+document.querySelector('.collaborations-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CP" alt="Collaborations" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>National, regional, and international partners</label>
+                    <textarea placeholder="Enter partners"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Donor-funded initiatives</label>
+                    <textarea placeholder="Enter donor-funded initiatives"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Joint ventures with private sector, NGOs, or other public agencies</label>
+                    <textarea placeholder="Enter joint ventures"></textarea>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Collaboration</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Collaborations and Partnerships', modalContent);
+});
+
+// Monitoring, Evaluation, and Learning Modal
+document.querySelector('.mel-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=MEL" alt="MEL" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Overview of monitoring frameworks</label>
+                    <textarea placeholder="Enter monitoring frameworks"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Evaluation processes and impact assessment methods</label>
+                    <textarea placeholder="Enter evaluation processes"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Adaptive learning approaches used for future planning</label>
+                    <textarea placeholder="Enter learning approaches"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Supporting Files</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Monitoring, Evaluation, and Learning', modalContent);
+});
+
+// Challenges and Mitigation Strategies Modal
+document.querySelector('.challenges-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CM" alt="Challenges" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Operational, financial, or political challenges</label>
+                    <textarea placeholder="Enter challenges"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Challenge</button>
+                </div>
+                <div class="form-group">
+                    <label>Response and mitigation mechanisms</label>
+                    <textarea placeholder="Enter mitigation strategies"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Mitigation</button>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Challenges and Mitigation Strategies', modalContent);
+});
+
+// Awards, Certifications, and Recognitions Modal
+document.querySelector('.awards-certifications-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=AC" alt="Awards" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Key Accomplishments/ Major Projects</label>
+                    <textarea placeholder="Enter accomplishments/projects"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Awards and Certifications</label>
+                    <input type="text" placeholder="Enter awards/certifications">
+                </div>
+                <div class="form-group">
+                    <label>Name of organization</label>
+                    <input type="text" placeholder="Enter organization name">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Issued date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Credential ID</label>
+                        <input type="text" placeholder="Enter credential ID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Membership in Professional Association</label>
+                    <input type="text" placeholder="Enter association membership">
+                </div>
+                <div class="form-group">
+                    <label>Attach Certificate</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Award/Certification</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Awards, Certifications, and Recognitions', modalContent);
+});
+
+// Outlook and Strategic Plans Modal
+document.querySelector('.outlook-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=OS" alt="Outlook" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Future projects in the pipeline</label>
+                    <textarea placeholder="Enter future projects"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
+                </div>
+                <div class="form-group">
+                    <label>Policy reform efforts or expansion plans</label>
+                    <textarea placeholder="Enter policy reforms/expansion"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Plan</button>
+                </div>
+                <div class="form-group">
+                    <label>Innovation and digitization strategies</label>
+                    <textarea placeholder="Enter innovation strategies"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Strategy</button>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Outlook and Strategic Plans', modalContent);
+});
+
+// Case Studies or Deep Dives Modal
+document.querySelector('.case-studies-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>More detailed breakdown of 1-3 landmark projects</label>
+                    <textarea placeholder="Enter project breakdown"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Success metrics, timelines, budgets</label>
+                    <textarea placeholder="Enter metrics, timelines, budgets"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Metric</button>
+                </div>
+                <div class="form-group">
+                    <label>Upload Supporting Files</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Case Studies or Deep Dives', modalContent);
+});
+
+// Client Testimonials Modal
+document.querySelector('.testimonials-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CT" alt="Testimonials" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Quotes or feedback from beneficiaries or partners</label>
+                    <textarea placeholder="Enter testimonials"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Content or reference to the project they relate to</label>
+                    <textarea placeholder="Enter project reference"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Client Photos</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Testimonial</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Client Testimonials', modalContent);
+});
+
+
+// Introduction / Executive Message Modal
+document.querySelector('.introduction-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=EX" alt="Executive" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Message from the head of the organization</label>
+                    <textarea placeholder="Enter executive message"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Brief description of the portfolio's purpose</label>
+                    <textarea placeholder="Enter portfolio purpose"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Strategic relevance or alignment with national goals</label>
+                    <textarea placeholder="Enter strategic alignment"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Executive Photo</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Introduction / Executive Message', modalContent);
+});
+
+// Organizational Overview Modal
+document.querySelector('.org-overview-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=OO" alt="Org Overview" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Full Name and Acronym</label>
+                    <input type="text" placeholder="Enter organization name and acronym">
+                </div>
+                <div class="form-group">
+                    <label>Mandate or Legal Foundation</label>
+                    <textarea placeholder="Enter mandate or legal foundation"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Jurisdiction (national, state, regional, local)</label>
+                    <input type="text" placeholder="Enter jurisdiction">
+                </div>
+                <div class="form-group">
+                    <label>Organizational structure and key divisions (summary)</label>
+                    <textarea placeholder="Enter organizational structure"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Attach Organizational Chart</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Organizational Overview', modalContent);
+});
+
+// Strategic Focus Areas Modal
+document.querySelector('.strategic-focus-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=SF" alt="Strategic Focus" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Core thematic or operational areas</label>
+                    <textarea placeholder="Enter core areas (e.g., Health, Infrastructure, Youth Empowerment, Environment)"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Goals and objectives for each area</label>
+                    <textarea placeholder="Enter goals and objectives"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Goal</button>
+                </div>
+                <div class="form-group">
+                    <label>Linkages to national development plans, SDGs, or policy frameworks</label>
+                    <textarea placeholder="Enter linkages"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Linkage</button>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Strategic Focus Areas', modalContent);
+});
+
+// Portfolio of Programs and Projects Modal
+document.querySelector('.portfolio-projects-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=PP" alt="Projects" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Project Title</label>
+                    <input type="text" placeholder="Enter project title">
+                </div>
+                <div class="form-group">
+                    <label>Implementing Department/Unit</label>
+                    <input type="text" placeholder="Enter department/unit">
+                </div>
+                <div class="form-group">
+                    <label>Location(s)</label>
+                    <input type="text" placeholder="Enter locations">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Budget / Funding Source</label>
+                    <input type="text" placeholder="Enter budget and funding source">
+                </div>
+                <div class="form-group">
+                    <label>Objective / Purpose</label>
+                    <textarea placeholder="Enter objective/purpose"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Objective</button>
+                </div>
+                <div class="form-group">
+                    <label>Activities / Components</label>
+                    <textarea placeholder="Enter activities/components"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Activity</button>
+                </div>
+                <div class="form-group">
+                    <label>Stakeholders / Partners</label>
+                    <textarea placeholder="Enter stakeholders/partners"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Stakeholder</button>
+                </div>
+                <div class="form-group">
+                    <label>Outcomes / Results</label>
+                    <textarea placeholder="Enter outcomes/results"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Visuals (photos, charts, maps)</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Portfolio of Programs and Projects', modalContent);
+});
+
+// Key Performance Highlights Modal
+document.querySelector('.performance-highlights-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=KP" alt="Performance" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Summary of measurable results (quantitative and qualitative)</label>
+                    <textarea placeholder="Enter measurable results"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Indicators and targets achieved</label>
+                    <textarea placeholder="Enter indicators and targets"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Beneficiary data (e.g., number of citizens served, schools built, etc.)</label>
+                    <textarea placeholder="Enter beneficiary data"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Year-over-year comparisons (if available)</label>
+                    <textarea placeholder="Enter comparisons"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Infographics and data visualizations</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Key Performance Highlights', modalContent);
+});
+
+// Collaborations and Partnerships Modal
+document.querySelector('.collaborations-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CP" alt="Collaborations" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>National, regional, and international partners</label>
+                    <textarea placeholder="Enter partners"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Donor-funded initiatives</label>
+                    <textarea placeholder="Enter donor-funded initiatives"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Joint ventures with private sector, NGOs, or other public agencies</label>
+                    <textarea placeholder="Enter joint ventures"></textarea>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Collaboration</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Collaborations and Partnerships', modalContent);
+});
+
+// Monitoring, Evaluation, and Learning Modal
+document.querySelector('.mel-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=MEL" alt="MEL" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Overview of monitoring frameworks</label>
+                    <textarea placeholder="Enter monitoring frameworks"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Evaluation processes and impact assessment methods</label>
+                    <textarea placeholder="Enter evaluation processes"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Adaptive learning approaches used for future planning</label>
+                    <textarea placeholder="Enter learning approaches"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Supporting Files</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Monitoring, Evaluation, and Learning', modalContent);
+});
+
+// Challenges and Mitigation Strategies Modal
+document.querySelector('.challenges-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CM" alt="Challenges" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Operational, financial, or political challenges</label>
+                    <textarea placeholder="Enter challenges"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Challenge</button>
+                </div>
+                <div class="form-group">
+                    <label>Response and mitigation mechanisms</label>
+                    <textarea placeholder="Enter mitigation strategies"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Mitigation</button>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Challenges and Mitigation Strategies', modalContent);
+});
+
+// Awards, Certifications, and Recognitions Modal
+document.querySelector('.awards-certifications-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=AC" alt="Awards" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Key Accomplishments/ Major Projects</label>
+                    <textarea placeholder="Enter accomplishments/projects"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Awards and Certifications</label>
+                    <input type="text" placeholder="Enter awards/certifications">
+                </div>
+                <div class="form-group">
+                    <label>Name of organization</label>
+                    <input type="text" placeholder="Enter organization name">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Issued date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Credential ID</label>
+                        <input type="text" placeholder="Enter credential ID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Membership in Professional Association</label>
+                    <input type="text" placeholder="Enter association membership">
+                </div>
+                <div class="form-group">
+                    <label>Attach Certificate</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Award/Certification</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Awards, Certifications, and Recognitions', modalContent);
+});
+
+// Outlook and Strategic Plans Modal
+document.querySelector('.outlook-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=OS" alt="Outlook" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Future projects in the pipeline</label>
+                    <textarea placeholder="Enter future projects"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
+                </div>
+                <div class="form-group">
+                    <label>Policy reform efforts or expansion plans</label>
+                    <textarea placeholder="Enter policy reforms/expansion"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Plan</button>
+                </div>
+                <div class="form-group">
+                    <label>Innovation and digitization strategies</label>
+                    <textarea placeholder="Enter innovation strategies"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Strategy</button>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Outlook and Strategic Plans', modalContent);
+});
+
+// Case Studies or Deep Dives Modal
+document.querySelector('.case-studies-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>More detailed breakdown of 1-3 landmark projects</label>
+                    <textarea placeholder="Enter project breakdown"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Success metrics, timelines, budgets</label>
+                    <textarea placeholder="Enter metrics, timelines, budgets"></textarea>
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Metric</button>
+                </div>
+                <div class="form-group">
+                    <label>Upload Supporting Files</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    `;
+    createModal('Edit Case Studies or Deep Dives', modalContent);
+});
+
+// Client Testimonials Modal
+document.querySelector('.testimonials-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CT" alt="Testimonials" class="modal-header-image">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>Quotes or feedback from beneficiaries or partners</label>
+                    <textarea placeholder="Enter testimonials"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Content or reference to the project they relate to</label>
+                    <textarea placeholder="Enter project reference"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Client Photos</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Testimonial</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit Client Testimonials', modalContent);
+});
