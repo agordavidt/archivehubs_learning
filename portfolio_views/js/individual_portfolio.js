@@ -34,15 +34,52 @@ document.addEventListener('DOMContentLoaded', function() {
     modalContainer.id = 'modalContainer';
     document.body.appendChild(modalContainer);
 
+    // Function to create an image upload box for an entry
+    function createImageUploadBox(entryId) {
+        return `
+            <div class="modal-image-upload" data-entry-id="${entryId}" style="width:100px; height:100px; display:flex; align-items:center; justify-content:center; border:1px dashed #ccc; border-radius:8px; cursor:pointer; overflow:hidden; background:#fafbfc;">
+                <img src="https://via.placeholder.com/100x100?text=Image" alt="Upload" style="max-width:100%; max-height:100%; object-fit:cover; display:none;" id="modalImagePreview-${entryId}">
+                <span style="color:#888; font-size:12px;">Click to upload</span>
+                <input type="file" accept="image/*" style="display:none;" id="modalImageInput-${entryId}">
+            </div>
+        `;
+    }
+
+    // Helper to add image upload logic for all image upload boxes in a modal
+    function addImageUploadLogic(modalRoot) {
+        modalRoot.querySelectorAll('.modal-image-upload').forEach(function(imageBox) {
+            const entryId = imageBox.getAttribute('data-entry-id');
+            const imageInput = imageBox.querySelector('input[type="file"]');
+            const imagePreview = imageBox.querySelector('img');
+            const span = imageBox.querySelector('span');
+            imageBox.addEventListener('click', function(e) {
+                if (e.target !== imageInput) imageInput.click();
+            });
+            imageInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(ev) {
+                        imagePreview.src = ev.target.result;
+                        imagePreview.style.display = 'block';
+                        span.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    }
+
     // Function to create modal
     function createModal(title, content) {
         modalContainer.innerHTML = `
             <div class="modal-overlay">
                 <div class="modal-content">
                     <span class="close-modal">&times;</span>
-                    <div class="modal-header">
-                        <h2>${title}</h2>
-                        <img src="https://via.placeholder.com/800x200/0077B5/FFFFFF?text=${encodeURIComponent(title)}" alt="${title}" class="modal-header-image">
+                    <div class="modal-header" style="display:flex; align-items:center; gap:16px;">
+                        <div style="flex:1;">
+                            <div style="font-size:1.5em; font-weight:bold;">${title}</div>
+                        </div>
                     </div>
                     <div class="modal-body">
                         ${content}
@@ -54,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
+
+        // Add image upload logic for all image upload boxes in this modal
+        addImageUploadLogic(modalContainer);
 
         // Add event listeners
         document.querySelector('.close-modal').addEventListener('click', closeModal);
@@ -153,41 +193,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Work Experience Modal
     document.querySelector('.experience-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'workexp-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Job Title</label>
-                        <input type="text" placeholder="Enter job title">
-                    </div>
-                    <div class="form-group">
-                        <label>Company/Organization</label>
-                        <input type="text" placeholder="Enter company name">
-                    </div>
-                    <div class="form-group">
-                        <label>Tools or platforms used</label>
-                        <input type="text" placeholder="List tools/platforms">
-                    </div>
-                    <div class="form-row">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
                         <div class="form-group">
-                            <label>Start Date</label>
-                            <input type="date">
+                            <label>Job Title</label>
+                            <input type="text" placeholder="Enter job title">
                         </div>
                         <div class="form-group">
-                            <label>End Date</label>
-                            <input type="date">
+                            <label>Company/Organization</label>
+                            <input type="text" placeholder="Enter company name">
+                        </div>
+                        <div class="form-group">
+                            <label>Tools or platforms used</label>
+                            <input type="text" placeholder="List tools/platforms">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date">
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Key Responsibilities</label>
+                            <textarea placeholder="Describe your responsibilities"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Achievements/Projects handled</label>
+                            <textarea placeholder="List your achievements"></textarea>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Key Responsibilities</label>
-                        <textarea placeholder="Describe your responsibilities"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Achievements/Projects handled</label>
-                        <textarea placeholder="List your achievements"></textarea>
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Position</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Position</button>
             </form>
         `;
         createModal('Edit Work Experience', modalContent);
@@ -195,37 +239,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Education Modal
     document.querySelector('.education-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'education-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Degree / Qualification</label>
-                        <input type="text" placeholder="Enter degree/qualification">
-                    </div>
-                    <div class="form-group">
-                        <label>Institution Name</label>
-                        <input type="text" placeholder="Enter institution name">
-                    </div>
-                    <div class="form-row">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
                         <div class="form-group">
-                            <label>Start Year</label>
-                            <input type="number" placeholder="YYYY">
+                            <label>Degree / Qualification</label>
+                            <input type="text" placeholder="Enter degree/qualification">
                         </div>
                         <div class="form-group">
-                            <label>End Year</label>
-                            <input type="number" placeholder="YYYY">
+                            <label>Institution Name</label>
+                            <input type="text" placeholder="Enter institution name">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Start Year</label>
+                                <input type="number" placeholder="YYYY">
+                            </div>
+                            <div class="form-group">
+                                <label>End Year</label>
+                                <input type="number" placeholder="YYYY">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Major subjects or areas of focus</label>
+                            <input type="text" placeholder="Enter major subjects">
+                        </div>
+                        <div class="form-group">
+                            <label>Honors or distinctions (if any)</label>
+                            <input type="text" placeholder="Enter honors/distinctions">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Major subjects or areas of focus</label>
-                        <input type="text" placeholder="Enter major subjects">
-                    </div>
-                    <div class="form-group">
-                        <label>Honors or distinctions (if any)</label>
-                        <input type="text" placeholder="Enter honors/distinctions">
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Education</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Education</button>
             </form>
         `;
         createModal('Edit Education', modalContent);
@@ -233,45 +281,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Work Showcase Modal
     document.querySelector('.showcase-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'showcase-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Project Title</label>
-                        <input type="text" placeholder="Enter project title">
-                    </div>
-                    <div class="form-group">
-                        <label>Client/Organization/Personal</label>
-                        <input type="text" placeholder="Enter client/organization">
-                    </div>
-                    <div class="form-group">
-                        <label>Date Completed</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-group">
-                        <label>Tools/Technologies Used</label>
-                        <input type="text" placeholder="List tools/technologies">
-                    </div>
-                    <div class="form-group">
-                        <label>Objective / Brief</label>
-                        <textarea placeholder="Describe the project objective"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Process / Approach</label>
-                        <textarea placeholder="Describe your process"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Outcome / Impact</label>
-                        <textarea placeholder="Describe the outcomes"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Visuals</label>
-                        <div class="file-upload">
-                            <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Images/Links</button>
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
+                        <div class="form-group">
+                            <label>Project Title</label>
+                            <input type="text" placeholder="Enter project title">
+                        </div>
+                        <div class="form-group">
+                            <label>Client/Organization/Personal</label>
+                            <input type="text" placeholder="Enter client/organization">
+                        </div>
+                        <div class="form-group">
+                            <label>Date Completed</label>
+                            <input type="date">
+                        </div>
+                        <div class="form-group">
+                            <label>Tools/Technologies Used</label>
+                            <input type="text" placeholder="List tools/technologies">
+                        </div>
+                        <div class="form-group">
+                            <label>Objective / Brief</label>
+                            <textarea placeholder="Describe the project objective"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Process / Approach</label>
+                            <textarea placeholder="Describe your process"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Outcome / Impact</label>
+                            <textarea placeholder="Describe the outcomes"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Visuals</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Images/Links</button>
+                            </div>
                         </div>
                     </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
             </form>
         `;
         createModal('Edit Work Showcase', modalContent);
@@ -279,39 +331,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Licenses & Certifications Modal
     document.querySelector('.licenses-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'licenses-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Certification Name</label>
-                        <input type="text" placeholder="Enter certification name">
-                    </div>
-                    <div class="form-group">
-                        <label>Issuing Platform/Institution</label>
-                        <input type="text" placeholder="Enter issuing organization">
-                    </div>
-                    <div class="form-row">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
                         <div class="form-group">
-                            <label>Date Acquired</label>
-                            <input type="date">
+                            <label>Certification Name</label>
+                            <input type="text" placeholder="Enter certification name">
                         </div>
                         <div class="form-group">
-                            <label>Validity Period</label>
-                            <input type="text" placeholder="Enter validity period">
+                            <label>Issuing Platform/Institution</label>
+                            <input type="text" placeholder="Enter issuing organization">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date Acquired</label>
+                                <input type="date">
+                            </div>
+                            <div class="form-group">
+                                <label>Validity Period</label>
+                                <input type="text" placeholder="Enter validity period">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Credential ID</label>
+                            <input type="text" placeholder="Enter credential ID">
+                        </div>
+                        <div class="form-group">
+                            <label>Attach Certificate</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Credential ID</label>
-                        <input type="text" placeholder="Enter credential ID">
-                    </div>
-                    <div class="form-group">
-                        <label>Attach Certificate</label>
-                        <div class="file-upload">
-                            <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Certification</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Certification</button>
             </form>
         `;
         createModal('Edit Licenses & Certifications', modalContent);
@@ -319,41 +375,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Awards Modal
     document.querySelector('.awards-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'awards-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Title of award or honor</label>
-                        <input type="text" placeholder="Enter award title">
-                    </div>
-                    <div class="form-group">
-                        <label>Awarding body</label>
-                        <input type="text" placeholder="Enter awarding organization">
-                    </div>
-                    <div class="form-group">
-                        <label>Year received</label>
-                        <input type="number" placeholder="YYYY">
-                    </div>
-                    <div class="form-group">
-                        <label>Brief context</label>
-                        <textarea placeholder="Describe the award context"></textarea>
-                    </div>
-                    <div class="form-row">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
                         <div class="form-group">
-                            <label>Attach Award</label>
-                            <div class="file-upload">
-                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                            </div>
+                            <label>Title of award or honor</label>
+                            <input type="text" placeholder="Enter award title">
                         </div>
                         <div class="form-group">
-                            <label>Attach Photo</label>
-                            <div class="file-upload">
-                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            <label>Awarding body</label>
+                            <input type="text" placeholder="Enter awarding organization">
+                        </div>
+                        <div class="form-group">
+                            <label>Year received</label>
+                            <input type="number" placeholder="YYYY">
+                        </div>
+                        <div class="form-group">
+                            <label>Brief context</label>
+                            <textarea placeholder="Describe the award context"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Attach Award</label>
+                                <div class="file-upload">
+                                    <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Attach Photo</label>
+                                <div class="file-upload">
+                                    <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Award</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Award</button>
             </form>
         `;
         createModal('Edit Awards', modalContent);
@@ -361,25 +421,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Professional Affiliations Modal
     document.querySelector('.affiliations-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'affiliations-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Memberships in industry bodies or associations</label>
-                        <input type="text" placeholder="Enter memberships">
-                    </div>
-                    <div class="form-group">
-                        <label>Roles held (if any)</label>
-                        <input type="text" placeholder="Enter roles">
-                    </div>
-                    <div class="form-group">
-                        <label>Upload Award</label>
-                        <div class="file-upload">
-                            <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
+                        <div class="form-group">
+                            <label>Memberships in industry bodies or associations</label>
+                            <input type="text" placeholder="Enter memberships">
+                        </div>
+                        <div class="form-group">
+                            <label>Roles held (if any)</label>
+                            <input type="text" placeholder="Enter roles">
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Award</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
                         </div>
                     </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Affiliation</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Affiliation</button>
             </form>
         `;
         createModal('Edit Professional Affiliations', modalContent);
@@ -443,33 +507,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Volunteer Work Modal
     document.querySelector('.volunteer-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'volunteer-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Organization Name</label>
-                        <input type="text" placeholder="Enter organization name">
-                    </div>
-                    <div class="form-group">
-                        <label>Role</label>
-                        <input type="text" placeholder="Enter your role">
-                    </div>
-                    <div class="form-row">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
                         <div class="form-group">
-                            <label>Start Date</label>
-                            <input type="date">
+                            <label>Organization Name</label>
+                            <input type="text" placeholder="Enter organization name">
                         </div>
                         <div class="form-group">
-                            <label>End Date</label>
-                            <input type="date">
+                            <label>Role</label>
+                            <input type="text" placeholder="Enter your role">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date">
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Contribution/Impact</label>
+                            <textarea placeholder="Describe your contributions"></textarea>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Contribution/Impact</label>
-                        <textarea placeholder="Describe your contributions"></textarea>
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Volunteer Experience</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Volunteer Experience</button>
             </form>
         `;
         createModal('Edit Volunteer Work', modalContent);
@@ -477,47 +545,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Testimonials Modal
     document.querySelector('.testimonials-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'testimonials-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Referee Name</label>
-                        <input type="text" placeholder="Enter referee name">
-                    </div>
-                    <div class="form-group">
-                        <label>Referee Designation</label>
-                        <input type="text" placeholder="Enter referee designation">
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea placeholder="Quotes from clients, employers, or mentors"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Referee Organization</label>
-                        <input type="text" placeholder="Enter organization">
-                    </div>
-                    <div class="form-group">
-                        <label>Reference Date</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-row">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="Enter email">
+                            <label>Referee Name</label>
+                            <input type="text" placeholder="Enter referee name">
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" placeholder="Enter phone">
+                            <label>Referee Designation</label>
+                            <input type="text" placeholder="Enter referee designation">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea placeholder="Quotes from clients, employers, or mentors"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Referee Organization</label>
+                            <input type="text" placeholder="Enter organization">
+                        </div>
+                        <div class="form-group">
+                            <label>Reference Date</label>
+                            <input type="date">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" placeholder="Enter phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload File</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Upload File</label>
-                        <div class="file-upload">
-                            <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Testimonial</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Testimonial</button>
             </form>
         `;
         createModal('Edit Testimonials', modalContent);
@@ -525,35 +597,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Publications Modal
     document.querySelector('.publications-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'publications-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" placeholder="Enter publication title">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" placeholder="Enter publication title">
+                        </div>
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input type="text" placeholder="Enter author name">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select>
+                                <option>Published</option>
+                                <option>Unpublished</option>
+                                <option>In Progress</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Publication</label>
+                            <input type="date">
+                        </div>
+                        <div class="form-group">
+                            <label>Description of Topic</label>
+                            <textarea placeholder="Describe the publication topic"></textarea>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Author</label>
-                        <input type="text" placeholder="Enter author name">
-                    </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select>
-                            <option>Published</option>
-                            <option>Unpublished</option>
-                            <option>In Progress</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Date of Publication</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-group">
-                        <label>Description of Topic</label>
-                        <textarea placeholder="Describe the publication topic"></textarea>
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Publication</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Publication</button>
             </form>
         `;
         createModal('Edit Publications', modalContent);
@@ -561,27 +637,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Extracurricular Activities Modal
     document.querySelector('.extracurricular-section .edit-btn').addEventListener('click', function() {
+        const entryId = 'extracurricular-1';
         const modalContent = `
             <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Organization</label>
-                        <input type="text" placeholder="Enter organization name">
+                <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                    ${createImageUploadBox(entryId)}
+                    <div class="entry-fields" style="flex:1;">
+                        <div class="form-group">
+                            <label>Organization</label>
+                            <input type="text" placeholder="Enter organization name">
+                        </div>
+                        <div class="form-group">
+                            <label>Responsibility/Position</label>
+                            <input type="text" placeholder="Enter your role">
+                        </div>
+                        <div class="form-group">
+                            <label>Activities</label>
+                            <textarea placeholder="Describe your activities"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Responsibility/Position</label>
-                        <input type="text" placeholder="Enter your role">
-                    </div>
-                    <div class="form-group">
-                        <label>Activities</label>
-                        <textarea placeholder="Describe your activities"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input type="date">
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Activity</button>
                 </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Activity</button>
             </form>
         `;
         createModal('Edit Extracurricular Activities', modalContent);

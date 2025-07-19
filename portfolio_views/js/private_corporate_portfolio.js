@@ -34,15 +34,52 @@ document.addEventListener('DOMContentLoaded', function() {
     modalContainer.id = 'modalContainer';
     document.body.appendChild(modalContainer);
 
-    // Function to create modal
+    // Function to create an image upload box for an entry
+    function createImageUploadBox(entryId) {
+        return `
+            <div class="modal-image-upload" data-entry-id="${entryId}" style="width:100px; height:100px; display:flex; align-items:center; justify-content:center; border:1px dashed #ccc; border-radius:8px; cursor:pointer; overflow:hidden; background:#fafbfc;">
+                <img src="https://via.placeholder.com/100x100?text=Image" alt="Upload" style="max-width:100%; max-height:100%; object-fit:cover; display:none;" id="modalImagePreview-${entryId}">
+                <span style="color:#888; font-size:12px;">Click to upload</span>
+                <input type="file" accept="image/*" style="display:none;" id="modalImageInput-${entryId}">
+            </div>
+        `;
+    }
+
+    // Helper to add image upload logic for all image upload boxes in a modal
+    function addImageUploadLogic(modalRoot) {
+        modalRoot.querySelectorAll('.modal-image-upload').forEach(function(imageBox) {
+            const entryId = imageBox.getAttribute('data-entry-id');
+            const imageInput = imageBox.querySelector('input[type="file"]');
+            const imagePreview = imageBox.querySelector('img');
+            const span = imageBox.querySelector('span');
+            imageBox.addEventListener('click', function(e) {
+                if (e.target !== imageInput) imageInput.click();
+            });
+            imageInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(ev) {
+                        imagePreview.src = ev.target.result;
+                        imagePreview.style.display = 'block';
+                        span.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    }
+
+    // Function to create modal (remove duplicate heading and header image)
     function createModal(title, content) {
         modalContainer.innerHTML = `
             <div class="modal-overlay">
                 <div class="modal-content">
                     <span class="close-modal">&times;</span>
-                    <div class="modal-header">
-                        <h2>${title}</h2>
-                        <img src="https://via.placeholder.com/800x200/0077B5/FFFFFF?text=${encodeURIComponent(title)}" alt="${title}" class="modal-header-image">
+                    <div class="modal-header" style="display:flex; align-items:center; gap:16px;">
+                        <div style="flex:1;">
+                            <div style="font-size:1.5em; font-weight:bold;">${title}</div>
+                        </div>
                     </div>
                     <div class="modal-body">
                         ${content}
@@ -54,13 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-
-        // Add event listeners
+        addImageUploadLogic(modalContainer);
         document.querySelector('.close-modal').addEventListener('click', closeModal);
         document.querySelector('.cancel-btn').addEventListener('click', closeModal);
         document.querySelector('.save-btn').addEventListener('click', saveModal);
-
-        // Show modal
         modalContainer.style.display = 'block';
     }
 
@@ -74,8 +108,17 @@ document.addEventListener('DOMContentLoaded', function() {
         closeModal();
     }
 
-    // About Section Modal
-    document.querySelector('.about-section .edit-btn').addEventListener('click', function() {
+    // For each modal, add error handling/logging for event listener attachment and refactor to use image upload beside content
+    function safeAddEventListener(selector, event, handler, label) {
+        const el = document.querySelector(selector);
+        if (el) {
+            el.addEventListener(event, handler);
+        } else {
+            console.warn('Modal trigger not found:', selector, label);
+        }
+    }
+    // About Section Modal (no image)
+    safeAddEventListener('.about-section .edit-btn', 'click', function() {
         const modalContent = `
             <form class="modal-form">
                 <div class="form-section">
@@ -93,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <input type="text" placeholder="Enter your tagline">
                     </div>
                 </div>
-
                 <div class="form-section">
                     <h3>Contact Information</h3>
                     <div class="form-row">
@@ -130,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Social Media Links</button>
                 </div>
-
                 <div class="form-section">
                     <h3>Professional Summary / Bio</h3>
                     <div class="form-group">
@@ -138,7 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <textarea placeholder="Summarize who you are professionally, your expertise and experience, what makes you unique or valuable, and your career or creative goals"></textarea>
                     </div>
                 </div>
-
                 <div class="form-section">
                     <h3>Areas of Expertise / Skills</h3>
                     <div class="form-group">
@@ -149,13 +189,13 @@ document.addEventListener('DOMContentLoaded', function() {
             </form>
         `;
         createModal('Edit About Section', modalContent);
-    });
+    }, 'About Section');
 
 
    
 
     // Interests Modal
-    document.querySelector('.interests-section .edit-btn').addEventListener('click', function() {
+    safeAddEventListener('.interests-section .edit-btn', 'click', function() {
         const modalContent = `
             <form class="modal-form">
                 <div class="form-section">
@@ -168,230 +208,265 @@ document.addEventListener('DOMContentLoaded', function() {
             </form>
         `;
         createModal('Edit Interests', modalContent);
-    });
+    }, 'Interests');
 
   
 
 // Corporate Snapshot Modal
-document.querySelector('.corporate-snapshot-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.corporate-snapshot-section .edit-btn', 'click', function() {
+    const entryId = 'corporate-snapshot-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CS" alt="Snapshot" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <input type="text" placeholder="Legal Name">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Registration Number e.g RC8096532">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Year Established">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Corporate / Business Type">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Nature of Business / Industry (Brief Overview)">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Headquarters Branch Locations">
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <input type="text" placeholder="Legal Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Registration Number e.g RC8096532">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Year Established">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Corporate / Business Type">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nature of Business / Industry (Brief Overview)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Headquarters Branch Locations">
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     `;
     createModal('Edit Corporate Snapshot', modalContent);
-});
+}, 'Corporate Snapshot');
 
 // Core Services / Capability Modal
-document.querySelector('.core-services-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.core-services-section .edit-btn', 'click', function() {
+    const entryId = 'core-services-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CS" alt="Services" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <textarea placeholder="Description of main services or areas of expertise"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Technical or Specialized Skills"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Tools, Platforms, or Methodologies used"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Industry focus or Sector-specific capabilities"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <textarea placeholder="Description of main services or areas of expertise"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Technical or Specialized Skills"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tools, Platforms, or Methodologies used"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Industry focus or Sector-specific capabilities"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     `;
     createModal('Edit Core Services / Capability', modalContent);
-});
+}, 'Core Services');
 
 // Portfolio of Work / Project Modal
-document.querySelector('.portfolio-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.portfolio-section .edit-btn', 'click', function() {
+    const entryId = 'portfolio-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=PW" alt="Portfolio" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <input type="text" placeholder="Project Title">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Client Name (If not under NDA)">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Industry / Sector">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="date" placeholder="Date">
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <input type="text" placeholder="Project Title">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Client Name (If not under NDA)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Industry / Sector">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="date" placeholder="Date">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Duration">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Objectives / Client Brief"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Scope of work / Services Delivered"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Challenges and Solutions"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Results / Achievements (Preferably with metrics or KPIs)"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Images / Visuals (Mockups, Photos, Diagrams)</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Add</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Duration">
-                    </div>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="Objectives / Client Brief"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Scope of work / Services Delivered"></textarea>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Challenges and Solutions"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Results / Achievements (Preferably with metrics or KPIs)"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-                <div class="form-group">
-                    <label>Images / Visuals (Mockups, Photos, Diagrams)</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Add</button>
-                    </div>
-                </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
             </div>
+            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Project</button>
         </form>
     `;
     createModal('Edit Portfolio of Work / Project', modalContent);
-});
+}, 'Portfolio');
 
 // Team / Expertise Highlights Modal
-document.querySelector('.team-expertise-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.team-expertise-section .edit-btn', 'click', function() {
+    const entryId = 'team-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=TE" alt="Team" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <input type="text" placeholder="Profile of Key Personnel (Optional)">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Certifications and Qualifications">
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Team Capabilities or Departmental Strengths (Optional)"></textarea>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <input type="text" placeholder="Profile of Key Personnel (Optional)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Certifications and Qualifications">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Team Capabilities or Departmental Strengths (Optional)"></textarea>
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     `;
     createModal('Edit Team / Expertise Highlights', modalContent);
-});
+}, 'Team');
 
 // Key Clients / Partners Modal
-document.querySelector('.key-clients-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.key-clients-section .edit-btn', 'click', function() {
+    const entryId = 'clients-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=KC" alt="Clients" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <input type="text" placeholder="Names of Notable Clients">
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <input type="text" placeholder="Names of Notable Clients">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Testimonials (If Available)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Repeat Clients or long-term Partnerships">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="Testimonials (If Available)"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Repeat Clients or long-term Partnerships">
-                </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Client</button>
             </div>
+            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Client</button>
         </form>
     `;
     createModal('Edit Key Clients / Partners', modalContent);
-});
+}, 'Key Clients');
 
 // Awards, Certifications, and Recognitions Modal
-document.querySelector('.awards-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.awards-section .edit-btn', 'click', function() {
+    const entryId = 'awards-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=AC" alt="Awards" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <textarea placeholder="Key Accomplishments/ Major Projects"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Awards and Certifications">
-                </div>
-                <div class="form-group">
-                    <label>Attach Certificate</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <textarea placeholder="Key Accomplishments/ Major Projects"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Awards and Certifications">
+                        </div>
+                        <div class="form-group">
+                            <label>Attach Certificate</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="date" placeholder="Issued Date">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Credential ID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Membership in Professional Association">
+                        </div>
+                        <div class="form-group">
+                            <label>Attach Certificate</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="date" placeholder="Issued Date">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Credential ID">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Membership in Professional Association">
-                </div>
-                <div class="form-group">
-                    <label>Attach Certificate</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                    </div>
-                </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Award</button>
             </div>
+            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Award</button>
         </form>
     `;
     createModal('Edit Awards, Certifications, and Recognitions', modalContent);
-});
+}, 'Awards');
 
 // Tools, Technologies and Methodologies Modal
-document.querySelector('.tools-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.tools-section .edit-btn', 'click', function() {
+    const entryId = 'tools-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=TT" alt="Tools" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <textarea placeholder="Software / tools regularly used"></textarea>
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <textarea placeholder="Software / tools regularly used"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Proprietary Processes or Innovation Approaches"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tech Stacks, Design Frameworks, or Logistic Systems (If relevant)"></textarea>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="Proprietary Processes or Innovation Approaches"></textarea>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Tech Stacks, Design Frameworks, or Logistic Systems (If relevant)"></textarea>
-                </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Tool</button>
             </div>
+            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Tool</button>
         </form>
     `;
     createModal('Edit Tools, Technologies and Methodologies', modalContent);
-});
+}, 'Tools');
 
 // Financial Highlights Modal
-document.querySelector('.financial-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.financial-section .edit-btn', 'click', function() {
     const modalContent = `
         <form class="modal-form">
             <div class="form-section">
@@ -426,10 +501,10 @@ document.querySelector('.financial-section .edit-btn').addEventListener('click',
         </form>
     `;
     createModal('Edit Financial Highlights', modalContent);
-});
+}, 'Financial');
 
 // Future plans / Strategic Goals Modal
-document.querySelector('.future-plans-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.future-plans-section .edit-btn', 'click', function() {
     const modalContent = `
         <form class="modal-form">
             <div class="form-section">
@@ -445,10 +520,10 @@ document.querySelector('.future-plans-section .edit-btn').addEventListener('clic
         </form>
     `;
     createModal('Edit Future plans / Strategic Goals', modalContent);
-});
+}, 'Future Plans');
 
 // Case Studies or Deep Dives Modal
-document.querySelector('.case-studies-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.case-studies-section .edit-btn', 'click', function() {
     const modalContent = `
         <form class="modal-form">
             <div class="form-section">
@@ -469,161 +544,181 @@ document.querySelector('.case-studies-section .edit-btn').addEventListener('clic
         </form>
     `;
     createModal('Edit Case Studies or Deep Dives', modalContent);
-});
+}, 'Case Studies');
 
 // Client Testimonials Modal
-document.querySelector('.testimonials-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.testimonials-section .edit-btn', 'click', function() {
+    const entryId = 'testimonials-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CT" alt="Testimonials" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <textarea placeholder="Quotes from satisfied clients"></textarea>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Context or reference to the project they relate to"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Upload Files</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <textarea placeholder="Quotes from satisfied clients"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Context or reference to the project they relate to"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Files</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach Files</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Testimonial</button>
             </div>
+            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Testimonial</button>
         </form>
     `;
     createModal('Edit Client Testimonials', modalContent);
-});
+}, 'Testimonials');
 
 // Publications Modal
-document.querySelector('.publications-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.publications-section .edit-btn', 'click', function() {
+    const entryId = 'publications-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=PB" alt="Publications" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" placeholder="Title">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Author">
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Title">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Author">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Description of Topic"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select placeholder="Status">
+                                    <option>Published</option>
+                                    <option>Draft</option>
+                                    <option>In Progress</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" placeholder="Date of Publication">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="Description of Topic"></textarea>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <select placeholder="Status">
-                            <option>Published</option>
-                            <option>Draft</option>
-                            <option>In Progress</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <input type="date" placeholder="Date of Publication">
-                    </div>
-                </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Publication</button>
             </div>
+            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Publication</button>
         </form>
     `;
     createModal('Edit Publications', modalContent);
-});
+}, 'Publications');
 
 // Contact & Links Modal
-document.querySelector('.contact-links-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.contact-links-section .edit-btn', 'click', function() {
+    const entryId = 'contact-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=CL" alt="Contact" class="modal-header-image">
-            <div class="form-section">
-                <h3>Corporate Data</h3>
-                <div class="form-group">
-                    <input type="text" placeholder="Corporate Name">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="date" placeholder="Date of Registration">
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <h3>Corporate Data</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Corporate Name">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="date" placeholder="Date of Registration">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Registration ID / Number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Tax Identification Number (TIN)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Postal Address">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Branch Address">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Corporate Address">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Corporate email">
+                        </div>
+                        <div class="form-group">
+                            <input type="url" placeholder="Archivehubs Profile Link">
+                        </div>
+                        <div class="form-group">
+                            <input type="url" placeholder="Corporate website or blog">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone">
+                            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="url" placeholder="GitHub, Behance, Dribbble, Medium, or other portfolio platforms link">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Registration ID / Number">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Tax Identification Number (TIN)">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Postal Address">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Branch Address">
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Corporate Address">
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Corporate email">
-                </div>
-                <div class="form-group">
-                    <input type="url" placeholder="Archivehubs Profile Link">
-                </div>
-                <div class="form-group">
-                    <input type="url" placeholder="Corporate website or blog">
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Phone">
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-                <div class="form-group">
-                    <input type="url" placeholder="GitHub, Behance, Dribbble, Medium, or other portfolio platforms link">
                 </div>
             </div>
         </form>
     `;
     createModal('Edit Contact & Links', modalContent);
-});
+}, 'Contact & Links');
 
 // Appendices Modal
-document.querySelector('.appendices-section .edit-btn').addEventListener('click', function() {
+safeAddEventListener('.appendices-section .edit-btn', 'click', function() {
+    const entryId = 'appendices-1';
     const modalContent = `
         <form class="modal-form">
-            <img src="https://via.placeholder.com/100x100/0077B5/FFFFFF?text=AP" alt="Appendices" class="modal-header-image">
-            <div class="form-section">
-                <div class="form-group">
-                    <label>Attach Whitepapers or Brochure</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+            <div class="entry-row" style="display:flex; align-items:flex-start; gap:16px;">
+                ${createImageUploadBox(entryId)}
+                <div class="entry-fields" style="flex:1;">
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label>Attach Whitepapers or Brochure</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Attach Press Mentions</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Attach Charts</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Attach Legal Documents</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Attach Credentials</label>
+                            <div class="file-upload">
+                                <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Attach Press Mentions</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Attach Charts</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Attach Legal Documents</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Attach Credentials</label>
-                    <div class="file-upload">
-                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                    </div>
-                </div>
-                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Appendix</button>
             </div>
+            <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Appendix</button>
         </form>
     `;
     createModal('Edit Appendices', modalContent);
-});
+}, 'Appendices');
 });
