@@ -313,8 +313,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="form-group">
                             <label>End Date</label>
                             <input type="date">
+                            </div>
                         </div>
-                    </div>
                     <div class="form-group">
                         <label>Description</label>
                         <textarea placeholder="Describe your involvement"></textarea>
@@ -489,68 +489,68 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // References Section Modal
-    document.querySelector('.references-section .edit-btn').addEventListener('click', function() {
-        const modalContent = `
-            <form class="modal-form">
-                <div class="form-section">
-                    <h3>References (Optional)</h3>
-                    <p class="form-note">Include contact details with permission</p>
-                    <div class="form-group">
-                        <label>Referee Name</label>
-                        <input type="text" placeholder="Enter referee name">
-                    </div>
-                    <div class="form-group">
-                        <label>Referee Designation</label>
-                        <input type="text" placeholder="Enter referee designation">
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea placeholder="Enter reference description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Referee Organization</label>
-                        <input type="text" placeholder="Enter organization">
-                    </div>
-                    <div class="form-group">
-                        <label>Reference Date</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" placeholder="Enter phone">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Upload File</label>
-                        <div class="file-upload">
-                            <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Reference</button>
+document.querySelector('.references-section .edit-btn').addEventListener('click', function() {
+    const modalContent = `
+        <form class="modal-form">
+            <div class="form-section">
+                <h3>References (Optional)</h3>
+                <p class="form-note">Include contact details with permission</p>
+                <div class="form-group">
+                    <label>Referee Name</label>
+                    <input type="text" placeholder="Enter referee name">
                 </div>
-            </form>
-        `;
-        createModal('Edit References & Links', modalContent);
-    });
+                <div class="form-group">
+                    <label>Referee Designation</label>
+                    <input type="text" placeholder="Enter referee designation">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea placeholder="Enter reference description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referee Organization</label>
+                    <input type="text" placeholder="Enter organization">
+                </div>
+                <div class="form-group">
+                    <label>Reference Date</label>
+                    <input type="date">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="Enter phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Upload File</label>
+                    <div class="file-upload">
+                        <button type="button" class="attach-btn"><i class="fas fa-thumbtack"></i> Attach File</button>
+                    </div>
+                </div>
+                <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Reference</button>
+            </div>
+        </form>
+    `;
+    createModal('Edit References & Links', modalContent);
+});
 
     // Interests Section Modal
     document.querySelector('.interests-section .edit-btn').addEventListener('click', function() {
-        const modalContent = `
-            <form class="modal-form">
-                <div class="form-section">
-                    <div class="form-group">
+    const modalContent = `
+        <form class="modal-form">
+            <div class="form-section">
+                <div class="form-group">
                         <label>Personal Interests / Hobbies</label>
                         <textarea placeholder="One-liners that humanize the profile (e.g., 'Passionate about photography and sustainable living.')"></textarea>
-                    </div>
-                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Interest</button>
                 </div>
-            </form>
-        `;
+                    <button type="button" class="add-more-btn"><i class="fas fa-plus"></i> Add Another Interest</button>
+            </div>
+        </form>
+    `;
         createModal('Edit Interests', modalContent);
     });
 });
