@@ -149,4 +149,37 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Highlight current page in sidebar and expand relevant submenu
+    const currentPath = window.location.pathname.split('/').pop();
+    // Remove all active/expanded states first
+    document.querySelectorAll('.lesson-list-item, .submenu-item').forEach(item => item.classList.remove('active'));
+    document.querySelectorAll('.has-submenu').forEach(item => {
+        item.classList.remove('expanded');
+        const submenu = item.querySelector('.submenu');
+        if (submenu) submenu.style.display = 'none';
+    });
+    // Find and activate the correct item
+    let foundActive = false;
+    // Check submenu items first
+    document.querySelectorAll('.submenu-item a').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.parentElement.classList.add('active');
+            const parentMenu = link.closest('.has-submenu');
+            if (parentMenu) {
+                parentMenu.classList.add('expanded');
+                const submenu = parentMenu.querySelector('.submenu');
+                if (submenu) submenu.style.display = 'block';
+            }
+            foundActive = true;
+        }
+    });
+    // If not in submenu, check top-level items
+    if (!foundActive) {
+        document.querySelectorAll('.lesson-list-item > a').forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.parentElement.classList.add('active');
+            }
+        });
+    }
 }); 

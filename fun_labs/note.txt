@@ -1,4 +1,0 @@
-observation:
-Quiz options should be consistent (4 all through)
-template design mindset, reduce repettitions as much as possible.
-- if there is a template for a quiz flow, one is enough, other contents will be loaded from the backend.
