@@ -35,14 +35,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Submenu functionality
-    const submenuToggle = document.querySelector('.submenu-toggle');
-    if (submenuToggle) {
-        submenuToggle.addEventListener('click', function(event) {
+    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+    submenuToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(event) {
             event.preventDefault();
             const parentItem = this.parentElement;
-            parentItem.classList.toggle('expanded');
+            const submenu = parentItem.querySelector('.submenu');
+            // Close all other submenus
+            submenuToggles.forEach(otherToggle => {
+                const otherParent = otherToggle.parentElement;
+                const otherSubmenu = otherParent.querySelector('.submenu');
+                if (otherToggle !== this) {
+                    otherParent.classList.remove('expanded');
+                    if (otherSubmenu) {
+                        otherSubmenu.style.display = 'none';
+                    }
+                }
+            });
+            // Toggle current submenu
+            const isExpanded = parentItem.classList.contains('expanded');
+            if (isExpanded) {
+                parentItem.classList.remove('expanded');
+                if (submenu) submenu.style.display = 'none';
+            } else {
+                parentItem.classList.add('expanded');
+                if (submenu) submenu.style.display = 'block';
+            }
         });
-    }
+    });
 
     // Submenu item click handlers
     const submenuItems = document.querySelectorAll('.submenu-item a');
