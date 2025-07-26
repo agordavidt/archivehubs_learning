@@ -15,10 +15,14 @@
             <!-- Profile Header Section -->
             <div class="card profile-header">
                 <div class="profile-banner">
-                    <img src="images/coverphoto.jpg" alt="Profile Banner">
-                    <div class="banner-upload-icon">
+                    <img id="bannerImage" src="images/coverphoto.jpg" alt="Profile Banner">
+                    
+                    <div class="banner-upload-icon" onclick="document.getElementById('bannerUpload').click();">
                         <i class="fas fa-camera"></i>
                     </div>
+
+                    <!-- Hidden file input -->
+                    <input type="file" id="bannerUpload" accept="image/*" style="display: none;" onchange="previewBanner(this)">
                 </div>
                 <div class="profile-info-top">
                     <img src="images/profile.jpg" alt="David James" class="profile-picture">                    
