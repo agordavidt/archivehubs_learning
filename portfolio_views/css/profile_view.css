@@ -246,10 +246,10 @@ z-index: 10;
     }
 
     .profile-details {
-padding: 0 24px 24px;
-margin-top: -10px; /* Adjust spacing after profile info top */
-position: relative;
-}
+        padding: 0 24px 24px;
+        margin-top: -10px; /* Adjust spacing after profile info top */
+        position: relative;
+        }
 
     .profile-details h1 {
         font-size: 28px;
@@ -991,46 +991,50 @@ position: relative;
     }
 
         .open-to-dropdown {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        width: 300px;
-        border-radius: 8px;
-        box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 6px 9px rgba(0,0,0,.2);
-        padding: 16px;
-        z-index: 100;
-        margin-top: 10px;
-    }
-    
-    .open-to-dropdown.show {
-        display: block;
-    }
-    
-    .dropdown-item {
-        padding: 12px 0;
-        border-bottom: 1px solid #eee;
-        cursor: pointer;
-    }
-    
-    .dropdown-item:last-child {
-        border-bottom: none;
-    }
-    
-    .dropdown-item h4 {
-        font-size: 16px;
-        margin-bottom: 4px;
-        color: #000;
-    }
-    
-    .dropdown-item p {
-        font-size: 14px;
-        color: #666;
-        margin-bottom: 0;
-    }
-    
-    .dropdown-item:hover {
-        background-color: #f9f9f9;
-    }
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            width: 600px; 
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 6px 9px rgba(0,0,0,.2);
+            padding: 16px;
+            z-index: 100;
+            margin-top: 10px;
+
+            display: flex; 
+            gap: 16px;   
+        }
+
+        .open-to-dropdown.show {
+            display: flex;
+        }
+
+        .dropdown-item {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-item h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: #000;
+        }
+
+        .dropdown-item p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f9f9f9;
+        }
+
+
     
     /* Premium Modal - added without affecting existing styles */
     .premium-modal {
