@@ -15,16 +15,20 @@
             <!-- Profile Header Section -->
             <div class="card profile-header">
                 <div class="profile-banner">
-                    <img src="images/coverphoto.jpg" alt="Profile Banner">
-                    <div class="banner-upload-icon">
+                    <img id="bannerImage" src="images/vid-2.jpg" alt="Profile Banner">
+                    
+                    <div class="banner-upload-icon" onclick="document.getElementById('bannerUpload').click();">
                         <i class="fas fa-camera"></i>
                     </div>
+
+                    <!-- Hidden file input -->
+                    <input type="file" id="bannerUpload" accept="image/*" style="display: none;" onchange="previewBanner(this)">
                 </div>
                 <div class="profile-info-top">
-                    <img src="images/profile.jpg" alt="David James" class="profile-picture">                    
+                    <img src="images/Company Logo.png" alt="G.O.O.D Music" class="profile-picture">                    
                 </div>
                 <div class="profile-details">
-                    <h1>David James</h1>
+                    <h1>G.O.O.D Music Inc</h1>
                     <p class="title">Software Engineer</p>
                     <p class="location-connections">Lagos, State · <a href="#">Contact info</a></p>
                     <p class="connections">300+ connections</p>
@@ -670,8 +674,7 @@
 
             <div class="card sidebar-card public-profile-url">
                 <h2>Public Profile & URL</h2>
-                <a href="#">www.Archivehubs.com/in/name-0000000/</a>
-                <i class="fas fa-pencil-alt icon-button"></i>
+                <a href="#">www.Archivehubs.com/in/name-0000000/</a>                
             </div>
 
             <div class="card sidebar-card target-audiences">
@@ -682,30 +685,38 @@
             </div>
 
             <div class="card sidebar-card who-viewed">
-                <h2>Who viewed your profile</h2>
+                <h2>Add to your network</h2>
                 <div class="viewer-item">
-                    <img src="https://picsum.photos/40/40?random=1" alt="Viewer" class="viewer-avatar">
+                    <img src="images/profile-2.jpg" alt="Viewer" class="viewer-avatar">
                     <div class="viewer-details">
-                        <h3>LOGY AL-SAID <span class="dot">·</span> <span class="follow-status">2nd</span></h3>
+                        <h3>Gabriel Danladi<span class="dot">·</span> <span class="follow-status">2nd</span></h3>
                         <p class="viewer-title">Software Engineer | AI, SE Akemi | Co-founding...</p>
-                        <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
+                       <button class="connect-button"> <i class="fas fa-user-plus"></i> Follow</button>
                     </div>
                 </div>
                 <div class="viewer-item">
-                    <img src="https://picsum.photos/40/40?random=2" alt="Viewer" class="viewer-avatar">
+                    <img src="images/profile-3.jpg" alt="Viewer" class="viewer-avatar">
                     <div class="viewer-details">
-                        <h3>Dineo Pearl Bakayi</h3>
+                        <h3>Sarah Essan</h3>
                         <p class="viewer-title">Executive Assistant | Expert in Elaborat...</p>
-                        <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
+                       <button class="connect-button"> <i class="fas fa-user-plus"></i> Follow</button>
                     </div>
                 </div>
-                <a href="#" class="show-all">Show all <i class="fas fa-arrow-right"></i></a>
+                <div class="viewer-item">
+                    <img src="images/profile-1.jpg" alt="Viewer" class="viewer-avatar">
+                    <div class="viewer-details">
+                        <h3>Julie Daniel</h3>
+                        <p class="viewer-title">Executive Assistant | Expert in Elaborat...</p>
+                       <button class="connect-button"> <i class="fas fa-user-plus"></i> Follow</button>
+                    </div>
+                </div>
+                <a href="#" class="show-all">See more <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="card sidebar-card people-you-may-know">
-                <h2>People you may know</h2>
+                <h2>Connections you may want</h2>
                 <div class="person-item">
-                    <img src="https://picsum.photos/40/40?random=3" alt="Person" class="person-avatar">
+                    <img src="images/profile-2.jpg" alt="Person" class="person-avatar">
                     <div class="person-details">
                         <h3>Kingsley Mokena</h3>
                         <p class="person-title">Data Science Student at ALX</p>
@@ -713,7 +724,7 @@
                     </div>
                 </div>
                 <div class="person-item">
-                    <img src="https://picsum.photos/40/40?random=4" alt="Person" class="person-avatar">
+                    <img src="images/profile-1.jpg" alt="Person" class="person-avatar">
                     <div class="person-details">
                         <h3>Melvin A.</h3>
                         <p class="person-title">Aspiring Backend | Cloud Architect | Passionate abou...</p>
@@ -721,27 +732,46 @@
                     </div>
                 </div>
                 <div class="person-item">
-                    <img src="https://picsum.photos/40/40?random=5" alt="Person" class="person-avatar">
+                    <img src="images/profile-3.jpg" alt="Person" class="person-avatar">
                     <div class="person-details">
-                        <h3>Felix Musyoki</h3>
+                        <h3>Felix Alabama</h3>
                         <p class="person-title">Bio economics | Data Scientist | AWS Certified | Cloud...</p>
                         <button class="connect-button"><i class="fas fa-plus"></i> Connect</button>
                     </div>
                 </div>
+                 <a href="#" class="show-all">See more <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="card sidebar-card hiring-ad">
-                <h3>See who's hiring on archivehubs</h3>
-                <img src="https://i.ibb.co/3k5fH44/archivehubs-ad.jpg" alt="Hiring Ad" class="ad-image">
-            </div>
+             <div class="card sidebar-card people-you-may-know">
+                <h2>Your viewers also viewed</h2>
+                <div class="person-item">
+                    <img src="images/profile-2.jpg" alt="Person" class="person-avatar">
+                    <div class="person-details">
+                        <h3>Kingsley Mokena</h3>
+                        <p class="person-title">Data Science Student at ALX</p>
+                        <button class="connect-button"> View</button>
+                    </div>
+                </div>
+                <div class="person-item">
+                    <img src="images/profile-1.jpg" alt="Person" class="person-avatar">
+                    <div class="person-details">
+                        <h3>Melvin A.</h3>
+                        <p class="person-title">Aspiring Backend | Cloud Architect | Passionate abou...</p>
+                        <button class="connect-button"> View</button>
+                    </div>
+                </div>
+                <div class="person-item">
+                    <img src="images/profile-3.jpg" alt="Person" class="person-avatar">
+                    <div class="person-details">
+                        <h3>Felix Alabama</h3>
+                        <p class="person-title">Bio economics | Data Scientist | AWS Certified | Cloud...</p>
+                        <button class="connect-button"> View</button>
+                    </div>
+                </div>
+                 <a href="#" class="show-all">See more <i class="fas fa-arrow-right"></i></a>
+            </div> 
 
-            <div class="card sidebar-card unlock-list">
-                <h2>Unlock the full list</h2>
-                <p>See who else is often viewed alongside you.</p>
-                <!-- <img src="https://i.ibb.co/q5kY3mJ/profile-pic.png" alt="Profile" class="ad-profile-pic"> -->
-                <!-- <i class="fas fa-gem premium-gem"></i> -->
-                <button class="premium-button">Try Premium for NGN0</button>
-            </div>
+            
         </div>
     </div>
 
