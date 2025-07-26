@@ -619,3 +619,13 @@ document.addEventListener('DOMContentLoaded', function() {
         createModal('Edit Interests', modalContent);
     });
 });
+
+function previewBanner(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('bannerImage').src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    };
